@@ -4,13 +4,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/inscription.html')
-})
-
-app.get('/relayer_cover.html', (req, res) => {
-    res.sendFile(__dirname + '/relayer_cover.html')
-})
+app.use(express.static(__dirname));
 
 app.post('/users', (req, res) => {
     db.collection('users').save(req.body, (err, result) => {
