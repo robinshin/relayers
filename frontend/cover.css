@@ -27,7 +27,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-image: url("./map_pin.jpg");
+  background-image: url("./imgs/map_pin.jpg");
   background-size: cover;
 }
 body {
