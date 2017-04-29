@@ -4,7 +4,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.use(express.static(__dirname));
+app.use(express.static('frontend'));
 
 app.post('/users', (req, res) => {
     db.collection('users').save(req.body, (err, result) => {
