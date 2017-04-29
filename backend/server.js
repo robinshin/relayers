@@ -2,11 +2,12 @@ const express = require('express');
 const bodyParser= require('body-parser')
 const app = express();
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', 80);
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.use(express.static('public'));
+app.use(express.static('frontend/public'));
+app.use(express.static('frontend'));
 
 app.post('/users', (req, res) => {
     db.collection('users').save(req.body, (err, result) => {
