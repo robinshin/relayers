@@ -19,7 +19,7 @@ app.post('/users', (req, res) => {
 
 const MongoClient = require('mongodb').MongoClient
 var db
-MongoClient.connect('mongodb://relayer:colislapepite@ds123331.mlab.com:23331/relayer-clients', (err, database) => {
+MongoClient.connect(MONGODB_URI, (err, database) => {
     if (err) return console.log(err)
     db = database
     app.listen(app.get('port'), () => {
