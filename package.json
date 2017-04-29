@@ -4,14 +4,14 @@
   "description": "",
   "main": "./backend/server.js",
   "scripts": {
-    "start": "node ./backend/server.js"
+    "start": "nodemon ./backend/server.js"
   },
   "dependencies": {
-    "express": "4.2.0",
-    "body-parser": "1.17.1",
-    "mongodb": "2.2.26"
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongodb": "^2.2.26",
+    "nodemon": "^1.11.0"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/robinshin/relayer.git"
@@ -20,5 +20,10 @@
   "license": "ISC",
   "engines": {
     "node": "7.9.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/robinshin/relayer/issues"
+  },
+  "homepage": "https://github.com/robinshin/relayer#readme",
+  "devDependencies": {}
 }
