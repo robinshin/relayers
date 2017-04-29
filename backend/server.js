@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser= require('body-parser')
 const app = express();
+mongo_uri = ENV['MONGODB_URI']
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -19,7 +20,7 @@ app.post('/users', (req, res) => {
 
 const MongoClient = require('mongodb').MongoClient
 var db
-MongoClient.connect(MONGODB_URI, (err, database) => {
+MongoClient.connect(mongo_uri, (err, database) => {
     if (err) return console.log(err)
     db = database
     app.listen(app.get('port'), () => {
