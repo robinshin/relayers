@@ -34,7 +34,7 @@ var qs     = require('querystring'),
 nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
-  service: 'Gmail',
+  service: 'gmail',
   auth: {
     user: 'contact.relayers@gmail.com',
     pass: 'colislapepite'
@@ -44,7 +44,7 @@ var transporter = nodemailer.createTransport({
 app.post('/contact', (req, res) => {
     var sender = req.body.sender,
         msg    = req.body.msg;
-    var mailOptions = {
+    let mailOptions = {
         from: ' <'+ sender + '>',
         to: 'contact@relayers.fr',
         subject: 'Contact ',
@@ -52,9 +52,10 @@ app.post('/contact', (req, res) => {
         html: msg
     };
 
-        transporter.sendMail(mailOptions, function(err, response) {
-            !!err ? console.error(err) : res.end();
-        });
-    res.end();
+    transporter.sendMail(mailOptions, function(err, response) {
+        if (err) return console.log(err)
+        console.log('Mail sent')
+        res.redirect('/')
+    });
 });
 
