@@ -30,11 +30,10 @@ MongoClient.connect('mongodb://relayer:colislapepite@ds123331.mlab.com:23331/rel
 
 
 // Contact form
-var qs     = require('querystring'),
 nodemailer = require('nodemailer');
 
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
+var transporter = nodemailer.createTransport('SMTP', {
+  service: 'Gmail',
   auth: {
     user: 'contact.relayers@gmail.com',
     pass: 'colislapepite'
@@ -44,18 +43,17 @@ var transporter = nodemailer.createTransport({
 app.post('/contact', (req, res) => {
     var sender = req.body.sender_mail,
         msg    = req.body.msg;
-    let mailOptions = {
+    var mailOptions = {
         from: ' <'+ sender + '>',
         to: 'contact@relayers.fr',
-        subject: 'Contact ',
-        text: msg,
-        html: msg
+        subject: 'Contact form',
+        text: msg
     };
 
     transporter.sendMail(mailOptions, function(err, response) {
         if (err) return console.log(err)
         console.log('Mail sent')
-        res.redirect('/')
+        response.render('contact', { title: 'Relayers - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
     });
 });
 
