@@ -8,6 +8,7 @@
 
 #section1{
   background-size: cover;
+  height:850px;
   color: #fff;
   text-align: center;
 }
@@ -22,7 +23,7 @@
 
 #section3{
   padding-top:50px;
-  height:700px;
+  height:600px;
   color: #fff;
   background-color: #444;
 }
@@ -33,14 +34,42 @@
   }
   #section1{
     background-image: url("../imgs/map_pin.jpg");
+    padding: 150px;
+    font-size: 50%;
   }
-
+  #section1 .btn-default{
+    font-size: 30px;
+    margin-top: 20px;
+    color: white;
+    background-color: #DB6562;
+    border: none;
+  }
 }
+
 @media screen and (max-width: 480px){
   footer{
     font-size: 75%;
   }
   #section1{
     background-image: url("../imgs/map_pin_mobile.jpg");
+    margin-top: 30px;
+    padding: 10%;
   }
+}
+
+
+
+#section .btn-default:hover {
+    background-color: #B2605B;
+    color: white;
+}
+
+.navbar-inverse{
+    background-color:#3D4957 !important;
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.active>a:focus {
+  background-color: #3D4957;
 }
