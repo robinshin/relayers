@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="relayers.css" rel="stylesheet">
+  <link href="style_index.css" rel="stylesheet">
 
 
 </head>
@@ -15,32 +15,48 @@
 
   <div class="site-wrapper">
 
-    <div class="site-wrapper-inner">
+    <div class="site-wrapper-inner section1">
 
-      <div class="cover-container section1">
-        <div class="masthead clearfix navbar-fixed-top">
-          <div class="inner">
-            <h3 class="masthead-brand"><img src="../imgs/logo_sans_fond.png" alt="logo" width="40%"></h3>
-            <nav>
-              <ul class="nav masthead-nav">
-                <li class="active"><a href="relayers.html">Accueil</a></li>
-                <li><a href="#section2">À propos</a></li>
-                <li><a href="#section3">Contact</a></li>
-              </ul>
-            </nav>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Relayers</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Accueil</a></li>
+              <li><a href="#section2">À propos</a></li>
+              <li><a href="#section3">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+            </ul>
           </div>
         </div>
+      </nav>
 
-        <div class="inner cover">
-          <h1 class="cover-heading call-to-action">Fatigués des relais colis? <br>Des avis de passage?</h1>
-          <p class="lead">Faites vous livrer chez votre voisin</p><br><br>
-          <h2 class="cover-heading">Ou bien réceptionnez des colis pour vos voisins à hauteur de <strong>2€</strong> par colis</h2>
-          <p class="lead">
-            <a href="inscription.html" class="btn btn-lg btn-default">Devenir Relayer</a>
-          </p>
+
+      <div class="container section1">
+        <div class="row" style="margin-top:100px; margin-bottom:100px;">
+          <div class="col-lg-12" style="">
+            <h1>Fatigués des relais colis? <br>Des avis de passage?</h1>
+            <p class="lead">Faites vous livrer chez votre voisin</p>
+          </div>
+          <div class="col-lg-12">
+            <h2>Ou bien réceptionnez des colis pour vos voisins à hauteur de <strong>2€</strong> par colis</h2>
+            <p class="lead">
+              <a href="inscription.html" class="btn btn-lg btn-default">Devenir Relayer</a>
+            </p>
+          </div>
         </div>
-
       </div>
+
     </div>
   </div>
 
@@ -135,7 +151,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="text-muted text-center" style="padding:20px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU / CGV</p>
+        <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU / CGV</p>
       </div>
     </footer>
   </body>
