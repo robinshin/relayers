@@ -36,10 +36,10 @@ function verifMsg(field)
     }
 }
 
-function verifForm()
+function verifForm(form)
 {
-    var mail = document.getElementById("exampleInputEmail2");
-    var msg = document.getElementById("msg");
+    var mail = form.sender_mail;
+    var msg = form.msg;
     var mailCorrect = verifMail(mail);
     var msgCorrect = verifMsg(msg);
     if (mailCorrect && msgCorrect)
