@@ -8,62 +8,52 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="style_index.css" rel="stylesheet">
+  <script src="../javascript/contact.js">
 
-
+  </script>
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
-
-  <div class="site-wrapper">
-
-    <div class="site-wrapper-inner section1">
-
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Relayers</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#section1">Accueil</a></li>
-              <li><a href="#section2">À propos</a></li>
-              <li><a href="#section3">Contact</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
 
 
-      <div class="container section1" id="section1">
-        <div class="row" style="margin-top:190px; margin-bottom:190px;">
-          <div class="col-lg-12" style="">
-            <h1>Fatigués des relais colis? <br>Des avis de passage?</h1>
-            <p class="lead">Faites vous livrer chez votre voisin</p>
-          </div>
-          <div class="col-lg-12">
-            <h2>Ou bien réceptionnez des colis pour vos voisins à hauteur de <strong>2€</strong> par colis</h2>
-            <p class="lead">
-              <a href="inscription.html" class="btn btn-lg btn-default">Devenir Relayer</a>
-            </p>
-          </div>
-        </div>
+<body data-spy="scroll" data-target=".navbar">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Relayers</a>
       </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#section1">Accueil</a></li>
+          <li><a href="#section2">À propos</a></li>
+          <li><a href="#section3">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+  <div class="container-fluid section1" id="section1">
+    <div class="col-lg-12" style="margin-top:100px">
+      <h1>Fatigués des relais colis? <br>Des avis de passage?</h1>
+      <p class="lead">Faites vous livrer chez votre voisin</p>
+    </div>
+    <div class="col-lg-12" style="margin-bottom:100px">
+      <h2>Ou bien réceptionnez des colis pour vos voisins à hauteur de <strong>2€</strong> par colis</h2>
+      <p class="lead">
+        <a href="inscription.html" class="btn btn-lg btn-default">Devenir Relayer</a>
+      </p>
     </div>
   </div>
 
-
-
-
-  <div class="section2 container" id="section2">
+  <div class="container-fluid section2" id="section2">
     <div class="row">
       <h1 style="color:#DB6562;">Comment ca marche ?</h1>
       <hr>
@@ -90,39 +80,43 @@
     </div>
 
     <div class="container-fluid section3" id="section3">
-      <link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-      <section id="contact" class="content-section text-center">
-        <div class="contact-section">
-          <div class="container">
-            <h2>Contactez nous!</h2>
-            <p>N'hésitez pas à nous contacter directement en remplissant le formulaire ci-dessus</p>
-            <div class="row">
-              <div class="col-md-8 col-md-offset-2">
-                <form class="form-horizontal" action="mailto:contact@relayers.fr" method="post">
-                  <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Adresse email">
-                  </div>
-                  <div class="form-group ">
-                    <textarea  class="form-control" placeholder="Votre message" style="resize:none;" rows="5"></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-default">Envoyer</button>
-                </form>
-
-                <hr>
-                <h3>Our Social Sites</h3>
-                <ul class="list-inline banner-social-buttons">
-                  <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter"> <span class="network-name">Twitter</span></i></a></li>
-                  <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook"> <span class="network-name">Facebook</span></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <h2>Contactez nous!</h2>
+          <p class="lead">N'hésitez pas à nous contacter directement en remplissant le formulaire ci-dessous</p>
         </div>
-      </section>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <form class="form-horizontal" action="" onsubmit="return verifForm(this)">
+            <div class="form-group">
+              <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Adresse email" onblur="verifMail(this)">
+            </div>
+            <div class="form-group ">
+              <textarea  class="form-control" id="msg" placeholder="Votre message" style="resize:none;" rows="5" onblur="verifMsg(this)"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default center-block">Envoyer</button>
+            <hr>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <h3>Suivez-nous sur les réseaux sociaux !</h3>
+          <ul class="list-inline">
+            <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter"> <span class="network-name">Twitter</span></i></a></li>
+            <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook"> <span class="network-name">Facebook</span></i></a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
 
+    <footer class="footer">
+      <div class="col-md-12">
+        <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
+      </div>
+    </footer>
 
 
     <!-- Bootstrap core JavaScript
@@ -145,11 +139,7 @@
     });
     </script>
 
-    <footer class="footer">
-      <div class="col-md-12">
-        <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
-      </div>
-    </footer>
+
   </body>
 
   </html>
