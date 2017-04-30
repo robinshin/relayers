@@ -46,7 +46,7 @@ app.post('/contact', (req, res) => {
     var mailOptions = {
         from: ' <'+ sender + '>',
         to: 'contact@relayers.fr',
-        subject: 'Contact form',
+        subject: ' Relayers - contact form from: ' + sender,
         text: msg
     };
 
