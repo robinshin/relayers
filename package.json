@@ -2,9 +2,9 @@
   "name": "relayer",
   "version": "0.0.1",
   "description": "",
-  "main": "/home/robin/relayers/backend/server.js",
+  "main": "/home/server/relayers/backend/server.js",
   "scripts": {
-    "start": "sudo node /home/robin/relayers/backend/server.js"
+    "start": "sudo node /home/server/relayers/backend/server.js"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
