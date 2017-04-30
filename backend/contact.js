@@ -32,4 +32,8 @@ app.post('/contact', (req, res) => {
         });
     };
     res.end();
+});
+
+app.listen(80, function() {
+  console.log('listening on 80')
 })
