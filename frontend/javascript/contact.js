@@ -62,15 +62,3 @@ function verifForm(form)
         return false;
     }
 }
-
-app = express();
-var bool = false;
-app.get('/', (req, res) => {
-    bool = req.query.valid;
-})
-
-var alert_msg = document.getElementById("alert_success");
-if (bool == false) {
-    alert_msg.setProperty("hidden")
-else
-    alert_msg.setProperty("visible")
