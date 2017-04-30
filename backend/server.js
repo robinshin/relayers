@@ -32,7 +32,7 @@ MongoClient.connect('mongodb://relayer:colislapepite@ds123331.mlab.com:23331/rel
 // Contact form
 nodemailer = require('nodemailer');
 
-var transporter = nodemailer.createTransport('SMTP', {
+var transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
     user: 'contact.relayers@gmail.com',
@@ -52,8 +52,7 @@ app.post('/contact', (req, res) => {
 
     transporter.sendMail(mailOptions, function(err, response) {
         if (err) return console.log(err)
-        console.log('Mail sent')
-        response.render('contact', { title: 'Relayers - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
+        response.redirect('/')
     });
 });
 
