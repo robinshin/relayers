@@ -34,8 +34,7 @@
   }
   #section1{
     background-image: url("../imgs/map_pin.jpg");
-    padding: 150px;
-    font-size: 50%;
+    padding: 100px;
   }
   #section1 .btn-default{
     font-size: 30px;
