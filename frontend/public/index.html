@@ -29,7 +29,7 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Accueil</a></li>
+              <li class="active"><a href="#section1">Accueil</a></li>
               <li><a href="#section2">À propos</a></li>
               <li><a href="#section3">Contact</a></li>
             </ul>
@@ -42,7 +42,7 @@
       </nav>
 
 
-      <div class="container section1">
+      <div class="container section1" id="section1">
         <div class="row" style="margin-top:100px; margin-bottom:100px;">
           <div class="col-lg-12" style="">
             <h1>Fatigués des relais colis? <br>Des avis de passage?</h1>
@@ -83,7 +83,9 @@
         </div>
       </div>
       <div class="row">
-        <img src="../imgs/fake_relayers.png" class="img-responsive img-thumbnail"alt="fake" width="30%">
+        <div class="col-lg-4 col-lg-offset-4">
+          <img src="../imgs/fake_relayers.png" class="img-responsive img-thumbnail"alt="fake" width="auto">
+        </div>
       </div>
     </div>
 
@@ -150,7 +152,7 @@
     </script>
 
     <footer class="footer">
-      <div class="container">
+      <div class="col-md-12">
         <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU / CGV</p>
       </div>
     </footer>
