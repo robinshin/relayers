@@ -42,7 +42,7 @@ var transporter = nodemailer.createTransport({
 });
 
 app.post('/contact', (req, res) => {
-    var sender = req.body.sender,
+    var sender = req.body.sender_mail,
         msg    = req.body.msg;
     let mailOptions = {
         from: ' <'+ sender + '>',
