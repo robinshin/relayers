@@ -55,8 +55,9 @@ app.post('/contact', (req, res) => {
     };
 
     transporter.sendMail(mailOptions, function(err, response) {
-        if (err) return console.log(err)
-        res.redirect('/#section3')
+        var iSvalid;
+        if (err) isValid = 'false';
+        else isValid = 'true';
+        res.redirect('/#section3?valid=' + isValid)
     });
 });
-
