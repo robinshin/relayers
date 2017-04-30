@@ -40,13 +40,17 @@ var transporter = nodemailer.createTransport({
   }
 });
 
+app.get('/contact', (req, res) => {
+    res.redirect('/')
+})
+
 app.post('/contact', (req, res) => {
     var sender = req.body.sender_mail,
         msg    = req.body.msg;
     var mailOptions = {
         from: ' <'+ sender + '>',
         to: 'contact@relayers.fr',
-        subject: 'Contact form',
+        subject: 'Contact form from : ' + sender,
         text: msg
     };
 
