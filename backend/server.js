@@ -60,7 +60,7 @@ app.post('/contact', (req, res) => {
         transporter.sendMail(mailOptions, function(err, response) {
             !!err ? console.error(err) : res.end();
         });
-    };
+    });
     res.end();
 });
 
