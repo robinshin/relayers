@@ -37,6 +37,10 @@
       footer {
         font-size: 80%;
       }
+      .section1{
+        background: url("../imgs/map_pin.jpg");
+        background-size: 50%;
+      }
     }
 
 
