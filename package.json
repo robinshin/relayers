@@ -9,7 +9,8 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "mongodb": "^2.2.26"
+    "mongodb": "^2.2.26",
+    "nodemailer": "^4.0.1"
   },
   "repository": {
     "type": "git",
