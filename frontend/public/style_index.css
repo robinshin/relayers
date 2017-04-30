@@ -34,8 +34,7 @@
   }
   #section1{
     background-image: url("../imgs/map_pin.jpg");
-    padding: 150px;
-    font-size: 50%;
+    padding: 100px;
   }
   #section1 .btn-default{
     font-size: 30px;
@@ -62,14 +61,4 @@
 #section .btn-default:hover {
     background-color: #B2605B;
     color: white;
-}
-
-.navbar-inverse{
-    background-color:#3D4957 !important;
-}
-
-.navbar-inverse .navbar-nav>.active>a,
-.navbar-inverse .navbar-nav>.active>a:hover,
-.navbar-inverse .navbar-nav>.active>a:focus {
-  background-color: #3D4957;
 }
