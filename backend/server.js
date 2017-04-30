@@ -6,8 +6,8 @@ app.set('port', 80);
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.use(express.static('/home/robin/relayers/frontend/public'));
-app.use(express.static('/home/robin/relayers/frontend'));
+app.use(express.static('/home/server/relayers/frontend/public'));
+app.use(express.static('/home/server/relayers/frontend'));
 
 app.post('/users', (req, res) => {
     db.collection('users').save(req.body, (err, result) => {
