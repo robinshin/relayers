@@ -8,7 +8,27 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="style_inscription.css" rel="stylesheet">
+  <link href="navbar.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <script type="text/javascript" src="../javascript/google_localisation_inscription.js">
+
+  </script>
   <title>Inscription</title>
+
+  <style>
+  /* Always set the map height explicitly to define the size of the div
+  * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 </head>
 
 
@@ -22,17 +42,49 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Relayers</a>
+        <a class="navbar-brand" href="#">Relayers</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#section1">Accueil</a></li>
           <li><a href="index.html#section2">À propos</a></li>
           <li><a href="index.html#section3">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+          <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Connexion</b> <span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                      <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail2">Adresse Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Adresse Email" required>
+                      </div>
+                      <div class="form-group">
+                        <label class="sr-only" for="exampleInputPassword2">Mot de passe</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Mot de passe" required>
+                        <div class="help-block text-right"><a href="">Mot de passe oublié ?</a></div>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-default btn-block">Se connecter</button>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Rester connecter
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="bottom text-center">
+                    Vous êtes nouveau ? <br> <a href="#"><b>Rejoignez nous !</b></a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -51,14 +103,14 @@
 
             <!-- Text input-->
             <div class="form-group">
-              <div class="col-md-4 col-md-offset-4">
+              <div class="col-md-6 col-md-offset-3">
                 <input id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control input-md" required="">
               </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-              <div class="col-md-4 col-md-offset-4">
+              <div class="col-md-6 col-md-offset-3">
                 <input id="nom" name="nom" type="text" placeholder="Nom" class="form-control input-md" required="">
               </div>
             </div>
@@ -68,35 +120,33 @@
 
             <!-- Text input-->
             <div class="form-group">
-              <div class="col-md-4 col-md-offset-4">
+              <div class="col-md-6 col-md-offset-3">
                 <input id="mail" name="mail" type="text" placeholder="Adresse email" class="form-control input-md" required="">
               </div>
             </div>
 
             <!-- Password input-->
             <div class="form-group">
-              <div class="col-md-4 col-md-offset-4">
+              <div class="col-md-6 col-md-offset-3">
                 <input id="password" name="password" type="password" placeholder="Mot de passe" class="form-control input-md" required="">
               </div>
             </div>
 
-            <div class="form-group" style="padding-left:30px;">
-              <div class="col-md-4 col-md-offset-4">
-                <label class="radio-inline" for="radios-0">
-                  <input type="radio" name="radios" id="radios-0" value="Paris" checked="checked">
-                  Paris
-                </label>
-                <label class="radio-inline" for="radios-1">
-                  <input type="radio" name="radios" id="radios-1" value="Lyon">
-                  Lyon
-                </label>
-                <label class="radio-inline" for="radios-2">
-                  <input type="radio" name="radios" id="radios-2" value="Lille">
-                  Lille
-                </label>
-
+            <!-- Password input-->
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-3">
+                <input id="password" name="password" type="password" placeholder="Confirmez le mot de passe" class="form-control input-md" required="">
               </div>
             </div>
+
+
+            <!-- Text input-->
+            <div class="form-group" id="locationField">
+              <div class="col-md-6 col-md-offset-3">
+                <input id="autocomplete" name="address" type="text" placeholder="Adresse" class="form-control input-md" required="" onFocus="geolocate()">
+              </div>
+            </div>
+
 
 
 
@@ -113,16 +163,15 @@
 
     </div>
   </div>
-</div>
-</div>
 
 
 
 
-<footer class="footer">
-  <div class="container">
-    <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
-  </div>
-</footer>
+  <footer class="footer">
+      <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
+  </footer>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete"
+  async defer></script>
 </body>
 </html>

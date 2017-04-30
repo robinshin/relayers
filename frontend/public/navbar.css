@@ -1,3 +1,5 @@
+/*Formulaire de login*/
+
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
@@ -52,4 +54,15 @@
 #login-dp .btn{
   background-color: #DB6562;
   color: white;
+}
+
+/*couleur de la navbar*/
+
+.navbar-inverse{
+    background-color:#3D4957 !important;
+}
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.active>a:focus {
+  background-color: #3D4957;
 }
