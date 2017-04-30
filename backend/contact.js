@@ -1,5 +1,5 @@
 var http = require('http'),
-qs       = require('querystring');
+qs       = require('querystring'),
 nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
