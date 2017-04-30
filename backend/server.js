@@ -42,25 +42,19 @@ var transporter = nodemailer.createTransport({
 });
 
 app.post('/contact', (req, res) => {
-    var body = '';
-    req.on('data', function(data) {
-        body += data;
-    });
-
-    req.on('end', function() {
-        var mail = qs.parse(body);
-        var mailOptions = {
-            from: mail.name+' <'+ mail.sender + '>',
-            to: 'contact@relayers.fr',
-            subject: 'Contact ',
-            text: mail.msg,
-            html: mail.msg
-        };
+    var sender = req.body.sender,
+        msg    = req.body.msg;
+    var mailOptions = {
+        from: ' <'+ sender + '>',
+        to: 'contact@relayers.fr',
+        subject: 'Contact ',
+        text: msg,
+        html: msg
+    };
 
         transporter.sendMail(mailOptions, function(err, response) {
             !!err ? console.error(err) : res.end();
         });
-    });
     res.end();
 });
 
