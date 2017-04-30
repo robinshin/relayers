@@ -36,17 +36,25 @@
    footer{
      font-size: 100%;
    }
+   .section1{
+     background-position: 0% -150px;
+   }
+
 }
  @media screen and (max-width: 480px) {
       footer {
         font-size: 75%;
       }
+      .section1{
+        background-position: -200px -300px;
+      }
 }
 
 
 .section1 {
-  background: url("../imgs/map_pin.jpg") fixed;
-  background-size: cover;
+  background-image: url("../imgs/map_pin.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
