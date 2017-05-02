@@ -1,5 +1,5 @@
  .footer {
-   position: absolute;
+   position: fixed;
    bottom: 0;
    width: 100%;
    /* Set the fixed height of the footer here */
@@ -10,5 +10,4 @@
 body{
   background-image: url("../imgs/background_inscription.png");
   background-size: cover;
-  overflow:hidden;
 }
