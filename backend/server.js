@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser= require('body-parser')
 const app = express();
 
-app.set('port', 80);
+app.set('port', 8080);
 
 app.use(bodyParser.urlencoded({extended: true}))
 
@@ -56,8 +56,7 @@ app.post('/contact', (req, res) => {
 
     transporter.sendMail(mailOptions, function(err, response) {
         var iSvalid;
-        if (err) isValid = 'false';
-        else isValid = 'true';
-        res.redirect('/#section3?valid=' + isValid)
+        if (err) return console.log(err)
+        res.redirect('/')
     });
 });
