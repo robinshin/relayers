@@ -1,7 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 app.set('port', 8081);
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.listen(app.get('port'), () => {
   console.log('Contact form app is running on port', app.get('port'));
