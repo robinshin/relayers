@@ -66,3 +66,9 @@
 .navbar-inverse .navbar-nav>.active>a:focus {
   background-color: #3D4957;
 }
+
+.navbar-brand>img {
+  height: 150%;
+  padding: 0px;
+  width: auto;
+}
