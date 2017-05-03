@@ -213,7 +213,7 @@
       </div>
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-          <form class="form-horizontal" action="/contact" method="POST" onsubmit="return verifForm(this)">
+          <form class="form-horizontal" action="#" method="POST" onsubmit="return verifForm(this)">
             <div class="form-group">
               <input type="text" class="form-control" id="sender_mail" name="sender_mail" placeholder="Adresse email" onblur="verifMail(this)">
             </div>
@@ -243,9 +243,11 @@
 
     <script>
     $(function(){
-      $(contact_btn).post('/contact', { nom: 'Pierre34', reponse: 'succes', post='test.' }, function(data) {
-        alert(data);
-      });
+      $(contact_btn).click(function(){
+        $.post('/contact', { nom: 'Pierre34', reponse: 'succes', post='test.' }, function(data) {
+          alert(data);
+        });
+      })
     });
     </script>
 
