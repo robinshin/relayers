@@ -18,11 +18,12 @@ app.post('/users', (req, res) => {
 })
 
 
-const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient, format = require('util').format;
 var db
-MongoClient.connect('mongodb://relayer:colislapepite@ds123331.mlab.com:23331/relayer-clients', (err, database) => {
+MongoClient.connect('mongodb://127.0.0.1:27017/test', (err, database) => {
     if (err) return console.log(err)
     db = database
+    console.log("successfully connected to the database");
     app.listen(app.get('port'), () => {
         console.log('Node app is running on port', app.get('port'));
     })
