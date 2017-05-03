@@ -243,41 +243,42 @@
     </footer>
 
     <script>
-      $(function() {
-        $('#contact_btn').click(function() {
-          var mail = $('#sender_mail').val();
-          var msg = $('#msg').val();
-          $.ajax({
-            url : '/contact',
-            type : 'POST', // Le type de la requête HTTP, ici devenu POST
-            data : 'email : ' + mail + '&contenu : ' + msg + '&reponse : ' + 'success', // On fait passer nos variables, exactement comme en GET, au script more_com.php
+    $(function() {
+      $('#contact_btn').click(function() {
+        $.ajax({
+          url : '/contact',
+          type : 'POST', // Le type de la requête HTTP, ici devenu POST
+          data : {
+            email : $('#sender_mail').val();,
+            contenu : $('#msg').val();,
+            reponse : 'success'}, // On fait passer nos variables, exactement comme en GET, au script more_com.php
             dataType : 'json'
           });
         });
       });
       </script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="section3bootstrap/docs/dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="section3bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+      <script src="section3bootstrap/docs/dist/js/bootstrap.min.js"></script>
+      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+      <script src="section3bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-    <script>
-    $('a[href^="#"]').click(function(){
-      var the_id = $(this).attr("href");
+      <script>
+      $('a[href^="#"]').click(function(){
+        var the_id = $(this).attr("href");
 
-      $('html, body').animate({
-        scrollTop:$(the_id).offset().top
-      }, 'slow');
-      return false;
-    });
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete"
-    async defer></script>
-  </body>
+        $('html, body').animate({
+          scrollTop:$(the_id).offset().top
+        }, 'slow');
+        return false;
+      });
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete"
+      async defer></script>
+    </body>
 
-  </html>
+    </html>
