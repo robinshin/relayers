@@ -26,20 +26,26 @@ app.get('/contact', (req, res) => {
 app.post('/contact', (req, res) => {
     var sender = req.body.sender_mail,
         msg    = req.body.msg;
-    var mailOptions = {
-        from: ' <'+ sender + '>',
-        to: 'contact@relayers.fr',
-        subject: ' Relayers - contact form from: ' + sender,
-        text: msg
-    };
+    if (sender == 'undefined')
+        res.send({ reponse: 'error' });
+    else if (msg == 'undefined')
+        res.send ({ reponse: 'error'});
+    else {
+        var mailOptions = {
+            from: ' <'+ sender + '>',
+            to: 'contact@relayers.fr',
+            subject: ' Relayers - contact form from: ' + sender,
+            text: msg
+        };
 
-    transporter.sendMail(mailOptions, function(err, response) {
-        var iSvalid;
-        if (err) {
-            res.send({ reponse: 'error' });
-        }
-        else {
-            res.send({ reponse: 'success' });
-        }
-    });
+        transporter.sendMail(mailOptions, function(err, response) {
+            var iSvalid;
+            if (err) {
+                res.send({ reponse: 'error' });
+            }
+            else {
+                res.send({ reponse: 'success' });
+            }
+        });
+    };
 });
