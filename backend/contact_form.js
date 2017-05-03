@@ -36,7 +36,7 @@ app.post('/contact', (req, res) => {
     transporter.sendMail(mailOptions, function(err, response) {
         var iSvalid;
         if (err) {
-            res.send({ reponse: 'fail' });
+            res.send({ reponse: 'error' });
         }
         else {
             res.send({ reponse: 'success' });
