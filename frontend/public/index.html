@@ -243,14 +243,19 @@
     </footer>
 
     <script>
-      $(contact_btn).click(function(){
-        var mail = $('#sender_mail').val();
-        var msg = $('#msg').val();
-        $.post('/contact', {'sender_mail' : mail, 'message' : msg, 'reponse' : 'success'}, function(data) {
-          alert(data);
+      $(function() {
+        $('#contact_btn').click(function() {
+          var mail = $('#sender_mail').val();
+          var msg = $('#msg').val();
+          $.ajax({
+            url : '/contact',
+            type : 'POST', // Le type de la requête HTTP, ici devenu POST
+            data : 'email=' + mail + '&contenu=' + msg, // On fait passer nos variables, exactement comme en GET, au script more_com.php
+            dataType : 'html'
+          });
         });
       });
-    </script>
+      </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -271,17 +276,6 @@
       return false;
     });
     </script>
-    <script>
-    $(function(){
-      var reponse;
-      if(reponse == 'success'){
-        alert("votre message a bien été envoyé");
-      }else if (reponse == 'fail') {
-        alert("Il y a eu une erreur lors de l'envoi de votre message");
-      }
-    });
-    </script>
-
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete"
     async defer></script>
   </body>
