@@ -113,64 +113,64 @@
 
         <div class="dropup">
           <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Devenir Relayer <span class="glyphicon glyphicon-edit"></span></button>
-            <form action="/users" method="POST" class="form-horizontal dropdown-menu">
-              <fieldset>
+          <form action="/users" method="POST" class="form-horizontal dropdown-menu">
+            <fieldset>
 
-                <!-- Form Name -->
-                <legend class="text-center">Inscription</legend>
+              <!-- Form Name -->
+              <legend class="text-center">Inscription</legend>
 
-                <!-- Text input-->
-                <div class="form-group">
-                  <div class="col-md-10 col-md-offset-1">
-                    <input id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control input-md" required="">
-                  </div>
+              <!-- Text input-->
+              <div class="form-group">
+                <div class="col-md-10 col-md-offset-1">
+                  <input id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control input-md" required="">
                 </div>
+              </div>
 
-                <!-- Text input-->
-                <div class="form-group">
-                  <div class="col-md-10 col-md-offset-1">
-                    <input id="nom" name="nom" type="text" placeholder="Nom" class="form-control input-md" required="">
-                  </div>
+              <!-- Text input-->
+              <div class="form-group">
+                <div class="col-md-10 col-md-offset-1">
+                  <input id="nom" name="nom" type="text" placeholder="Nom" class="form-control input-md" required="">
                 </div>
+              </div>
 
-                <!-- Text input-->
-                <div class="form-group">
-                  <div class="col-md-10 col-md-offset-1">
-                    <input id="mail" name="mail" type="text" placeholder="Adresse email" class="form-control input-md" required="">
-                  </div>
+              <!-- Text input-->
+              <div class="form-group">
+                <div class="col-md-10 col-md-offset-1">
+                  <input id="mail" name="mail" type="text" placeholder="Adresse email" class="form-control input-md" required="">
                 </div>
+              </div>
 
-                <!-- Password input-->
-                <div class="form-group">
-                  <div class="col-md-10 col-md-offset-1">
-                    <input id="password" name="password" type="password" placeholder="Mot de passe" class="form-control input-md" required="">
-                  </div>
+              <!-- Password input-->
+              <div class="form-group">
+                <div class="col-md-10 col-md-offset-1">
+                  <input id="password" name="password" type="password" placeholder="Mot de passe" class="form-control input-md" required="">
                 </div>
+              </div>
 
-                <!-- Password input-->
-                <div class="form-group">
-                  <div class="col-md-10 col-md-offset-1">
-                    <input id="password" name="password" type="password" placeholder="Confirmez le mdp" class="form-control input-md" required="">
-                  </div>
+              <!-- Password input-->
+              <div class="form-group">
+                <div class="col-md-10 col-md-offset-1">
+                  <input id="password" name="password" type="password" placeholder="Confirmez le mdp" class="form-control input-md" required="">
                 </div>
+              </div>
 
-                <!-- Text input-->
-                <div class="form-group" id="locationField">
-                  <div class="col-md-10 col-md-offset-1">
-                    <input id="autocomplete" name="address" type="text" placeholder="Adresse" class="form-control input-md" required="" onFocus="geolocate()">
-                  </div>
+              <!-- Text input-->
+              <div class="form-group" id="locationField">
+                <div class="col-md-10 col-md-offset-1">
+                  <input id="autocomplete" name="address" type="text" placeholder="Adresse" class="form-control input-md" required="" onFocus="geolocate()">
                 </div>
+              </div>
 
-                <!-- Button -->
-                <div class="form-group">
-                  <div class="col-md-10 col-md-offset-1">
-                    <button href="index.html" type="submit"  data-toggle="modal" class="btn btn-primary btn-success center-block"
-                    data-target="#myModal-success">S'inscrire <span class="glyphicon glyphicon-ok"></span></button>
-                  </div>
+              <!-- Button -->
+              <div class="form-group">
+                <div class="col-md-10 col-md-offset-1">
+                  <button href="index.html" type="submit"  data-toggle="modal" class="btn btn-primary btn-success center-block"
+                  data-target="#myModal-success">S'inscrire <span class="glyphicon glyphicon-ok"></span></button>
                 </div>
+              </div>
 
-              </fieldset>
-            </form>
+            </fieldset>
+          </form>
         </ul>
       </div>
     </div>
@@ -241,6 +241,13 @@
       <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
     </footer>
 
+    <script>
+    $(function(){
+      $.post('/contact', { nom: 'Pierre34', reponse: 'succes', post='test.' }, function(data) {
+        alert(data);
+      });
+    });
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -262,8 +269,8 @@
     });
     </script>
     <script>
-    var reponse;
     $(function(){
+      var reponse;
       if(reponse == 'success'){
         alert("votre message a bien été envoyé");
       }else if (reponse == 'fail') {
