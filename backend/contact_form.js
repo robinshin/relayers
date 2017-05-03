@@ -19,16 +19,12 @@ var transporter = nodemailer.createTransport({
   }
 });
 
-app.get('/contact', (req, res) => {
-    res.redirect('/')
-})
-
 app.post('/contact', (req, res) => {
     var sender = req.body.sender_mail,
         msg    = req.body.msg;
-    if (sender == 'undefined')
+    if (sender == null)
         res.send({ reponse: 'error' });
-    else if (msg == 'undefined')
+    else if (msg == null)
         res.send ({ reponse: 'error'});
     else {
         var mailOptions = {
