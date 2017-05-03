@@ -22,9 +22,9 @@ var transporter = nodemailer.createTransport({
 app.post('/contact', (req, res) => {
     var sender = req.body.sender_mail,
         msg    = req.body.msg;
-    if (sender == null)
+    if (typeof sender == 'undefined')
         res.send({ reponse: 'error' });
-    else if (msg == null)
+    else if (typeof msg == 'undefined')
         res.send ({ reponse: 'error'});
     else {
         var mailOptions = {
