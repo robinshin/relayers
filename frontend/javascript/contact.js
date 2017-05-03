@@ -72,7 +72,7 @@ $(function() {
             type : 'POST',
             dataType : 'json',
             data : {
-            sender : $('#sender_mail').val(),
+            sender_mail : $('#sender_mail').val(),
             msg : $('#msg').val(),
             reponse : "null"}, // On fait passer nos variables, exactement comme en GET, au script more_com.php  
             cache : false,
