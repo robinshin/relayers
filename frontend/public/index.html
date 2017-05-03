@@ -7,7 +7,6 @@
   <link rel="icon" type="image/png" href="../imgs/logo.png" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="style_index.css" rel="stylesheet">
   <link href="navbar.css" rel="stylesheet">
   <script src="../javascript/contact.js"></script>
@@ -114,8 +113,7 @@
 
         <div class="dropup">
           <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Devenir Relayer <span class="glyphicon glyphicon-edit"></span></button>
-          <ul class="dropdown-menu">
-            <li><form action="/users" method="POST" class="form-horizontal">
+            <form action="/users" method="POST" class="form-horizontal dropdown-menu">
               <fieldset>
 
                 <!-- Form Name -->
@@ -172,9 +170,7 @@
                 </div>
 
               </fieldset>
-            </form></li>
-
-          </li>
+            </form>
         </ul>
       </div>
     </div>
@@ -263,6 +259,16 @@
         scrollTop:$(the_id).offset().top
       }, 'slow');
       return false;
+    });
+    </script>
+    <script>
+    var reponse;
+    $(function(){
+      if(reponse == 'success'){
+        alert("votre message a bien été envoyé");
+      }else if (reponse == 'fail') {
+        alert("Il y a eu une erreur lors de l'envoi de votre message");
+      }
     });
     </script>
 
