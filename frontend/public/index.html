@@ -249,9 +249,9 @@
           url : '/contact',
           type : 'POST', // Le type de la requête HTTP, ici devenu POST
           data : {
-            email : $('#sender_mail').val();,
-            contenu : $('#msg').val();,
-            reponse : 'success'}, // On fait passer nos variables, exactement comme en GET, au script more_com.php
+            'email' : $('#sender_mail').val();,
+            'contenu' : $('#msg').val();,
+            'reponse' : 'success'}, // On fait passer nos variables, exactement comme en GET, au script more_com.php
             dataType : 'json'
           });
         });
