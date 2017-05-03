@@ -220,7 +220,7 @@
             <div class="form-group ">
               <textarea  class="form-control" id="msg" name="msg" placeholder="Votre message" style="resize:none;" rows="5" onblur="verifMsg(this)"></textarea>
             </div>
-            <button type="submit" class="btn btn-default center-block">Envoyer</button>
+            <button type="submit" class="btn btn-default center-block" id="contact_btn">Envoyer</button>
             <hr>
           </form>
         </div>
@@ -243,7 +243,7 @@
 
     <script>
     $(function(){
-      $.post('/contact', { nom: 'Pierre34', reponse: 'succes', post='test.' }, function(data) {
+      $(contact_btn).post('/contact', { nom: 'Pierre34', reponse: 'succes', post='test.' }, function(data) {
         alert(data);
       });
     });
