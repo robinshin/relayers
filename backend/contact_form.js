@@ -21,8 +21,10 @@ var transporter = nodemailer.createTransport({
 
 app.post('/contact', (req, res) => {
     var sender = req.body.sender_mail,
-        msg    = req.body.msg;
-    if ((typeof sender === 'undefined') || (sender === ''))
+        msg    = req.body.msg,
+        regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/; // Checks if mail is valid
+    
+    if ((typeof sender === 'undefined') || (sender === '') || (!regex.test(sender)))
         res.send({ reponse: 'error_sender' });
     else if ((typeof msg === 'undefined') || (msg === ''))
         res.send({ reponse: 'error_msg' });
