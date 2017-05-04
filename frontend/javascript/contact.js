@@ -83,16 +83,34 @@ $(function() {
 
             success: function(data) {
                 if (data.reponse == 'success') {
+                    document.getElementById("sender-error-alert").style.display = 'none';
+                    document.getElementById("msg-error-alert").style.display = 'none';
                     document.getElementById("error-alert").style.display = 'none';
                     document.getElementById("success-alert").style.display = 'block';
                     document.getElementById("contact-form").reset();
                 }
-                else if ((data.reponse == 'error_sender') || (data.reponse == 'error_msg') || (data.reponse == 'error')) {
+                else if (data.reponse == 'error_sender') {
                     document.getElementById("success-alert").style.display = 'none';
+                    document.getElementById("sender-error-alert").style.display = 'block';
+                    document.getElementById("msg-error-alert").style.display = 'none';
+                    document.getElementById("error-alert").style.display = 'none';
+                }
+                else if (data.reponse == 'error_msg') {
+                    document.getElementById("success-alert").style.display = 'none';
+                    document.getElementById("sender-error-alert").style.display = 'none';
+                    document.getElementById("msg-error-alert").style.display = 'block';
+                    document.getElementById("error-alert").style.display = 'none';
+                }
+                else if (data.reponse == 'error') {
+                    document.getElementById("success-alert").style.display = 'none';
+                    document.getElementById("sender-error-alert").style.display = 'none';
+                    document.getElementById("msg-error-alert").style.display = 'none';
                     document.getElementById("error-alert").style.display = 'block';
                 }
                 else {
                     document.getElementById("success-alert").style.display = 'none';
+                    document.getElementById("sender-error-alert").style.display = 'none';
+                    document.getElementById("msg-error-alert").style.display = 'none';
                     document.getElementById("error-alert").style.display = 'none';
                 }
             },
