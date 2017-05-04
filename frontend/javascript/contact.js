@@ -36,8 +36,6 @@ function verifMsg(field)
     }
 }
 
-<<<<<<< HEAD
-=======
 function verifForm(form)
 {
     var mail = form.sender_mail;
