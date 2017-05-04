@@ -25,7 +25,7 @@ app.post('/contact', (req, res) => {
     if ((typeof sender === 'undefined') || (sender === ''))
         res.send({ reponse: 'error_sender' });
     else if ((typeof msg === 'undefined') || (msg === ''))
-        res.send ({ reponse: 'error_msg'});
+        res.send({ reponse: 'error_msg' });
     else {
         var mailOptions = {
             from: ' <'+ sender + '>',
