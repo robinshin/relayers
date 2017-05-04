@@ -36,6 +36,36 @@ function verifMsg(field)
     }
 }
 
+<<<<<<< HEAD
+=======
+function verifForm(form)
+{
+    var mail = form.sender_mail;
+    var msg = form.msg;
+    var mailCorrect = verifMail(mail);
+    var msgCorrect = verifMsg(msg);
+    if (mailCorrect && msgCorrect)
+        return true;
+    else if (!mailCorrect)
+    {
+        highlight(mail, true);
+        alert("Veuillez rentrer une adresse e-mail correcte");
+        return false;
+    }
+    else if (!msgCorrect)
+    {
+        highlight(msg, true);
+        alert("Veuillez écrire un message");
+        return false;
+    }
+    else
+    {
+        alert("Veuillez remplir correctement tous les champs");
+        return false;
+    }
+}
+
+
 // JQuery
 $(function() {
     $('#contact_btn').click(function() {
