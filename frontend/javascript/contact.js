@@ -87,7 +87,7 @@ $(function() {
                     document.getElementById("success-alert").style.display = 'block';
                     document.getElementById("contact-form").reset();
                 }
-                else if (data.reponse == 'error') {
+                else if (data.reponse == ('error_sender' || 'error_msg' || 'error')) {
                     document.getElementById("success-alert").style.display = 'none';
                     document.getElementById("error-alert").style.display = 'block';
                 }
