@@ -12,8 +12,8 @@ app.use(express.static('/home/server/relayers/frontend'));
 
 //// Authentification
 // Database
-const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
+var morgan = require('morgan');
+var mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGODB_URI + '/auth?authSource=admin');
 var db = mongoose.connection;
@@ -22,23 +22,22 @@ db.once('open', function() {
     console.log('Successfully connected to database');
 });
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 // Passport
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var api = require('./routes/api');
 
-app.use(require('express-session')({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false
-}));
 app.use(passport.initialize());
-app.use(passport.session());
+
+app.use('/api', api);
 
 // Passport configuration
-var User = require('./models/User.js');
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+var config = require('./config/database');
 
 
 //// Port
