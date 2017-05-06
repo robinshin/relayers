@@ -110,7 +110,7 @@
 
         <div class="dropup">
           <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Devenir Relayer <span class="glyphicon glyphicon-edit"></span></button>
-          <form action="/register" method="POST" class="form-horizontal dropdown-menu">
+          <form action="" class="form-horizontal dropdown-menu">
             <fieldset>
 
               <!-- Form Name -->
@@ -133,7 +133,7 @@
               <!-- Text input-->
               <div class="form-group">
                 <div class="col-md-10 col-md-offset-1">
-                  <input id="mail" name="username" type="text" placeholder="Adresse email" class="form-control input-md" required="">
+                  <input id="username" name="username" type="text" placeholder="Adresse email" class="form-control input-md" required="">
                 </div>
               </div>
 
@@ -154,15 +154,14 @@
               <!-- Text input-->
               <div class="form-group" id="locationField">
                 <div class="col-md-10 col-md-offset-1">
-                  <input id="autocomplete" name="address" type="text" placeholder="Adresse" class="form-control input-md" required="" onFocus="geolocate()">
+                  <input id="autocomplete" name="address" type="text" placeholder="Adresse" class="form-control input-md" required="">
                 </div>
               </div>
 
               <!-- Button -->
               <div class="form-group">
                 <div class="col-md-10 col-md-offset-1">
-                  <button href="index.html" type="submit"  data-toggle="modal" class="btn btn-primary btn-success center-block"
-                  data-target="#myModal-success">S'inscrire <span class="glyphicon glyphicon-ok"></span></button>
+                  <button type="button" id="register_btn" data-toggle="modal" class="btn btn-primary btn-success center-block" data-target="#myModal-success">S'inscrire <span class="glyphicon glyphicon-ok"></span></button>
                 </div>
               </div>
 
