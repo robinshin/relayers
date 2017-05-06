@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser= require('body-parser')
 const app = express();
+const mongoose = require('mongoose');
 
 app.set('port', 8080);
 
@@ -19,12 +20,13 @@ app.post('/users', (req, res) => {
 
 
 const MongoClient = require('mongodb').MongoClient, format = require('util').format;
-var db
-MongoClient.connect('mongodb://127.0.0.1:27017/test', (err, database) => {
-    if (err) return console.log(err)
-    db = database
-    console.log("successfully connected to the database");
-    app.listen(app.get('port'), () => {
-        console.log('Node app is running on port', app.get('port'));
-    })
+var db = mongoose.connect('mongodb://127.0.0.1:27017/test');
+
+mongoose.connection.once('connected', function() {
+    console.log("Database connected successfully")
+});
+
+app.listen(app.get('port'), () => {
+    console.log('Node app is running on port', app.get('port'));
 })
+
