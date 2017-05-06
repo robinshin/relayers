@@ -19,7 +19,6 @@ app.post('/users', (req, res) => {
 })
 
 
-const MongoClient = require('mongodb').MongoClient, format = require('util').format;
 mongoose.connect(process.env.MONGODB_URI + '/users?authSource=admin');
 
 var db = mongoose.connection;
