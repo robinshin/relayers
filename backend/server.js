@@ -20,7 +20,7 @@ app.post('/users', (req, res) => {
 
 
 const MongoClient = require('mongodb').MongoClient, format = require('util').format;
-mongoose.connect(MONGODB_URI + '/users?authSource=admin');
+mongoose.connect(process.env.MONGODB_URI + '/users?authSource=admin');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
