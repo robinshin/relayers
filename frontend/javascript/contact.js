@@ -6,8 +6,9 @@ function highlight(field, error)
     else
         field.style.backgroundColor = "";
 }
+
 // Verifies that the input mail is correct
-function verifMail(field)
+function checkMail(field)
 {
     var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
     if(!regex.test(field.value))
@@ -23,7 +24,7 @@ function verifMail(field)
 }
 
 // Verifies that the message is correct (length not equals to zero)
-function verifMsg(field)
+function checkMsg(field)
 {
     if (field.value.length > 0)
     {
@@ -36,12 +37,12 @@ function verifMsg(field)
     }
 }
 
-function verifForm(form)
+function checkForm(form)
 {
     var mail = form.sender_mail;
     var msg = form.msg;
-    var mailCorrect = verifMail(mail);
-    var msgCorrect = verifMsg(msg);
+    var mailCorrect = checkMail(mail);
+    var msgCorrect = checkMsg(msg);
     if (mailCorrect && msgCorrect)
         return true;
     else if (!mailCorrect)
@@ -67,6 +68,9 @@ function verifForm(form)
 // JQuery
 $(function() {
     $('#contact_btn').click(function() {
+        if (!checkForm(document.getElementById("contact-form")) {
+            return checkForm(document.getElementById("contact-form"));
+        }
         $.ajax({
             url : '/contact',
             type : 'POST',
