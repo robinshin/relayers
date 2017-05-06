@@ -47,11 +47,13 @@ function checkForm(form)
         return true;
     else if (!mailCorrect)
     {
+        display_alert('sender-error-alert');
         highlight(mail, true);
         return false;
     }
     else if (!msgCorrect)
     {
+        display_alert('msg-error-alert');
         highlight(msg, true);
         return false;
     }
