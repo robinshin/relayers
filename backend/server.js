@@ -34,7 +34,7 @@ var api = require('./routes/api');
 
 app.use(passport.initialize());
 
-app.use('/api', api);
+app.use('/api', require('./routes/api.js'));
 
 // Passport configuration
 var config = require('./config/database');
