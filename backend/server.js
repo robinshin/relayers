@@ -35,7 +35,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Passport configuration
-var User = require('./models/user');
+var User = require('./models/User.js');
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -46,3 +46,4 @@ app.listen(app.get('port'), () => {
     console.log('Node app is running on port', app.get('port'));
 })
 
+module.exports = app;
