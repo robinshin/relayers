@@ -48,18 +48,15 @@ function checkForm(form)
     else if (!mailCorrect)
     {
         highlight(mail, true);
-        alert("Veuillez rentrer une adresse e-mail correcte");
         return false;
     }
     else if (!msgCorrect)
     {
         highlight(msg, true);
-        alert("Veuillez écrire un message");
         return false;
     }
     else
     {
-        alert("Veuillez remplir correctement tous les champs");
         return false;
     }
 }
@@ -68,9 +65,8 @@ function checkForm(form)
 // JQuery
 $(function() {
     $('#contact_btn').click(function() {
-        if (!checkForm(document.getElementById("contact-form")) {
-            return checkForm(document.getElementById("contact-form"));
-        }
+        if (!checkForm(document.getElementById("contact-form")))
+            return;
         $.ajax({
             url : '/contact',
             type : 'POST',
@@ -87,35 +83,20 @@ $(function() {
 
             success: function(data) {
                 if (data.reponse == 'success') {
-                    document.getElementById("sender-error-alert").style.display = 'none';
-                    document.getElementById("msg-error-alert").style.display = 'none';
-                    document.getElementById("error-alert").style.display = 'none';
-                    document.getElementById("success-alert").style.display = 'block';
+                    display_alert('success-alert');
                     document.getElementById("contact-form").reset();
                 }
                 else if (data.reponse == 'error_sender') {
-                    document.getElementById("success-alert").style.display = 'none';
-                    document.getElementById("sender-error-alert").style.display = 'block';
-                    document.getElementById("msg-error-alert").style.display = 'none';
-                    document.getElementById("error-alert").style.display = 'none';
+                    display_alert('sender-error-alert');
                 }
                 else if (data.reponse == 'error_msg') {
-                    document.getElementById("success-alert").style.display = 'none';
-                    document.getElementById("sender-error-alert").style.display = 'none';
-                    document.getElementById("msg-error-alert").style.display = 'block';
-                    document.getElementById("error-alert").style.display = 'none';
+                    display_alert('msg-error-alert');
                 }
                 else if (data.reponse == 'error') {
-                    document.getElementById("success-alert").style.display = 'none';
-                    document.getElementById("sender-error-alert").style.display = 'none';
-                    document.getElementById("msg-error-alert").style.display = 'none';
-                    document.getElementById("error-alert").style.display = 'block';
+                    display_alert('error-alert');
                 }
                 else {
-                    document.getElementById("success-alert").style.display = 'none';
-                    document.getElementById("sender-error-alert").style.display = 'none';
-                    document.getElementById("msg-error-alert").style.display = 'none';
-                    document.getElementById("error-alert").style.display = 'none';
+                    display_alert(undefined);
                 }
             },
             error: function() {
@@ -125,6 +106,15 @@ $(function() {
         });
     });
 });
+
+function display_alert(alertId) {
+    document.getElementById("success-alert").style.display = 'none';
+    document.getElementById("sender-error-alert").style.display = 'none';
+    document.getElementById("msg-error-alert").style.display = 'none';
+    document.getElementById("error-alert").style.display = 'none';
+    if (alertId !== undefined)
+        document.getElementById(alertId).style.display = 'block';
+}
 
 // Hides alert msg
 $(function(){
