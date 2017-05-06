@@ -20,11 +20,16 @@ app.post('/users', (req, res) => {
 
 
 const MongoClient = require('mongodb').MongoClient, format = require('util').format;
-var db = mongoose.connect('mongodb://127.0.0.1:27017/test');
+mongoose.connect(MONGODB_URI + '/users?authSource=admin');
 
-mongoose.connection.once('connected', function() {
-    console.log("Database connected successfully")
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.once('open', function() {
+  // we're connected!
+  console.log('Connected to the database');
 });
+
 
 app.listen(app.get('port'), () => {
     console.log('Node app is running on port', app.get('port'));
