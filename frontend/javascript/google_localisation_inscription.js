@@ -20,7 +20,7 @@
         // location types.
         autocomplete = new google.maps.places.Autocomplete(
             /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']});
+            {types: ['geocode'], componentRestrictions: {country: 'fr'}});
 
         // When the user selects an address from the dropdown, populate the address
         // fields in the form.

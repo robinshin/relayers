@@ -23,6 +23,10 @@
     margin: 0;
     padding: 0;
   }
+  /* z-index allows autocomplete to be above the dropdown-menu */
+  .pac-container {
+      z-index: 2000;
+  }
   </style>
   <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 </head>
@@ -47,9 +51,65 @@
           <li><a href="#section3">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Connexion</b> <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"><b> Inscription</b> <span class="caret"></span></a>
+            <ul id="register-dp" class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <form class="form" action="" accept-charset="UTF-8" id="register-form">
+                      
+                      <!-- Form name -->
+                      <legend class="text-center">Inscription</legend>
+                      
+                      <!-- First name -->
+                      <div class="form-group">
+                        <label class="sr-only" for="firstName">Prénom</label>
+                        <input class="form-control input-md" id="firstName" name="firstName"type="text" placeholder="Prénom" required="">
+                      </div>
+                      
+                      <!-- Second name -->
+                      <div class="form-group">
+                        <label class="sr-only" for="secondName">Nom</label>
+                        <input class="form-control input-md" id="secondName" name="secondName"type="text" placeholder="Nom" required="">
+                      </div>
+                      
+                      <!-- Address -->
+                      <div class="form-group" id="locationField">
+                        <label class="sr-only" for="address">Adresse</label>
+                        <input class="form-control input-md" id="autocomplete" name="address"type="text" placeholder="Adresse" required="">
+                      </div>
+                      
+                      <!-- Email -->
+                      <div class="form-group">
+                        <label class="sr-only" for="email">Adresse Email</label>
+                        <input class="form-control input-md" id="mail" name="username"type="text" placeholder="Adresse Email" required="">
+                      </div>
+                      
+                      <!-- Password -->
+                      <div class="form-group">
+                        <label class="sr-only" for="password">Mot de passe</label>
+                        <input class="form-control input-md" id="password" name="password"type="text" placeholder="Mot de passe" required="">
+                      </div>
+                      
+                      <!-- Email -->
+                      <div class="form-group">
+                        <label class="sr-only" for="email">Confirmez le mot de passe</label>
+                        <input class="form-control input-md" id="password-confirm" name="password-confirm" type="text" placeholder="Confirmez le mot de passe" required="">
+                      </div>
+
+                      <!-- Button -->
+                      <div class="form-group">
+                        <button type="button" id="register_btn" class="btn btn-default btn-block">S'inscrire</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle glyphicon glyphicon-log-in" data-toggle="dropdown"><b> Connexion</b> <span class="caret"></span></a>
             <ul id="login-dp" class="dropdown-menu">
               <li>
                 <div class="row">
