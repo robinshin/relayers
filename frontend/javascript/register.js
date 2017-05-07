@@ -96,6 +96,8 @@ function checkRegisterForm(form)
 // JQuery
 $(function() {
     $('#register_btn').click(function() {
+        if (!checkForm(document.getElementById("register-form")))
+            return;
         $.ajax({
             url : '/register',
             type : 'POST',

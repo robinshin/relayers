@@ -96,13 +96,13 @@
                       <!-- First name -->
                       <div class="form-group">
                         <label class="sr-only" for="firstName">Prénom</label>
-                        <input class="form-control input-md" id="firstName" name="firstName"type="text" placeholder="Prénom" required="">
+                        <input class="form-control input-md" id="firstName" name="firstName"type="text" placeholder="Prénom" required="" onblur="checkLength(this)">
                       </div>
                       
                       <!-- Second name -->
                       <div class="form-group">
                         <label class="sr-only" for="secondName">Nom</label>
-                        <input class="form-control input-md" id="secondName" name="secondName"type="text" placeholder="Nom" required="">
+                        <input class="form-control input-md" id="secondName" name="secondName"type="text" placeholder="Nom" required="" onblur="checkLength(this)">
                       </div>
                       
                       <!-- Address -->
@@ -114,7 +114,7 @@
                       <!-- Email -->
                       <div class="form-group">
                         <label class="sr-only" for="email">Adresse Email</label>
-                        <input class="form-control input-md" id="mail" name="username"type="text" placeholder="Adresse Email" required="">
+                        <input class="form-control input-md" id="mail" name="username"type="text" placeholder="Adresse Email" required="" onblur="checkMail(this)">
                       </div>
                       
                       <!-- Password -->
@@ -123,10 +123,10 @@
                         <input class="form-control input-md" id="password" name="password"type="text" placeholder="Mot de passe" required="">
                       </div>
                       
-                      <!-- Email -->
+                      <!-- Password confirm -->
                       <div class="form-group">
-                        <label class="sr-only" for="email">Confirmez le mot de passe</label>
-                        <input class="form-control input-md" id="password-confirm" name="password-confirm" type="text" placeholder="Confirmez le mot de passe" required="">
+                        <label class="sr-only" for="password-confirm">Confirmez le mot de passe</label>
+                        <input class="form-control input-md" id="password-confirm" name="password-confirm" type="text" placeholder="Confirmez le mot de passe" required="" onblur="checkEquals(this, document.getElementById("password"))">
                       </div>
 
                       <!-- Button -->
