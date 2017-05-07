@@ -57,7 +57,7 @@ function checkRegisterForm(form)
 {
     var firstName = form.firstName,
         secondName = form.secondName,
-        mail = form.sender_mail,
+        mail = form.username,
         password = form.password,
         password_confirm = form.password_confirm;
     
@@ -97,7 +97,7 @@ function checkRegisterForm(form)
 // JQuery
 $(function() {
     $('#register_btn').click(function() {
-        if (!checkForm(document.getElementById("register-form")))
+        if (!checkRegisterForm(document.getElementById("register-form")))
             return;
         $.ajax({
             url : '/register',
