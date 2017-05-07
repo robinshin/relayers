@@ -38,12 +38,13 @@ function checkLength(field)
 }
 
 // Checks that two fields are equals
-function checkEquals(field1, field2)
+function checkEquals(field)
 {
-    if (field1 === field2)
+    var field_pwd = getElementById("password");
+    if (field.value === field_pwd)
     {
-        highlight(field1, false);
-        highlight(field2, false);
+        highlight(field, false);
+        highlight(field_pwd, false);
         return true;
     }
     else
