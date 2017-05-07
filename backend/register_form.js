@@ -122,7 +122,7 @@ app.post('/register', function(req, res) {
             else {
                 if (newTempUser) {
                     var URL = newTempUser[nev.options.URLFieldName];
-                    nev.sendVerificationEmail(email, URL, function(err, info) {
+                    nev.sendVerificationEmail(username, URL, function(err, info) {
                         if (err) {
                             res.end({ reponse: 'error', msg: 'unknown' });
                         }
