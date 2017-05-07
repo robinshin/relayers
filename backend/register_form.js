@@ -35,7 +35,6 @@ nev.configure({
     tempUserCollection: 'tempUser',
     emailFieldName: 'username',
     expirationTime: 172800,
-    shouldSendConfirmation: false,
 
     transportOptions: {
         service: 'Gmail',
