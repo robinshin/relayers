@@ -100,6 +100,9 @@ $(function() {
                     else if (data.msg == 'already registered') {
                         display_register_alert('register-already-registered-error-alert');
                     }
+                    else if (data.msg == 'verif mail already sent') {
+                        display_register_alert('register-verif-already-sent-error-alert');
+                    }
                     else {
                         display_register_alert(undefined);
                     }
@@ -120,7 +123,8 @@ function display_register_alert(alertId) {
     document.getElementById("register-password-error-alert").style.display = 'none';
     document.getElementById("register-already-registered-error-alert").style.display = 'none';
     document.getElementById("register-empty-fields-error-alert").style.display = 'none';
-    
+    document.getElementById("register-verif-already-sent-error-alert").style.display = 'none';
+
     if (alertId !== undefined)
         document.getElementById(alertId).style.display = 'block';
 }
