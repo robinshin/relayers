@@ -72,23 +72,43 @@ $(function() {
             type : 'POST',
             dataType : 'json',
             data : {
-               username : $('#username').val(),
-               password : $('#password').val(),
-               password_confirm : $('#password_confirm').val(),
-               firstName : $('#firstName').val(),
-               secondName : $('#secondName').val(),
-               address : $('#address').val()
+                username : $('#username').val(),
+                password : $('#password').val(),
+                password_confirm : $('#password_confirm').val(),
+                firstName : $('#firstName').val(),
+                secondName : $('#secondName').val(),
+                address : $('#address').val()
             },
             cache : false,
             timeout : 5000,
-            complete : function() {
-                console.log("Done");
-            },
 
             success: function(data) {
-                console.log(data);
+                if (data.reponse == 'success') {
+                    display_register_alert('register-success-alert');
+                    document.getElementById("register-form").reset();
+                }
+                else {
+                    if (data.msg == 'empty fields') {
+                        display_register_alert('register-empty-fields-error-alert');
+                    }
+                    else if (data.msg == 'wrong username') {
+                        display_register_alert('register-mail-error-alert');
+                    }
+                    else if (data.msg == 'passwords mismatch') {
+                        display_register_alert('register-password-error-alert');
+                    }
+                    else if (data.msg == 'already registered') {
+                        display_register_alert('register-already-registered-error-alert');
+                    }
+                    else {
+                        display_register_alert(undefined);
+                    }
+                    checkRegisterForm(document.getElementById("register-form"));
+               }
             },
+
             error: function() {
+                display_contact_alert('error-alert');
             }
         });
     });
