@@ -57,11 +57,19 @@ nev.configure({
             pass: 'ColisLaPepite'
         }
     },
+    
     verifyMailOptions: {
         from: 'Relayers - Ne pas répondre <do.not.reply.relayers@gmail.com>',
-        subject: 'Confirmation de votre compte',
+        subject: 'Vérification de votre compte',
         html: 'Veuillez cliquer sur ce lien pour confirmer votre compte : </p><p>${URL}</p>',
         text: 'Veuillez cliquer sur ce lien pour confirmer votre compte : ${URL}'
+    },
+
+	confirmMailOptions: {
+      from: 'Relayers - Ne pas répondre <do.not.reply.relayers@gmail.com>',
+      subject: 'Confirmation d\'inscription',
+      html: '<p>Votre compte a bien été vérifié.</p>',
+      text: 'Votre compte a bien été vérifié.'
     }
 }, function(error, options){
 	if (error) console.log(error);
