@@ -30,6 +30,16 @@ app.use(function(req, res, next) {
 //// Nev configuration
 var User = require("./models/user");
 
+// Async version of hashing function
+myHasher = function(password, tempUserData, insertTempUser, callback) {
+  bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(password, salt, null, function(err, hash) {
+      return insertTempUser(hash, tempUserData, callback);
+    });
+  });
+};
+
+
 nev.configure({
     verificationURL: 'https://relayers.fr/email-verification/${URL}',
     persistentUserModel: User,
@@ -64,15 +74,6 @@ nev.generateTempUserModel(User, function(err, tempUserModel) {
 
     console.log('generated temp user model: ' + (typeof tempUserModel === 'function'));
 });
-
-// Async version of hashing function
-myHasher = function(password, tempUserData, insertTempUser, callback) {
-  bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash(password, salt, null, function(err, hash) {
-      return insertTempUser(hash, tempUserData, callback);
-    });
-  });
-};
 
 // Passport
 var passport = require('passport');
