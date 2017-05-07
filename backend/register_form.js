@@ -87,16 +87,13 @@ app.post('/register', function(req, res) {
     //// Form errors
     var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/; // Checks if mail is valid
     if (!username || !password || !password_confirm || !firstName || !secondName || !address) {
-        res.json({ reponse: 'error', msg: 'empty fields'  });
-        res.end();
+        res.json({ reponse: 'error', msg: 'empty fields' });
     }
     else if (!regex.test(req.body.username)) {
         res.json({ reponse: 'error', msg: 'wrong username' });
-        res.end();
     }
     else if (req.body.password !== req.body.password_confirm) {
         res.json({ reponse: 'error', msg: 'passwords mismatch' });
-        res.end();
     }
     else {
         // All ok
@@ -112,13 +109,11 @@ app.post('/register', function(req, res) {
             // Some sort of error
             if (err) {
                 res.json({ reponse: 'error', msg: 'unknown' });
-                res.end();
             }
 
             // user already exists in persistent collection...
             else if (existingPersistentUser) {
                 res.json({ reponse: 'error', msg: 'already registered' });
-                res.end();
             }
 
             // a new user
@@ -128,7 +123,6 @@ app.post('/register', function(req, res) {
                     nev.sendVerificationEmail(email, URL, function(err, info) {
                         if (err) {
                             res.end({ reponse: 'error', msg: 'unknown' });
-                            res.end();
                         }
 
                         res.json({ reponse: 'success', msg: '' });
