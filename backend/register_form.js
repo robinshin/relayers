@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser= require('body-parser')
 const app = express();
+const  bcrypt = require('bcrypt-nodejs');
 
 app.set('port', 8082);
 
