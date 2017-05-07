@@ -48,6 +48,7 @@ nev.configure({
     emailFieldName: 'username',
     hashingFunction: myHasher,
     expirationTime: 172800,
+    shouldSendConfirmation: false,
 
     transportOptions: {
         service: 'Gmail',
