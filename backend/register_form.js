@@ -58,7 +58,7 @@ nev.configure({
         }
     },
     verifyMailOptions: {
-        from: 'Ne pas répondre <do.not.reply.relayers@gmail.com>',
+        from: 'Relayers - Ne pas répondre <do.not.reply.relayers@gmail.com>',
         subject: 'Confirmation de votre compte',
         html: 'Veuillez cliquer sur ce lien pour confirmer votre compte : </p><p>${URL}</p>',
         text: 'Veuillez cliquer sur ce lien pour confirmer votre compte : ${URL}'
