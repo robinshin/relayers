@@ -40,7 +40,7 @@ function checkLength(field)
 // Checks that two fields are equals
 function checkEquals(field)
 {
-    var field_pwd = getElementById("password");
+    var field_pwd = document.getElementById("password");
     if (field.value === field_pwd)
     {
         highlight(field, false);
