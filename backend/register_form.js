@@ -51,7 +51,15 @@ nev.configure({
 });
 
 var User = require("./models/user");
-nev.generateTempUserModel(User);
+
+nev.generateTempUserModel(User, function(err, tempUserModel) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+
+    console.log('generated temp user model: ' + (typeof tempUserModel === 'function'));
+});
 
 // Passport
 var passport = require('passport');
