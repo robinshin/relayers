@@ -62,6 +62,37 @@
                       <!-- Form name -->
                       <legend class="text-center">Inscription</legend>
                       
+                      <!------ Confirmation window ------>
+                      <div id="register-success-alert" style="display: none" class="alert alert-success text-center">
+                          <a class="close" data-hide="alert">&times;</a>
+                          <strong>Inscription validée !</strong>
+                      </div>
+                      
+                      <!------ Wrong mail window ------>
+                      <div id="register-mail-error-alert" style="display: none" class="alert alert-danger text-center alert-dismissable fade in">
+                          <a class="close" data-hide="alert">&times;</a>
+                          <strong>Erreur : </strong> veuillez vérifier votre adresse e-mail
+                      </div>
+                      
+                      <!------ Passwords don't match ------>
+                      <div id="register-password-error-alert" style="display: none" class="alert alert-danger text-center alert-dismissable fade in">
+                          <a class="close" data-hide="alert">&times;</a>
+                          <strong>Erreur : </strong> les mots de passe ne correspondent pas
+                      </div>
+                      
+                      <!------ Already registered ------>
+                      <div id="register-already-registered-error-alert" style="display: none" class="alert alert-danger text-center alert-dismissable fade in">
+                          <a class="close" data-hide="alert">&times;</a>
+                          <strong>Erreur : </strong> vous êtes déjà inscrit
+                      </div>
+                      
+                      <!------ Fill every fields ------>
+                      <div id="register-empty-fields-error-alert" style="display: none" class="alert alert-danger text-center alert-dismissable fade in">
+                          <a class="close" data-hide="alert">&times;</a>
+                          <strong>Erreur : </strong> veuillez renseigner tous les champs
+                      </div>
+                      
+                      
                       <!-- First name -->
                       <div class="form-group">
                         <label class="sr-only" for="firstName">Prénom</label>
@@ -170,63 +201,7 @@
 
         <div class="dropup">
           <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Devenir Relayer <span class="glyphicon glyphicon-edit"></span></button>
-          <form action="" class="form-horizontal dropdown-menu">
-            <fieldset>
-
-              <!-- Form Name -->
-              <legend class="text-center">Inscription</legend>
-
-              <!-- Text input-->
-              <div class="form-group">
-                <div class="col-md-10 col-md-offset-1">
-                  <input id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control input-md" required="">
-                </div>
-              </div>
-
-              <!-- Text input-->
-              <div class="form-group">
-                <div class="col-md-10 col-md-offset-1">
-                  <input id="nom" name="nom" type="text" placeholder="Nom" class="form-control input-md" required="">
-                </div>
-              </div>
-
-              <!-- Text input-->
-              <div class="form-group">
-                <div class="col-md-10 col-md-offset-1">
-                  <input id="username" name="username" type="text" placeholder="Adresse email" class="form-control input-md" required="">
-                </div>
-              </div>
-
-              <!-- Password input-->
-              <div class="form-group">
-                <div class="col-md-10 col-md-offset-1">
-                  <input id="password" name="password" type="password" placeholder="Mot de passe" class="form-control input-md" required="">
-                </div>
-              </div>
-
-              <!-- Password input-->
-              <div class="form-group">
-                <div class="col-md-10 col-md-offset-1">
-                  <input id="password" name="password" type="password" placeholder="Confirmez le mdp" class="form-control input-md" required="">
-                </div>
-              </div>
-
-              <!-- Text input-->
-              <div class="form-group" id="locationField">
-                <div class="col-md-10 col-md-offset-1">
-                  <input id="autocomplete" name="address" type="text" placeholder="Adresse" class="form-control input-md" required="">
-                </div>
-              </div>
-
-              <!-- Button -->
-              <div class="form-group">
-                <div class="col-md-10 col-md-offset-1">
-                  <button type="button" id="register_btn" data-toggle="modal" class="btn btn-primary btn-success center-block" data-target="#myModal-success">S'inscrire <span class="glyphicon glyphicon-ok"></span></button>
-                </div>
-              </div>
-
-            </fieldset>
-          </form>
+          
         </ul>
       </div>
     </div>
@@ -281,7 +256,7 @@
       </div>
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-          <form class="form-horizontal" id="contact-form" action="#section3"> <!-- onsubmit="return verifForm(this)"> -->
+          <form class="form-horizontal" id="contact-form" action="#section3">
             <div class="form-group">
               <input type="text" class="form-control" id="sender_mail" name="sender_mail" placeholder="Adresse email" onblur="checkMail(this)">
             </div>
@@ -318,7 +293,9 @@
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
       <script src="../bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
+      <!-- Contact form javascript -->
       <script src="../javascript/contact.js"></script>
+      <!-- Register form javascript -->
       <script src="../javascript/register.js"></script>
 
       <script>
