@@ -77,7 +77,7 @@ $(function() {
                 password_confirm : $('#password_confirm').val(),
                 firstName : $('#firstName').val(),
                 secondName : $('#secondName').val(),
-                address : $('#address').val()
+                address : $('#autocomplete').val()
             },
             cache : false,
             timeout : 5000,
