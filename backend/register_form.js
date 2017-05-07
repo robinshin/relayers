@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser= require('body-parser')
 const app = express();
-
+const bcrypt = require('bcryptjs');
 app.set('port', 8082);
 
 app.use(bodyParser.urlencoded({extended: true}))
