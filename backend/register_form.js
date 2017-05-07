@@ -28,6 +28,7 @@ app.use(function(req, res, next) {
 
 
 //// Nev configuration
+var User = require("./models/user");
 nev.configure({
     verificationURL: 'https://relayers.fr/email-verification/${URL}',
     persistentUserModel: User,
@@ -50,7 +51,6 @@ nev.configure({
 	if (error) console.log(error);
 });
 
-var User = require("./models/user");
 
 nev.generateTempUserModel(User, function(err, tempUserModel) {
     if (err) {
