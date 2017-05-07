@@ -48,13 +48,13 @@ app.post('/register', function(req, res) {
   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/; // Checks if mail is valid
 
   if (!req.body.username || !req.body.password || !req.body.password_confirm || !req.body.firstName || !req.body.secondName || !req.body.address) {
-    res.json({success: false, msg: 'empty fields'});
+    res.json({reponse: 'error', msg: 'empty fields'});
   }
   else if (!regex.test(req.body.username)) {
-    res.json({success: false, msg: 'wrong username'});
+    res.json({reponse: 'error', msg: 'wrong username'});
   }
   else if (req.body.password !== req.body.password_confirm) {
-    res.json({success: false, msg: 'passwords mismatch'});
+    res.json({reponse: 'error', msg: 'passwords mismatch'});
   }
   else {
     var newUser = new User({
@@ -69,7 +69,7 @@ app.post('/register', function(req, res) {
       if (err) {
         return res.json({success: false, msg: 'already registered'});
       }
-      res.json({success: true, msg: 'success'});
+      res.json({reponse: 'success', msg: 'success'});
     });
   }
 });
