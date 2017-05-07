@@ -2,6 +2,11 @@
 function checkEquals(field)
 {
     var field_pwd = document.getElementById("password");
+    if (!checkLength(field_pwd) || !checkLength(field)) {
+        highlight(field, true);
+        highlight(field_pwd, true);
+        return false;
+    }
     if (field.value === field_pwd.value)
     {
         highlight(field, false);
