@@ -1,59 +1,20 @@
-// Highlights field
-function highlight(field, error)
-{
-    if (error)
-        field.style.backgroundColor = "#fba";
-    else
-        field.style.backgroundColor = "";
-}
-
-// Verifies that the input mail is correct
-function checkMail(field)
-{
-    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-    if(!regex.test(field.value))
-    {
-        highlight(field, true);
-        return false;
-    }
-    else
-    {
-        highlight(field, false);
-        return true;
-    }
-}
-
-// Verifies that the message is correct (length not equals to zero)
-function checkMsg(field)
-{
-    if (field.value.length > 0)
-    {
-        highlight(field, false);
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-function checkForm(form)
+function checkContactForm(form)
 {
     var mail = form.sender_mail;
     var msg = form.msg;
     var mailCorrect = checkMail(mail);
-    var msgCorrect = checkMsg(msg);
+    var msgCorrect = checkLength(msg);
     if (mailCorrect && msgCorrect)
         return true;
     else if (!mailCorrect)
     {
-        display_alert('sender-error-alert');
+        display_contact_alert('sender-error-alert');
         highlight(mail, true);
         return false;
     }
     else if (!msgCorrect)
     {
-        display_alert('msg-error-alert');
+        display_contact_alert('msg-error-alert');
         highlight(msg, true);
         return false;
     }
@@ -67,7 +28,7 @@ function checkForm(form)
 // JQuery
 $(function() {
     $('#contact_btn').click(function() {
-        if (!checkForm(document.getElementById("contact-form")))
+        if (!checkContactForm(document.getElementById("contact-form")))
             return;
         $.ajax({
             url : '/contact',
@@ -85,31 +46,30 @@ $(function() {
 
             success: function(data) {
                 if (data.reponse == 'success') {
-                    display_alert('success-alert');
+                    display_contact_alert('success-alert');
                     document.getElementById("contact-form").reset();
                 }
                 else if (data.reponse == 'error_sender') {
-                    display_alert('sender-error-alert');
+                    display_contact_alert('sender-error-alert');
                 }
                 else if (data.reponse == 'error_msg') {
-                    display_alert('msg-error-alert');
+                    display_contact_alert('msg-error-alert');
                 }
                 else if (data.reponse == 'error') {
-                    display_alert('error-alert');
+                    display_contact_alert('error-alert');
                 }
                 else {
-                    display_alert(undefined);
+                    display_contact_alert(undefined);
                 }
             },
             error: function() {
-                document.getElementById("success-alert").style.display = 'none';
-                document.getElementById("error-alert").style.display = 'block';
+                display_contact_alert('error-alert');
             }
         });
     });
 });
 
-function display_alert(alertId) {
+function display_contact_alert(alertId) {
     document.getElementById("success-alert").style.display = 'none';
     document.getElementById("sender-error-alert").style.display = 'none';
     document.getElementById("msg-error-alert").style.display = 'none';
@@ -117,10 +77,3 @@ function display_alert(alertId) {
     if (alertId !== undefined)
         document.getElementById(alertId).style.display = 'block';
 }
-
-// Hides alert msg
-$(function(){
-    $("[data-hide]").on("click", function(){
-        $("." + $(this).attr("data-hide")).hide();
-    });
-});
