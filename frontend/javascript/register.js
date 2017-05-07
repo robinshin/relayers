@@ -50,6 +50,8 @@ function checkEquals(field)
     }
     else
     {
+        highlight(field, true);
+        highlight(field_pwd, true);
         return false;
     }
 }
@@ -65,7 +67,7 @@ function checkRegisterForm(form)
     var firstNameCorrect = checkLength(firstName),
         secondNameCorrect = checkLength(secondName),
         mailCorrect = checkMail(mail),
-        passwordCorrect = checkEquals(password, password_confirm);
+        passwordCorrect = checkEquals(password_confirm);
     
     if (firstNameCorrect && secondNameCorrect && mailCorrect && passwordCorrect)
         return true;
