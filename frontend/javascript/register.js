@@ -33,6 +33,7 @@ function checkLength(field)
     }
     else
     {
+        highlight(field, true);
         return false;
     }
 }
