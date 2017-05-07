@@ -138,7 +138,26 @@ app.post('/register', function(req, res) {
     }
 });
 
+// User accesses the link that is sent
+app.get('/email-verification/:URL', (req, res) => {
+  var url = req.params.URL;
 
+  nev.confirmTempUser(url, function(err, user) {
+    if (user) {
+      nev.sendConfirmationEmail(user.username, function(err, info) {
+        if (err) {
+          return res.status(404).send('ERROR: sending confirmation email FAILED');
+        }
+        res.json({
+          msg: 'CONFIRMED!',
+          info: info
+        });
+      });
+    } else {
+      return res.status(404).send('ERROR: confirming temp user FAILED');
+    }
+  });
+});
 
 /*app.post('/register', function(req, res) {
   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/; // Checks if mail is valid
