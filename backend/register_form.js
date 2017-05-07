@@ -26,6 +26,33 @@ app.use(function(req, res, next) {
     next();
 });
 
+
+//// Nev configuration
+nev.configure({
+    verificationURL: 'https://relayers.fr/email-verification/${URL}',
+    persistentUserModel: User,
+    tempUserCollection: 'tempUser',
+
+    transportOptions: {
+        service: 'Gmail',
+        auth: {
+            user: 'do.not.reply.relayers@gmail.com',
+            pass: 'ColisLaPepite'
+        }
+    },
+    verifyMailOptions: {
+        from: 'Ne pas répondre <do.not.reply.relayers@gmail.com>',
+        subject: 'Confirmation de votre compte',
+        html: 'Veuillez cliquer sur ce lien pour confirmer votre compte : </p><p>${URL}</p>',
+        text: 'Veuillez cliquer sur ce lien pour confirmer votre compte : ${URL}'
+    }
+}, function(error, options){
+	if (error) console.log(error);
+});
+
+var User = require("./models/user");
+nev.generateTempUserModel(User);
+
 // Passport
 var passport = require('passport');
 
@@ -39,9 +66,77 @@ var config = require('./config/database');
 
 require('./config/passport')(passport);
 var jwt = require('jsonwebtoken');
-var User = require("./models/user");
 
 app.post('/register', function(req, res) {
+	// get the credentials from request parameters or something
+    var username = req.body.username,
+        password = req.body.password,
+        password_confirm = req.body.password_confirm,
+        firstName = req.body.firstName,
+        secondName = req.body.secondName,
+        address = req.body.address;
+
+    //// Form errors
+    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/; // Checks if mail is valid
+    if (!username || !password || !password_confirm || !firstName || !secondName || !address) {
+        res.json({ reponse: 'error', msg: 'empty fields'  });
+        res.end();
+    }
+    else if (!regex.test(req.body.username)) {
+        res.json({ reponse: 'error', msg: 'wrong username' });
+        res.end();
+    }
+    else if (req.body.password !== req.body.password_confirm) {
+        res.json({ reponse: 'error', msg: 'passwords mismatch' });
+        res.end();
+    }
+
+    var newUser = User({
+        username: username,
+        password: password,
+        firstName: firstName,
+        secondName: secondName,
+        address: address
+    });
+
+    nev.createTempUser(newUser, function(err, existingPersistentUser, newTempUser) {
+        // Some sort of error
+        if (err) {
+            res.json({ reponse: 'error', msg: 'unknown' });
+            res.end();
+        }
+
+        // user already exists in persistent collection...
+        if (existingPersistentUser) {
+            res.json({ reponse: 'error', msg: 'already registered' });
+            res.end();
+        }
+
+        // a new user
+        if (newTempUser) {
+            var URL = newTempUser[nev.options.URLFieldName];
+            nev.sendVerificationEmail(email, URL, function(err, info) {
+                if (err) {
+                    res.json({ reponse: 'error', msg: 'unknown' });
+                    res.end();
+                }
+
+                res.json({ reponse: 'success', msg: '' });
+                res.end();
+            });
+
+        // user already exists in temporary collection...
+        }
+        else {
+            res.json({ reponse: 'error', msg: 'verif mail already sent' });
+            res.end();
+        }
+    });
+}
+
+
+
+/*app.post('/register', function(req, res) {
   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/; // Checks if mail is valid
 
   if (!req.body.username || !req.body.password || !req.body.password_confirm || !req.body.firstName || !req.body.secondName || !req.body.address) {
@@ -69,7 +164,7 @@ app.post('/register', function(req, res) {
       res.json({reponse: 'success', msg: 'success'});
     });
   }
-});
+});*/
 
 app.post('/login', function(req, res) {
   User.findOne({

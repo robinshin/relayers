@@ -14,8 +14,8 @@ nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
-    user: 'contact.relayers@gmail.com',
-    pass: 'colislapepite'
+    user: 'do.not.reply.relayers@gmail.com',
+    pass: 'ColisLaPepite'
   }
 });
 
@@ -30,7 +30,7 @@ app.post('/contact', (req, res) => {
         res.send({ reponse: 'error_msg' });
     else {
         var mailOptions = {
-            from: ' <'+ sender + '>',
+            from: 'Formulaire de contact' + ' <'+ sender + '>',
             to: 'contact@relayers.fr',
             subject: ' Relayers - contact form from: ' + sender,
             text: msg
