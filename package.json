@@ -9,6 +9,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.1",
+    "email-verification": "^0.4.6",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
     "jsonwebtoken": "^7.4.0",
