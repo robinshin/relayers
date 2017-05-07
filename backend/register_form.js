@@ -35,6 +35,7 @@ nev.configure({
     persistentUserModel: User,
     tempUserCollection: 'tempUser',
     emailFieldName: 'username',
+    hashingFunction: myHasher,
     expirationTime: 172800,
 
     transportOptions: {
