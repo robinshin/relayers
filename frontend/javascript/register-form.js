@@ -104,14 +104,14 @@ $(function() {
                         display_register_alert('register-verif-already-sent-error-alert');
                     }
                     else {
-                        display_register_alert(undefined);
+                        display_register_alert('register-unknown-error-alert');
                     }
                     checkRegisterForm(document.getElementById("register-form"));
                }
             },
 
             error: function() {
-                display_contact_alert('error-alert');
+                display_contact_alert('register-unknown-error-alert');
             }
         });
     });
@@ -124,7 +124,8 @@ function display_register_alert(alertId) {
     document.getElementById("register-already-registered-error-alert").style.display = 'none';
     document.getElementById("register-empty-fields-error-alert").style.display = 'none';
     document.getElementById("register-verif-already-sent-error-alert").style.display = 'none';
+    document.getElementById("register-unknown-error-alert").style.display = 'none';
+    
 
-    if (alertId !== undefined)
-        document.getElementById(alertId).style.display = 'block';
+    document.getElementById(alertId).style.display = 'block';
 }
