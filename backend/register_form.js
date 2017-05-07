@@ -33,6 +33,9 @@ nev.configure({
     verificationURL: 'https://relayers.fr/email-verification/${URL}',
     persistentUserModel: User,
     tempUserCollection: 'tempUser',
+    emailFieldName: 'username',
+    expirationTime: 172800,
+    shouldSendConfirmation: false,
 
     transportOptions: {
         service: 'Gmail',
