@@ -132,7 +132,7 @@ app.post('/register', function(req, res) {
             res.end();
         }
     });
-}
+});
 
 
 
