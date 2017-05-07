@@ -98,48 +98,50 @@ app.post('/register', function(req, res) {
         res.json({ reponse: 'error', msg: 'passwords mismatch' });
         res.end();
     }
+    else {
+        // All ok
+        var newUser = User({
+            username: username,
+            password: password,
+            firstName: firstName,
+            secondName: secondName,
+            address: address
+        });
 
-    var newUser = User({
-        username: username,
-        password: password,
-        firstName: firstName,
-        secondName: secondName,
-        address: address
-    });
-
-    nev.createTempUser(newUser, function(err, existingPersistentUser, newTempUser) {
-        // Some sort of error
-        if (err) {
-            res.json({ reponse: 'error', msg: 'unknown' });
-            res.end();
-        }
-
-        // user already exists in persistent collection...
-        if (existingPersistentUser) {
-            res.json({ reponse: 'error', msg: 'already registered' });
-            res.end();
-        }
-
-        // a new user
-        if (newTempUser) {
-            var URL = newTempUser[nev.options.URLFieldName];
-            nev.sendVerificationEmail(email, URL, function(err, info) {
-                if (err) {
-                    res.json({ reponse: 'error', msg: 'unknown' });
-                    res.end();
-                }
-
-                res.json({ reponse: 'success', msg: '' });
+        nev.createTempUser(newUser, function(err, existingPersistentUser, newTempUser) {
+            // Some sort of error
+            if (err) {
+                res.json({ reponse: 'error', msg: 'unknown' });
                 res.end();
-            });
+            }
 
-        // user already exists in temporary collection...
-        }
-        else {
-            res.json({ reponse: 'error', msg: 'verif mail already sent' });
-            res.end();
-        }
-    });
+            // user already exists in persistent collection...
+            else if (existingPersistentUser) {
+                res.json({ reponse: 'error', msg: 'already registered' });
+                res.end();
+            }
+
+            // a new user
+            else {
+                if (newTempUser) {
+                    var URL = newTempUser[nev.options.URLFieldName];
+                    nev.sendVerificationEmail(email, URL, function(err, info) {
+                        if (err) {
+                            res.end({ reponse: 'error', msg: 'unknown' });
+                            res.end();
+                        }
+
+                        res.json({ reponse: 'success', msg: '' });
+                    });
+
+                // user already exists in temporary collection...
+                }
+                else {
+                    res.json({ reponse: 'error', msg: 'verif mail already sent' });
+                }
+            }
+        });
+    }
 });
 
 
@@ -200,7 +202,7 @@ app.post('/login', function(req, res) {
 
 //// Port
 app.listen(app.get('port'), () => {
-    console.log('Node app is running on port', app.get('port'));
+    console.log('Register form app is running on port', app.get('port'));
 })
 
 module.exports = app;
