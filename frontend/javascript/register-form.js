@@ -26,12 +26,14 @@ function checkRegisterForm(form)
     var firstName = form.firstName,
         secondName = form.secondName,
         mail = form.username,
+        address = form.address,
         password = form.password,
         password_confirm = form.password_confirm;
     
     var firstNameCorrect = checkLength(firstName),
         secondNameCorrect = checkLength(secondName),
         mailCorrect = checkMail(mail),
+        addressCorrect = checkLength(address),
         passwordCorrect = checkEquals(password_confirm);
     
     if (firstNameCorrect && secondNameCorrect && mailCorrect && passwordCorrect)
@@ -47,6 +49,12 @@ function checkRegisterForm(form)
     {
         display_register_alert('register-mail-error-alert');
         highlight(mail, true);
+        return false;
+    }
+    else if (!addressCorrect)
+    {
+        display_register_alert('register-empty-fields-error-alert');
+        highlight(address, true);
         return false;
     }
     else if (!passwordCorrect)
