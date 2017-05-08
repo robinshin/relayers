@@ -12,16 +12,14 @@ app.use(bodyParser.urlencoded({extended: true}))
 var morgan   = require('morgan'),
     mongoose = require('mongoose'),
     nev = require('email-verification')(mongoose);
-mongoose.Promise = global.Promise;
 
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI + '/users?authSource=admin');
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log('Successfully connected to database');
-});
 
-app.use(function(req, res, next) {
+app.use( (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
@@ -32,9 +30,9 @@ app.use(function(req, res, next) {
 var User = require("./models/user");
 
 // Async version of hashing function
-myHasher = function(password, tempUserData, insertTempUser, callback) {
-  bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash(password, salt, null, function(err, hash) {
+myHasher = (password, tempUserData, insertTempUser, callback) => {
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(password, salt, null, (err, hash) => {
       return insertTempUser(hash, tempUserData, callback);
     });
   });
@@ -71,21 +69,21 @@ nev.configure({
       html: '<p>Votre compte a bien été vérifié.</p>',
       text: 'Votre compte a bien été vérifié.'
     }
-}, function(error, options){
-	if (error) console.log(error);
+}, (error, options) => {
+	if (error)
+        console.log(error);
 });
 
 
-nev.generateTempUserModel(User, function(err, tempUserModel) {
+nev.generateTempUserModel(User, (err, tempUserModel) => {
     if (err) {
         console.log(err);
         return;
     }
-
-    console.log('generated temp user model: ' + (typeof tempUserModel === 'function'));
 });
 
-// Passport
+
+//// Passport
 var passport = require('passport');
 
 app.use(passport.initialize());
@@ -94,13 +92,14 @@ app.use(passport.initialize());
 // Passport configuration
 var config = require('./config/database');
 
+
 //// Routes
 
 require('./config/passport')(passport);
 var jwt = require('jsonwebtoken');
 
-app.post('/register', function(req, res) {
-	// get the credentials from request parameters or something
+////// Register route
+app.post('/register', (req, res) => {
     var username = req.body.username,
         password = req.body.password,
         password_confirm = req.body.password_confirm,
@@ -119,8 +118,8 @@ app.post('/register', function(req, res) {
     else if (req.body.password !== req.body.password_confirm) {
         res.json({ reponse: 'error', msg: 'passwords mismatch' });
     }
+    //// Here : no basic form error
     else {
-        // All ok
         var newUser = User({
             username: username,
             password: password,
@@ -129,30 +128,30 @@ app.post('/register', function(req, res) {
             address: address
         });
 
-        nev.createTempUser(newUser, function(err, existingPersistentUser, newTempUser) {
-            // Some sort of error
+        nev.createTempUser(newUser, (err, existingPersistentUser, newTempUser) => {
             if (err) {
                 res.json({ reponse: 'error', msg: 'unknown' });
             }
 
-            // user already exists in persistent collection...
+            // User already exists in persistent collection...
             else if (existingPersistentUser) {
                 res.json({ reponse: 'error', msg: 'already registered' });
             }
 
-            // a new user
+            // A new user
             else {
                 if (newTempUser) {
                     var URL = newTempUser[nev.options.URLFieldName];
-                    nev.sendVerificationEmail(username, URL, function(err, info) {
+                    nev.sendVerificationEmail(username, URL, (err, info) => {
                         if (err) {
-                            res.end({ reponse: 'error', msg: 'unknown' });
+                            res.json({ reponse: 'error', msg: 'unknown' });
                         }
-
-                        res.json({ reponse: 'success', msg: '' });
+                        else {
+                            res.json({ reponse: 'success', msg: '' });
+                        }
                     });
 
-                // user already exists in temporary collection...
+                // User already exists in temporary collection...
                 }
                 else {
                     res.json({ reponse: 'error', msg: 'verif mail already sent' });
@@ -162,25 +161,24 @@ app.post('/register', function(req, res) {
     }
 });
 
+
 // User accesses the link that is sent
 app.get('/email-verification/:URL', (req, res) => {
-  var url = req.params.URL;
+    var url = req.params.URL;
 
-  nev.confirmTempUser(url, function(err, user) {
-    if (user) {
-      nev.sendConfirmationEmail(user.username, function(err, info) {
-        if (err) {
-          return res.status(404).send('ERROR: sending confirmation email FAILED');
+    nev.confirmTempUser(url, (err, user) => {
+        if (user) {
+            nev.sendConfirmationEmail(user.username, function(err, info) {
+                if (err) {
+                    return res.status(404).send('Erreur');
+                }
+                res.redirect('relayers.fr/');
+            });
         }
-        res.json({
-          msg: 'CONFIRMED!',
-          info: info
-        });
-      });
-    } else {
-      return res.status(404).send('ERROR: confirming temp user FAILED');
-    }
-  });
+        else {
+            return res.status(404).send('Erreur de validation');
+        }
+    });
 });
 
 app.post('/login', function(req, res) {
