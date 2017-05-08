@@ -25,9 +25,9 @@ app.post('/contact', (req, res) => {
         regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/; // Checks if mail is valid
     
     if ((typeof sender === 'undefined') || (sender === '') || (!regex.test(sender)))
-        res.send({ reponse: 'error_sender' });
+        res.json({ reponse: 'error', msg: 'error_sender' });
     else if ((typeof msg === 'undefined') || (msg === ''))
-        res.send({ reponse: 'error_msg' });
+        res.json({ reponse: 'error', msg: 'error_msg' });
     else {
         var mailOptions = {
             from: 'Formulaire de contact' + ' <'+ sender + '>',
@@ -39,10 +39,10 @@ app.post('/contact', (req, res) => {
         transporter.sendMail(mailOptions, function(err, response) {
             var iSvalid;
             if (err) {
-                res.send({ reponse: 'error' });
+                res.json({ reponse: 'error', msg: 'unknown' });
             }
             else {
-                res.send({ reponse: 'success' });
+                res.send({ reponse: 'success', msg: 'success' });
             }
         });
     };
