@@ -8,14 +8,12 @@ function checkContactForm(form)
         return true;
     else if (!mailCorrect)
     {
-        display_contact_alert('sender-error-alert');
-        highlight(mail, true);
+        display_contact_alert(false, 'error_sender');
         return false;
     }
     else if (!msgCorrect)
     {
-        display_contact_alert('msg-error-alert');
-        highlight(msg, true);
+        display_contact_alert(false, 'error_msg');
         return false;
     }
     else
@@ -28,7 +26,7 @@ function checkContactForm(form)
 // JQuery
 $(function() {
     $('#contact_btn').click(function() {
-        if (!checkContactForm(document.getElementById("contact-form")))
+        if (!checkContactForm($("#contact-form")[0]))
             return;
         $.ajax({
             url : '/contact',
@@ -37,7 +35,7 @@ $(function() {
             data : {
             sender_mail : $('#sender_mail').val(),
             msg : $('#msg').val(),
-            reponse : "null"}, // On fait passer nos variables, exactement comme en GET, au script more_com.php  
+            reponse : "null"},
             cache : false,
             timeout : 5000,
             complete : function() {
@@ -46,34 +44,51 @@ $(function() {
 
             success: function(data) {
                 if (data.reponse == 'success') {
-                    display_contact_alert('success-alert');
-                    document.getElementById("contact-form").reset();
-                }
-                else if (data.reponse == 'error_sender') {
-                    display_contact_alert('sender-error-alert');
-                }
-                else if (data.reponse == 'error_msg') {
-                    display_contact_alert('msg-error-alert');
-                }
-                else if (data.reponse == 'error') {
-                    display_contact_alert('error-alert');
+                    display_contact_alert(true, 'success');
+                    $("#contact-form")[0].reset();
                 }
                 else {
-                    display_contact_alert(undefined);
+                    if (data.msg == 'error_sender') {
+                        display_contact_alert(false, 'error_sender');
+                    }
+                    else if (data.msg == 'error_msg') {
+                        display_contact_alert(false, 'error_msg');
+                    }
+                    else {
+                        display_contact_alert(false, 'unknown');
+                    }
                 }
             },
             error: function() {
-                display_contact_alert('error-alert');
+                display_contact_alert(false, 'unknown');
             }
         });
     });
 });
 
-function display_contact_alert(alertId) {
-    document.getElementById("success-alert").style.display = 'none';
-    document.getElementById("sender-error-alert").style.display = 'none';
-    document.getElementById("msg-error-alert").style.display = 'none';
-    document.getElementById("error-alert").style.display = 'none';
-    if (alertId !== undefined)
-        document.getElementById(alertId).style.display = 'block';
+function display_contact_alert(success, msg_id) {
+    if (success) {
+        $('#contact-alert').removeClass('alert-danger');
+        $('#contact-alert').addClass('alert-success');
+    }
+    else {
+        $('#contact-alert').removeClass('alert-success');
+        $('#contact-alert').addClass('alert-danger');
+    }
+    var msg;
+    switch (msg_id) {
+        case 'success':
+            msg = '<strong>Votre message a bien été envoyé !</strong> Nous vous recontacterons au plus vite :)'
+            break;
+        case 'error_sender':
+            msg = '<strong>Veuillez vérifier votre adresse mail</strong>';
+            break;
+        case 'error_msg':
+            msg = '<strong>Veuillez écrire un message</strong>';
+            break;
+        default:
+            msg = '<strong>Erreur inconnue</strong>'
+    }
+    $('#text-contact-alert').html(msg);
+    $('#contact-alert').css('display', 'block');
 }
