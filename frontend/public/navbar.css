@@ -1,22 +1,3 @@
-/* Register form */
-
-#register-dp{
-    min-width: 250px;
-    padding: 14px 14px 0;
-    overflow:hidden;
-    background-color:rgba(255,255,255,.8);
-}
-
-#register-dp .form-group {
-    margin-bottom: 10px;
-}
-
-#register-dp .btn{
-    background-color: #DB6562;
-    color: white;
-}
-
-
 /* Login form */
 
 #login-dp{
@@ -69,20 +50,27 @@
     background-color:#59b5fa;
 }
 
-@media(max-width:768px){
-    #login-dp{
-        background-color: inherit;
-        color: #fff;
-    }
-    #login-dp .bottom{
-        background-color: inherit;
-        border-top:0 none;
-    }
-}
-
 #login-dp .btn{
   background-color: #DB6562;
   color: white;
+}
+
+/* Register form */
+
+#register-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+
+#register-dp .form-group {
+    margin-bottom: 10px;
+}
+
+#register-dp .btn{
+    background-color: #DB6562;
+    color: white;
 }
 
 /* Navbar color */
