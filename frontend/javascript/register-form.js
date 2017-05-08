@@ -36,36 +36,37 @@ function checkRegisterForm(form)
         addressCorrect = checkLength(address),
         passwordCorrect = checkEquals(password_confirm);
     
-    if (firstNameCorrect && secondNameCorrect && mailCorrect && passwordCorrect)
+    if (firstNameCorrect && secondNameCorrect && mailCorrect && passwordCorrect) {
         return true;
-    
-    else if (!firstNameCorrect || !secondNameCorrect)
+    }
+    else if (!firstNameCorrect)
     {
-        display_register_alert('register-empty-fields-error-alert');
-        (firstNameCorrect)? highlight(secondName, true) : highlight(firstName, true);
+        display_register_alert(false, 'empty_fields');
         return false;
     }
-    else if (!mailCorrect)
+    else if (!secondNameCorrect)
     {
-        display_register_alert('register-mail-error-alert');
-        highlight(mail, true);
+        display_register_alert(false, 'empty_fields');
         return false;
     }
     else if (!addressCorrect)
     {
-        display_register_alert('register-empty-fields-error-alert');
-        highlight(address, true);
+        display_register_alert(false, 'empty_fields');
+        return false;
+    }
+    else if (!mailCorrect)
+    {
+        display_register_alert(false, 'wrong_username');
         return false;
     }
     else if (!passwordCorrect)
     {
-        display_register_alert('register-password-error-alert');
-        highlight(password, true);
-        highlight(password_confirm, true);
+        display_register_alert(false, 'passwords_mismatch');
         return false;
     }
     else
     {
+        display_register_alert(false, 'unknown');
         return false;
     }
 }
@@ -73,7 +74,7 @@ function checkRegisterForm(form)
 // JQuery
 $(function() {
     $('#register_btn').click(function() {
-        if (!checkRegisterForm(document.getElementById("register-form")))
+        if (!checkRegisterForm($("#register-form")[0]))
             return;
         $.ajax({
             url : '/register',
@@ -92,48 +93,71 @@ $(function() {
 
             success: function(data) {
                 if (data.reponse == 'success') {
-                    display_register_alert('register-success-alert');
-                    document.getElementById("register-form").reset();
+                    display_register_alert(true, 'success');
+                    $("#register-form")[0].reset();
                 }
                 else {
                     if (data.msg == 'empty fields') {
-                        display_register_alert('register-empty-fields-error-alert');
+                        display_register_alert(false, 'empty_fields');
                     }
                     else if (data.msg == 'wrong username') {
-                        display_register_alert('register-mail-error-alert');
+                        display_register_alert(false, 'wrong_username');
                     }
                     else if (data.msg == 'passwords mismatch') {
-                        display_register_alert('register-password-error-alert');
+                        display_register_alert(false, 'passwords_mismatch');
                     }
                     else if (data.msg == 'already registered') {
-                        display_register_alert('register-already-registered-error-alert');
+                        display_register_alert(false, 'already_registered');
                     }
                     else if (data.msg == 'verif mail already sent') {
-                        display_register_alert('register-verif-already-sent-error-alert');
+                        display_register_alert(false, 'verif_mail_already_sent');
                     }
                     else {
-                        display_register_alert('register-unknown-error-alert');
+                        display_register_alert(false, 'unknown');
                     }
-                    checkRegisterForm(document.getElementById("register-form"));
+                    checkRegisterForm($('#register-form')[0]);
                }
             },
 
             error: function() {
-                display_contact_alert('register-unknown-error-alert');
+                display_register_alert(false, 'unknown');
             }
         });
     });
 });
 
-function display_register_alert(alertId) {
-    document.getElementById("register-success-alert").style.display = 'none';
-    document.getElementById("register-mail-error-alert").style.display = 'none';
-    document.getElementById("register-password-error-alert").style.display = 'none';
-    document.getElementById("register-already-registered-error-alert").style.display = 'none';
-    document.getElementById("register-empty-fields-error-alert").style.display = 'none';
-    document.getElementById("register-verif-already-sent-error-alert").style.display = 'none';
-    document.getElementById("register-unknown-error-alert").style.display = 'none';
-    
-
-    document.getElementById(alertId).style.display = 'block';
+function display_register_alert(success, msg_id) {
+    if (success) {
+        $('#register-alert').removeClass('alert-danger');
+        $('#register-alert').addClass('alert-success');
+    }
+    else {
+        $('#register-alert').removeClass('alert-success');
+        $('#register-alert').addClass('alert-danger');
+    }
+    var msg;
+	switch (msg_id) {
+        case 'success':
+            msg = '<strong>Inscription validée !</strong> Un mail de confirmation vous a été envoyé !'
+            break;
+        case 'empty_fields':
+            msg = '<strong>Veuillez renseigner tous les champs</strong>';
+            break;
+        case 'wrong_username':
+            msg = '<strong>Veuillez vérifier votre adresse e-mail</strong>';
+            break;
+        case 'passwords_mismatch':
+            msg = '<strong>Les mots de passe ne correspondent pas</strong>';
+            break;
+        case 'already_registered':
+            msg = '<strong>Vous êtes déjà inscrit</strong>';
+            break;
+        case 'verif_mail_already_sent':
+            msg = '<strong>Vous devez valider votre compte</strong>'
+            break;
+        default:
+            msg = '<strong>Erreur inconnue</strong>'
+    }
+    $('#text-register-alert').html(msg);
+    $('#register-alert').css('display', 'block');
 }
