@@ -63,48 +63,12 @@
    							<div class="col-md-12">
                   <form class="form" action="" accept-charset="UTF-8" id="register-form">
 
-                    <!------ Confirmation window ------>
-                    <div id="register-success-alert" style="display: none" class="alert alert-success text-center">
+                    <!------ Register alert window ------>
+                    <div id="register-alert" style="display: none" class="alert text-center">
                         <a class="close" data-hide="alert">&times;</a>
-                        <strong>Inscription validée !</strong> Un mail de confirmation vous a été envoyé !
+                        <span id="text-register-alert"></span>
                     </div>
-
-                    <!------ Wrong mail window ------>
-                    <div id="register-mail-error-alert" style="display: none" class="alert alert-danger text-center alert-dismissable fade in">
-                        <a class="close" data-hide="alert">&times;</a>
-                        <strong>Veuillez vérifier votre adresse e-mail</strong>
-                    </div>
-
-                    <!------ Passwords don't match ------>
-                    <div id="register-password-error-alert" style="display: none" class="alert alert-danger text-center alert-dismissable fade in">
-                        <a class="close" data-hide="alert">&times;</a>
-                        <strong>Les mots de passe ne correspondent pas</strong>
-                    </div>
-
-                    <!------ Already registered ------>
-                    <div id="register-already-registered-error-alert" style="display: none" class="alert alert-danger text-center alert-dismissable fade in">
-                        <a class="close" data-hide="alert">&times;</a>
-                        <strong>Vous êtes déjà inscrit</strong>
-                    </div>
-
-                    <!------ Fill every fields ------>
-                    <div id="register-empty-fields-error-alert" style="display: none" class="alert alert-danger text-center alert-dismissable fade in">
-                        <a class="close" data-hide="alert">&times;</a>
-                        <strong>Veuillez renseigner tous les champs</strong>
-                    </div>
-
-                    <!------ Fill every fields ------>
-                    <div id="register-verif-already-sent-error-alert" style="display: none" class="alert alert-danger text-center alert-dismissable fade in">
-                        <a class="close" data-hide="alert">&times;</a>
-                        <strong>Vous devez valider votre compte</strong>
-                    </div>
-
-                    <!------ Fill every fields ------>
-                    <div id="register-unknown-error-alert" style="display: none" class="alert alert-danger text-center alert-dismissable fade in">
-                        <a class="close" data-hide="alert">&times;</a>
-                        <strong>Erreur</strong>
-                    </div>
-
+                    
 
                     <!-- First name -->
                     <div class="form-group">
