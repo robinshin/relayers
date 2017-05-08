@@ -172,7 +172,7 @@ app.get('/email-verification/:URL', (req, res) => {
                 if (err) {
                     return res.status(404).send('Erreur');
                 }
-                res.redirect('https://relayers.fr/' + '?account_validate=true');
+                res.redirect('https://relayers.fr/');
             });
         }
         else {
