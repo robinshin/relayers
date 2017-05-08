@@ -182,27 +182,29 @@ app.get('/email-verification/:URL', (req, res) => {
 });
 
 app.post('/login', function(req, res) {
-  User.findOne({
-    username: req.body.username
-  }, function(err, user) {
-    if (err) throw err;
-
-    if (!user) {
-      res.send({success: false, msg: 'Authentication failed. User not found.'});
-    } else {
-      // check if password matches
-      user.comparePassword(req.body.password, function (err, isMatch) {
-        if (isMatch && !err) {
-          // if user is found and password is right create a token
-          var token = jwt.sign(user, config.secret);
-          // return the information including token as JSON
-          res.json({success: true, token: 'JWT ' + token});
-        } else {
-          res.send({success: false, msg: 'Authentication failed. Wrong password.'});
+    User.findOne({
+        username: req.body.username
+    }, function(err, user) {
+        if (err)
+            throw err;
+        if (!user) {
+            res.send({reponse: 'error', msg: 'user not found'});
         }
-      });
-    }
-  });
+        else {
+            // check if password matches
+            user.comparePassword(req.body.password, function (err, isMatch) {
+                if (isMatch && !err) {
+                    // if user is found and password is right create a token
+                    var token = jwt.sign(user, config.secret);
+                    // return the information including token as JSON
+                    res.json({reponse: 'success', token: 'JWT ' + token});
+                }
+                else {
+                    res.send({reponse: 'error', msg: 'wrong password'});
+                }
+            });
+        }
+    });
 });
 
 //// Port
