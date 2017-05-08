@@ -11,7 +11,7 @@ app.use(express.static('/home/server/relayers/frontend'));
 
 app.get('/:account_validate', (req, res) => {
     var account_validate = req.params.account_validate;
-    if (account_validate === 'true')
+    if (account_validate === '?account_validate=true')
         res.json({ reponse: 'account_validated' });
 });
 
