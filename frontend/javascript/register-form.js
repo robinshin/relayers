@@ -215,12 +215,12 @@ $(function() {
                                }
                                else {
                                if (data.msg == 'user not found') {
-                               display_register_alert(false, 'user_not_found');
+                               display_login_alert(false, 'user_not_found');
                                }
                                else if (data.msg == 'wrong password') {
-                               display_register_alert(false, 'wrong_password');
+                               display_login_alert(false, 'wrong_password');
                                }                               else {
-                               display_register_alert(false, 'unknown');
+                               display_login_alert(false, 'unknown');
                                }
                                checkLoginForm($('#login-form')[0]);
                                }
