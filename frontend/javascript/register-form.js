@@ -214,6 +214,7 @@ $(function() {
       success: function(data) {
         if (data.reponse == 'success') {
           return ;
+          $(location).attr('href', 'http://stackoverflow.com');
         }
         else {
           if (data.msg == 'user not found') {
