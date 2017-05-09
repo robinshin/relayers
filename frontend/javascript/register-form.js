@@ -251,6 +251,6 @@ function display_login_alert(success, msg_id) {
         default:
             msg = '<strong>Erreur inconnue</strong>'
     }
-    $('#text-register-alert').html(msg);
-    $('#register-alert').css('display', 'block');
+    $('#text-login-alert').html(msg);
+    $('#login-alert').css('display', 'block');
 }
