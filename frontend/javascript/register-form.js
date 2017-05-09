@@ -89,12 +89,12 @@ function checkLoginForm(form)
     }
     else if (!passwordCorrect)
     {
-        display_register_alert(false, 'wrong_password');
+        display_login_alert(false, 'wrong_password');
         return false;
     }
     else
     {
-        display_register_alert(false, 'unknown');
+        display_login_alert(false, 'unknown');
         return false;
     }
 }
@@ -104,6 +104,7 @@ function checkLoginForm(form)
 // Register form
 $(function() {
   $('#register_btn').click(function() {
+                           $('#register-alert').css('display', 'none');
                            if (!checkRegisterForm($("#register-form")[0]))
                            return;
                            $.ajax({
@@ -196,6 +197,7 @@ function display_register_alert(success, msg_id) {
 // Login form
 $(function() {
   $('#login_btn').click(function() {
+                        $('#login-alert').css('display', 'none');
                         if (!checkLoginForm($('#login-form')[0]))
                         return;
                         $.ajax({

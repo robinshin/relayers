@@ -25,46 +25,47 @@ function checkContactForm(form)
 
 // JQuery
 $(function() {
-    $('#contact_btn').click(function() {
-        if (!checkContactForm($("#contact-form")[0]))
-            return;
-        $.ajax({
-            url : '/contact',
-            type : 'POST',
-            dataType : 'json',
-            data : {
-            sender_mail : $('#sender_mail').val(),
-            msg : $('#msg').val(),
-            reponse : "null"},
-            cache : false,
-            timeout : 5000,
-            complete : function() {
-                console.log("Done");
-            },
-
-            success: function(data) {
-                if (data.reponse == 'success') {
-                    display_contact_alert(true, 'success');
-                    $("#contact-form")[0].reset();
-                }
-                else {
-                    if (data.msg == 'error_sender') {
-                        display_contact_alert(false, 'error_sender');
-                    }
-                    else if (data.msg == 'error_msg') {
-                        display_contact_alert(false, 'error_msg');
-                    }
-                    else {
-                        display_contact_alert(false, 'unknown');
-                    }
-                }
-            },
-            error: function() {
-                display_contact_alert(false, 'unknown');
-            }
-        });
-    });
-});
+  $('#contact_btn').click(function() {
+                          $('#contact-alert').css('display', 'none');
+                          if (!checkContactForm($("#contact-form")[0]))
+                          return;
+                          $.ajax({
+                                 url : '/contact',
+                                 type : 'POST',
+                                 dataType : 'json',
+                                 data : {
+                                 sender_mail : $('#sender_mail').val(),
+                                 msg : $('#msg').val(),
+                                 reponse : "null"},
+                                 cache : false,
+                                 timeout : 5000,
+                                 complete : function() {
+                                 console.log("Done");
+                                 },
+                                 
+                                 success: function(data) {
+                                 if (data.reponse == 'success') {
+                                 display_contact_alert(true, 'success');
+                                 $("#contact-form")[0].reset();
+                                 }
+                                 else {
+                                 if (data.msg == 'error_sender') {
+                                 display_contact_alert(false, 'error_sender');
+                                 }
+                                 else if (data.msg == 'error_msg') {
+                                 display_contact_alert(false, 'error_msg');
+                                 }
+                                 else {
+                                 display_contact_alert(false, 'unknown');
+                                 }
+                                 }
+                                 },
+                                 error: function() {
+                                 display_contact_alert(false, 'unknown');
+                                 }
+                                 });
+                          });
+  });
 
 function display_contact_alert(success, msg_id) {
     if (success) {
