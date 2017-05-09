@@ -29,7 +29,7 @@
                                 }
                                 </style>
                                 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    </head>
+                                    </head>
     
     
     <body data-spy="scroll" data-target=".navbar">
@@ -58,40 +58,50 @@
                     
                     <!-- Navbar right -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="" data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-log-in"></span> Inscription <span class="caret"></span></a></li>
-                        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Connexion <span class="caret"></span></a>
-                        <!-------- Login dropdown -------->
-                        <ul id="login-dp" class="dropdown-menu">
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                            <div class="form-group">
-                                                <label class="sr-only" for="exampleInputEmail2">Adresse Email</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Adresse Email" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="sr-only" for="exampleInputPassword2">Mot de passe</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Mot de passe" required>
+                        <li><a href="" data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-sign-up"></span> Inscription <span class="caret"></span></a></li>
+                        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Connexion <span class="caret"></span></a>
+                            <!-------- Login dropdown -------->
+                            <ul id="login-dp" class="dropdown-menu">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                                <!-- Username -->
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="exampleInputEmail2">Adresse Email</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Adresse Email" required>
+                                                            </div>
+                                                </div>
+                                                
+                                                <!-- Password -->
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="exampleInputPassword2">Mot de passe</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Mot de passe" required>
+                                                            </div>
                                                     <div class="help-block text-right"><a href="">Mot de passe oublié ?</a>
                                                     </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-default btn-block">Se connecter</button>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Rester connecter
-                                                </label>
-                                            </div>
-                                        </form>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-default btn-block">Se connecter</button>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Rester connecter
+                                                            </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="bottom text-center">
+                                            Vous êtes nouveau ? <br> <a href="#"><b>Rejoignez nous !</b></a>
+                                        </div>
                                     </div>
-                                    <div class="bottom text-center">
-                                        Vous êtes nouveau ? <br> <a href="#"><b>Rejoignez nous !</b></a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -122,38 +132,56 @@
                                     <!-- First name -->
                                     <div class="form-group">
                                         <label class="sr-only" for="firstName">Prénom</label>
-                                        <input class="form-control input-md" id="firstName" name="firstName"type="text" placeholder="Prénom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
-                                            </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                            <input class="form-control input-md" id="firstName" name="firstName"type="text" placeholder="Prénom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                                        </div>
+                                    </div>
                                     
                                     <!-- Second name -->
                                     <div class="form-group">
                                         <label class="sr-only" for="secondName">Nom</label>
-                                        <input class="form-control input-md" id="secondName" name="secondName"type="text" placeholder="Nom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
-                                            </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                            <input class="form-control input-md" id="secondName" name="secondName"type="text" placeholder="Nom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                                        </div>
+                                    </div>
                                     
                                     <!-- Address -->
                                     <div class="form-group" id="locationField">
                                         <label class="sr-only" for="address">Adresse</label>
-                                        <input class="form-control input-md" id="autocomplete" name="address"type="text" placeholder="Adresse" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
-                                            </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                            <input class="form-control input-md" id="autocomplete" name="address"type="text" placeholder="Adresse" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                                        </div>
+                                    </div>
                                     
                                     <!-- Email -->
                                     <div class="form-group">
                                         <label class="sr-only" for="email">Adresse Email</label>
-                                        <input class="form-control input-md" id="username" name="username"type="text" placeholder="Adresse Email" required="" onblur="checkMail(this)" onfocus="highlight(this, false)">
-                                            </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                            <input class="form-control input-md" id="username" name="username"type="text" placeholder="Adresse Email" required="" onblur="checkMail(this)" onfocus="highlight(this, false)">
+                                        </div>
+                                    </div>
                                     
                                     <!-- Password -->
                                     <div class="form-group">
                                         <label class="sr-only" for="password">Mot de passe</label>
-                                        <input class="form-control input-md" id="password" name="password"type="password" placeholder="Mot de passe" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
-                                            </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                            <input class="form-control input-md" id="password" name="password"type="password" placeholder="Mot de passe" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                                        </div>
+                                    </div>
                                     
                                     <!-- Password confirm -->
                                     <div class="form-group">
                                         <label class="sr-only" for="password-confirm">Confirmez le mot de passe</label>
-                                        <input class="form-control input-md" id="password_confirm" name="password_confirm" type="password" placeholder="Confirmez le mot de passe" required="" onblur="checkEquals(this)" onfocus="highlight(this, false)">
-                                            </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                            <input class="form-control input-md" id="password_confirm" name="password_confirm" type="password" placeholder="Confirmez le mot de passe" required="" onblur="checkEquals(this)" onfocus="highlight(this, false)">
+                                        </div>
+                                    </div>
                                     
                                     <!-- Button -->
                                     <div class="form-group">
