@@ -65,29 +65,35 @@
                                 <li>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                            <!------ Login alert window ------>
+                                            <div id="login-alert" style="display: none" class="alert alert-danger text-center">
+                                                <a class="close" data-hide="alert">&times;</a>
+                                                <span id="text-login-alert"></span>
+                                            </div>
+                                            
+                                            <form class="form" action="" accept-charset="UTF-8" id="login-nav">
                                                 <!-- Username -->
                                                 <div class="form-group">
-                                                    <label class="sr-only" for="exampleInputEmail2">Adresse Email</label>
+                                                    <label class="sr-only" for="login_username">Adresse Email</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Adresse Email" required>
+                                                        <input type="email" class="form-control input-md" id="login_username" placeholder="Adresse mail">
                                                             </div>
                                                 </div>
                                                 
                                                 <!-- Password -->
                                                 <div class="form-group">
-                                                    <label class="sr-only" for="exampleInputPassword2">Mot de passe</label>
+                                                    <label class="sr-only" for="login_password">Mot de passe</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Mot de passe" required>
+                                                        <input type="password" class="form-control input-md" id="login_password" placeholder="Mot de passe">
                                                             </div>
                                                     <div class="help-block text-right"><a href="">Mot de passe oublié ?</a>
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-default btn-block">Se connecter</button>
+                                                    <button type="button" id="login_btn" class="btn btn-default btn-block">Se connecter</button>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
