@@ -36,7 +36,7 @@
         background-image: url("../imgs/map_pin.jpg");
         padding: 100px;
     }
-    
+
     #section1 .btn-default {
         font-size: 30px;
         margin-top: 20px;
@@ -48,7 +48,7 @@
     footer {
         font-size: 75%;
     }
-    
+
     #section1 {
         background-image: url("../imgs/map_pin_mobile.jpg");
         margin-top: 30px;
