@@ -57,18 +57,18 @@
 
 /* Register form */
 
-#register-dp{
+#registerModal {
     min-width: 250px;
     padding: 14px 14px 0;
     overflow:hidden;
     background-color:rgba(255,255,255,.8);
 }
 
-#register-dp .form-group {
+#registerModal .form-group {
     margin-bottom: 10px;
 }
 
-#register-dp .btn{
+#registerModal .btn{
     background-color: #DB6562;
     color: white;
 }
