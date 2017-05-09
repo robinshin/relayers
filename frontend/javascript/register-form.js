@@ -73,8 +73,8 @@ function checkRegisterForm(form)
 
 function checkLoginForm(form)
 {
-    var mail = form.username,
-    password = form.password;
+    var mail = form.login_username,
+    password = form.login_password;
     
     var mailCorrect = checkMail(mail),
     passwordCorrect = checkLength(password);
