@@ -196,7 +196,7 @@ function display_register_alert(success, msg_id) {
 // Login form
 $(function() {
   $('#login_btn').click(function() {
-                        if (!checkRegisterForm($('#login-form')[0]))
+                        if (!checkLoginForm($('#login-form')[0]))
                         return;
                         $.ajax({
                                url : '/login',
@@ -227,7 +227,7 @@ $(function() {
                                },
                                
                                error: function() {
-                               display_register_alert(false, 'unknown');
+                               display_login_alert(false, 'unknown');
                                }
                                });
                         });
