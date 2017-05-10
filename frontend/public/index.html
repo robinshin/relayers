@@ -1,322 +1,325 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Relayers</title>
-        <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link rel="icon" type="image/png" href="../imgs/logo.png" />
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                    <link href="style_index.css" rel="stylesheet">
-                        <link href="navbar.css" rel="stylesheet">
-                            <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                                <script type="text/javascript" src="../javascript/google_localisation_inscription.js"></script>
-                                <style>
-                                    /* Always set the map height explicitly to define the size of the div
-                                     * element that contains the map. */
-                                #map {
-                                    height: 100%;
-                                }
-                                /* Optional: Makes the sample page fill the window. */
-                                html, body {
-                                    height: 100%;
-                                    margin: 0;
-                                    padding: 0;
-                                }
-                                /* z-index allows autocomplete to be above the dropdown-menu */
-                                .pac-container {
-                                    z-index: 2000;
-                                }
-                                </style>
-                                <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-                                    </head>
-    
-    
-    <body data-spy="scroll" data-target=".navbar">
-        
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" style="color:#F7230C!important" href="#"><span><img src="../imgs/logo.png" width="25" alt="Relayers"></span> Relayers</a>
-                </div>
-                
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar">
-                    <!-- Navbar left -->
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#section1"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Accueil</a></li>
-                        <li><a href="#section2"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> À propos</a></li>
-                        <li><a href="#section3">Contact</a></li>
-                    </ul>
-                    
-                    <!-- Navbar right -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="" data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-new-window"></span> Inscription <span class="caret"></span></a></li>
-                        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Connexion <span class="caret"></span></a>
-                            <!-------- Login dropdown -------->
-                            <ul id="login-dp" class="dropdown-menu">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <!------ Login alert window ------>
-                                            <div id="login-alert" style="display: none" class="alert alert-danger text-center">
-                                                <a class="close" data-hide="alert">&times;</a>
-                                                <span id="text-login-alert"></span>
-                                            </div>
-                                            
-                                            <form class="form" action="" accept-charset="UTF-8" id="login-form">
-                                                <!-- Username -->
-                                                <div class="form-group">
-                                                    <label class="sr-only" for="login_username">Adresse Email</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                                        <input type="email" class="form-control input-md" id="login_username" placeholder="Adresse mail">
-                                                            </div>
-                                                </div>
-                                                
-                                                <!-- Password -->
-                                                <div class="form-group">
-                                                    <label class="sr-only" for="login_password">Mot de passe</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                                        <input type="password" class="form-control input-md" id="login_password" placeholder="Mot de passe">
-                                                            </div>
-                                                    <div class="help-block text-right"><a href="">Mot de passe oublié ?</a>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <button type="button" id="login_btn" class="btn btn-default btn-block">Se connecter</button>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Rester connecter
-                                                            </label>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="bottom text-center">
-                                            Vous êtes nouveau ? <br> <a href="" data-toggle="modal" data-target="#registerModal"><b>Rejoignez nous !</b></a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        
-        <!-------- Register modal -------->
-        <div id="registerModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"> &times;</button>
-                        <!-- Form name -->
-                        <h4 class="text-center">Inscription</h4>
+<head>
+  <title>Relayers</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../imgs/logo.png" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="style_index.css" rel="stylesheet">
+  <link href="navbar.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../javascript/google_localisation_inscription.js"></script>
+  <style>
+  /* Always set the map height explicitly to define the size of the div
+  * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  /* z-index allows autocomplete to be above the dropdown-menu */
+  .pac-container {
+    z-index: 2000;
+  }
+  </style>
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" style="color:#F7230C!important" href="#"><span><img src="../imgs/logo.png" width="25" alt="Relayers"></span> Relayers</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar">
+        <!-- Navbar left -->
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Accueil</a></li>
+          <li><a href="#about"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> À propos</a></li>
+          <li><a href="#contact"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></li>
+        </ul>
+
+        <!-- Navbar right -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="" data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-new-window"></span> Inscription <span class="caret"></span></a></li>
+          <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Connexion <span class="caret"></span></a>
+            <!-------- Login dropdown -------->
+            <ul id="login-dp" class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <!------ Login alert window ------>
+                    <div id="login-alert" style="display: none" class="alert alert-danger text-center">
+                      <a class="close" data-hide="alert">&times;</a>
+                      <span id="text-login-alert"></span>
                     </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form class="form" action="" accept-charset="UTF-8" id="register-form">
-                                    
-                                    <!------ Register alert window ------>
-                                    <div id="register-alert" style="display: none" class="alert text-center">
-                                        <a class="close" data-hide="alert">&times;</a>
-                                        <span id="text-register-alert"></span>
-                                    </div>
-                                    
-                                    
-                                    <!-- First name -->
-                                    <div class="form-group">
-                                        <label class="sr-only" for="firstName">Prénom</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                                            <input class="form-control input-md" id="firstName" name="firstName"type="text" placeholder="Prénom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Second name -->
-                                    <div class="form-group">
-                                        <label class="sr-only" for="secondName">Nom</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                                            <input class="form-control input-md" id="secondName" name="secondName"type="text" placeholder="Nom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Address -->
-                                    <div class="form-group" id="locationField">
-                                        <label class="sr-only" for="address">Adresse</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                            <input class="form-control input-md" id="autocomplete" name="address"type="text" placeholder="Adresse" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Email -->
-                                    <div class="form-group">
-                                        <label class="sr-only" for="email">Adresse Email</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                            <input class="form-control input-md" id="username" name="username"type="text" placeholder="Adresse Email" required="" onblur="checkMail(this)" onfocus="highlight(this, false)">
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Password -->
-                                    <div class="form-group">
-                                        <label class="sr-only" for="password">Mot de passe</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                            <input class="form-control input-md" id="password" name="password"type="password" placeholder="Mot de passe" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Password confirm -->
-                                    <div class="form-group">
-                                        <label class="sr-only" for="password-confirm">Confirmez le mot de passe</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                            <input class="form-control input-md" id="password_confirm" name="password_confirm" type="password" placeholder="Confirmez le mot de passe" required="" onblur="checkEquals(this)" onfocus="highlight(this, false)">
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Button -->
-                                    <div class="form-group">
-                                        <button type="button" id="register_btn" class="btn btn-default btn-block">S'inscrire</button>
-                                    </div>
-                                </form>
-                            </div>
+
+                    <form class="form" action="" accept-charset="UTF-8" id="login-form">
+                      <!-- Username -->
+                      <div class="form-group">
+                        <label class="sr-only" for="login_username">Adresse Email</label>
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input type="email" class="form-control input-md" id="login_username" placeholder="Adresse mail">
                         </div>
-                    </div>
-                    <!--
-                     <div class="modal-footer">
-                     <div style="padding:10px"></div>
-                     </div>
-                     -->
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="container-fluid" id="section1">
-            <div class="container" style="padding:50px;">
-                
-                <h1>Fatigués des relais colis? <br>Des avis de passage?</h1>
-                
-                <p class="lead">Faites vous livrer chez votre voisin</p>
-                
-                <h2 style="margin-top:150px;">Ou bien réceptionnez des colis pour vos voisins à hauteur de <strong>2€</strong> par colis</h2>
-                
-                <button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#registerModal">Devenir Relayer <span class="glyphicon glyphicon-edit"></span></button>
-                
-            </div>
-        </div>
-        
-        <div class="container-fluid" id="section2">
-            <div class="row">
-                <h1 style="color:#DB6562;">Comment ca marche ?</h1>
-                <hr>
-                <div class="col-lg-4">
-                    <h2 style=>Une alternative intelligente aux relais colis</h2>
-                    <p>La livraison d'une commande via un site de e-commerce peut s'avérer souvent difficile notamment en raison des horaires de livraison.
-                    Dans de nombreux cas, vos horaires ne correspondent pas aux horaires de livraison ou à ceux des relais colis (en général
-                    ouverts de 9h à 19h).</p>
-                </div>
-                <div class="col-lg-4">
-                    <h2>La solution</h2>
-                    <p>Relayer parie sur la communauté de voisins, aux horaires bien plus flexibles, qui sont prêts à recevoir vos colis contre rémunération !</p>
-                </div>
-                <div class="col-lg-4">
-                    <h2>Concrètement</h2>
-                    <p>Une solution implémentée directement sur nos sites de e-commerces partenaires</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-lg-offset-4">
-                <img src="../imgs/fake_relayers.png" class="img-responsive img-thumbnail"alt="fake" width="auto">
-                    </div>
-        </div>
-        
-        <div class="container-fluid" id="section3">
-            
-            <!------ Contact alert window ------>
-            <div id="contact-alert" style="display: none" class="col-lg-6 col-lg-offset-3 alert alert-success text-center">
-                <a class="close" data-hide="alert">&times;</a>
-                <span id="text-contact-alert"></span>
-            </div>
-            
-            
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2>Contactez nous !</h2>
-                    <p class="lead">N'hésitez pas à nous contacter directement en remplissant le formulaire ci-dessous</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <form class="form-horizontal" id="contact-form" action="#section3">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="sender_mail" name="sender_mail" placeholder="Adresse email" onblur="checkMail(this)" onfocus="highlight(this, false)">
-                                </div>
-                        <div class="form-group ">
-                            <textarea  class="form-control" id="msg" name="msg" placeholder="Votre message" style="resize:none;" rows="5"></textarea>
+                      </div>
+
+                      <!-- Password -->
+                      <div class="form-group">
+                        <label class="sr-only" for="login_password">Mot de passe</label>
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                          <input type="password" class="form-control input-md" id="login_password" placeholder="Mot de passe">
                         </div>
-                        <button type="button" class="btn btn-default center-block" id="contact_btn">Envoyer</button>
-                        <hr>
+                        <div class="help-block text-right"><a href="">Mot de passe oublié ?</a>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <button type="button" id="login_btn" class="btn btn-default btn-block">Se connecter</button>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Rester connecter
+                        </label>
+                      </div>
                     </form>
+                  </div>
+                  <div class="bottom text-center">
+                    Vous êtes nouveau ? <br> <a href="" data-toggle="modal" data-target="#registerModal"><b>Rejoignez nous !</b></a>
+                  </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h3>Suivez-nous sur les réseaux sociaux !</h3>
-                    <ul class="list-inline">
-                        <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter"> <span class="network-name">Twitter</span></i></a></li>
-                        <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook"> <span class="network-name">Facebook</span></i></a></li>
-                    </ul>
-                </div>
-            </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-------- Register modal -------->
+  <div id="registerModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"> &times;</button>
+          <!-- Form name -->
+          <h4 class="text-center">Inscription</h4>
         </div>
-        
-        
-        <footer class="footer">
-            <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
-        </footer>
-        
-        <!-- Bootstrap core JavaScript
-         ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="../bootstrap/docs/dist/js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
-        
-        <!-- General forms javascript -->
-        <script src="../javascript/forms.js"></script>
-        <!-- Contact form javascript -->
-        <script src="../javascript/contact-form.js"></script>
-        <!-- Register form javascript -->
-        <script src="../javascript/register-form.js"></script>
-        
-        <script>
-            $('a[href^="#"]').click(function(){
-                                    var the_id = $(this).attr("href");
-                                    
-                                    $('html, body').animate({
-                                                            scrollTop:$(the_id).offset().top
-                                                            }, 'slow');
-                                    return false;
-                                    });
-            </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete" async defer></script>
-    </body>
-    
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <form class="form" action="" accept-charset="UTF-8" id="register-form">
+
+                <!------ Register alert window ------>
+                <div id="register-alert" style="display: none" class="alert text-center">
+                  <a class="close" data-hide="alert">&times;</a>
+                  <span id="text-register-alert"></span>
+                </div>
+
+
+                <!-- First name -->
+                <div class="form-group">
+                  <label class="sr-only" for="firstName">Prénom</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <input class="form-control input-md" id="firstName" name="firstName"type="text" placeholder="Prénom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                  </div>
+                </div>
+
+                <!-- Second name -->
+                <div class="form-group">
+                  <label class="sr-only" for="secondName">Nom</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <input class="form-control input-md" id="secondName" name="secondName"type="text" placeholder="Nom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                  </div>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group" id="locationField">
+                  <label class="sr-only" for="address">Adresse</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                    <input class="form-control input-md" id="autocomplete" name="address"type="text" placeholder="Adresse" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                  <label class="sr-only" for="email">Adresse Email</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input class="form-control input-md" id="username" name="username"type="text" placeholder="Adresse Email" required="" onblur="checkMail(this)" onfocus="highlight(this, false)">
+                  </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                  <label class="sr-only" for="password">Mot de passe</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input class="form-control input-md" id="password" name="password"type="password" placeholder="Mot de passe" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                  </div>
+                </div>
+
+                <!-- Password confirm -->
+                <div class="form-group">
+                  <label class="sr-only" for="password-confirm">Confirmez le mot de passe</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input class="form-control input-md" id="password_confirm" name="password_confirm" type="password" placeholder="Confirmez le mot de passe" required="" onblur="checkEquals(this)" onfocus="highlight(this, false)">
+                  </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                  <button type="button" id="register_btn" class="btn btn-default btn-block">S'inscrire</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--
+        <div class="modal-footer">
+        <div style="padding:10px"></div>
+      </div>
+    -->
+  </div>
+</div>
+</div>
+
+
+<div class="container-fluid" id="home">
+  <div class="container">
+
+    <h1 style="color: #CA5451">Une journée à la maison?</h1>
+
+    <h2 style="margin-top:40px;">Réceptionnez des colis pour vos voisins et soyez rémunéré !</h2>
+
+    <button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#registerModal">Devenir Relayer <span class="glyphicon glyphicon-edit"></span></button>
+
+  </div>
+</div>
+
+<div class="container-fluid" id="about">
+  <div class="row">
+    <h1 style="color:#DB6562;">Comment ca marche ?</h1>
+    <hr>
+    <div class="col-lg-4">
+      <h2 style=>Une alternative intelligente aux relais colis</h2>
+      <p>La livraison d'une commande via un site de e-commerce peut s'avérer souvent difficile notamment en raison des horaires de livraison.
+        Dans de nombreux cas, vos horaires ne correspondent pas aux horaires de livraison ou à ceux des relais colis (en général
+        ouverts de 9h à 19h).</p>
+      </div>
+      <div class="col-lg-4">
+        <h2>La solution</h2>
+        <p>Relayer parie sur la communauté de voisins, aux horaires bien plus flexibles, qui sont prêts à recevoir vos colis contre rémunération !</p>
+      </div>
+      <div class="col-lg-4">
+        <h2>Concrètement</h2>
+        <p>Une solution implémentée directement sur nos sites de e-commerces partenaires</p>
+      </div>
+    </div>
+    <div class="col-lg-4 col-lg-offset-4">
+      <img src="../imgs/fake_relayers.png" class="img-responsive img-thumbnail"alt="fake" width="auto">
+    </div>
+  </div>
+
+  <div class="container-fluid" id="contact">
+
+    <!------ Contact alert window ------>
+    <div id="contact-alert" style="display: none" class="col-lg-6 col-lg-offset-3 alert alert-success text-center">
+      <a class="close" data-hide="alert">&times;</a>
+      <span id="text-contact-alert"></span>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2>Contactez nous !</h2>
+        <p class="lead">N'hésitez pas à nous contacter directement en remplissant le formulaire ci-dessous</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <form class="form-horizontal" id="contact-form" action="#contact">
+          <div class="form-group">
+            <input type="text" class="form-control" id="sender_mail" name="sender_mail" placeholder="Adresse email" onblur="checkMail(this)" onfocus="highlight(this, false)">
+          </div>
+          <div class="form-group ">
+            <textarea  class="form-control" id="msg" name="msg" placeholder="Votre message" style="resize:none;" rows="5"></textarea>
+          </div>
+          <button type="button" class="btn btn-default center-block" id="contact_btn">Envoyer</button>
+          <hr>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h3>Suivez-nous sur les réseaux sociaux !</h3>
+        <ul class="list-inline">
+          <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter"> <span class="network-name">Twitter</span></i></a></li>
+          <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook"> <span class="network-name">Facebook</span></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="footer">
+    <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="../bootstrap/docs/dist/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="../bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+  <!-- General forms javascript -->
+  <script src="../javascript/forms.js"></script>
+  <!-- Contact form javascript -->
+  <script src="../javascript/contact-form.js"></script>
+  <!-- Register form javascript -->
+  <script src="../javascript/register-form.js"></script>
+
+  <script>
+  $('a[href^="#"]').click(function(){
+    var the_id = $(this).attr("href");
+    if (the_id != "#") {
+      $('html, body').animate({
+        scrollTop:$(the_id).offset().top
+      }, 'slow');
+    }
+    return false;
+  });
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete" async defer></script>
+
+  <!-- Google analytics -->
+  <script src="../javascript/analytics.js"></script>
+
+</body>
+
 </html>
