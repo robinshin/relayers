@@ -6,6 +6,7 @@
   margin-left: auto;
 }
 
+/*** Home section ***/
 #home {
   background-image: url("../imgs/map_pin.png");
   background-size: cover;
@@ -15,6 +16,18 @@
   text-align: center;
 }
 
+#home .btn-default {
+  background-color: #e27e03;
+  color: white;
+}
+
+#home .btn-default:hover {
+  background-color: #fd971c;
+  color: white;
+}
+
+
+/*** About section ***/
 #about {
   padding: 70px;
   color: #3D4957;
@@ -23,6 +36,11 @@
   background-color: #F9FAFC;
 }
 
+#about h1 {
+  color: #fd971c;
+}
+
+/*** Contact section ***/
 #contact {
   padding-top:50px;
   height:600px;
@@ -30,10 +48,30 @@
   background-color: #222222;
 }
 
+#contact h2 {
+  color: #fd971c;
+}
+
+/*** Others ***/
+.dropdown-menu {
+  margin:10px auto;
+  top: 75px;
+}
+
+.button {
+  margin: 10px auto;
+}
+
+
+/****** Responsiveness ******/
+
+/* Big screens */
 @media screen and (min-width: 480px) {
   footer {
     font-size: 100%;
   }
+
+  /** Home section **/
   #home {
     padding: 100px;
   }
@@ -52,16 +90,19 @@
     margin-top: 20px;
     border: none;
   }
+
   #home h2 {
     margin-top:40px;
   }
 }
 
+/* Small screens */
 @media screen and (max-width: 480px) {
   footer {
     font-size: 75%;
   }
 
+  /** Home section **/
   #home {
     background-size: auto;
     margin-top: 30px;
@@ -85,25 +126,16 @@
     font-family: Trebuchet MS, sans-serif;
   }
 
+  #about h2 {
+    margin-top: 50px;
+  }
+
   #home .btn-default {
     margin-top: 75px;
   }
 
+  /** Contact section **/
   #contact .row {
     padding: 10px;
   }
-}
-
-#home .btn-default {
-  background-color: #e27e03;
-  color: white;
-}
-
-#home .btn-default:hover {
-  background-color: #fd971c;
-  color: white;
-}
-
-.button, .dropdown-menu {
-  margin:10px auto
 }

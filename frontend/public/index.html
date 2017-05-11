@@ -211,44 +211,34 @@
 
     <h2>Réceptionnez des colis pour vos voisins et soyez rémunéré !</h2>
 
-    <button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#registerModal">Devenir Relayer <span class="glyphicon glyphicon-edit"></span></button>
+    <button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#registerModal">Inscrivez-vous gratuitement !</button>
 
   </div>
 </div>
 
+
 <div class="container-fluid" id="about">
   <div class="row">
-    <h1 style="color:#fd971c;">Comment ca marche ?</h1>
+    <h1>Comment ça marche ?</h1>
+    <h3><i>En 3 étapes ...</i></h3>
     <hr>
     <div class="col-lg-4">
-      <h2 style=>Une alternative intelligente aux relais colis</h2>
-      <p>La livraison d'une commande via un site de e-commerce peut s'avérer souvent difficile notamment en raison des horaires de livraison.
-        Dans de nombreux cas, vos horaires ne correspondent pas aux horaires de livraison ou à ceux des relais colis (en général
-        ouverts de 9h à 19h).</p>
+      <h2>&#9312; Commande</h2>
+      <p>Votre voisin souhaite commander un article sur un site de e-commerce partenaire, mais il n'est pas disponible pour réceptionner ce colis.
+        Heureusement, vous l'êtes ! Il va donc choisir le mode de livraison "Relayers" et vous sélectionner pour que son colis soit livré directement chez vous !</p>
       </div>
       <div class="col-lg-4">
-        <h2>La solution</h2>
-        <p>Relayer parie sur la communauté de voisins, aux horaires bien plus flexibles, qui sont prêts à recevoir vos colis contre rémunération !</p>
+        <h2>&#9313; Réception</h2>
+        <p>Vous réceptionnez le colis de votre voisin, et le gardez précieusement chez vous jusqu'à que votre voisin vienne le chercher.</p>
       </div>
       <div class="col-lg-4">
-        <h2>Concrètement</h2>
-        <p>Une solution implémentée directement sur nos sites de e-commerces partenaires</p>
+        <h2>&#9314; Rémunération</h2>
+        <p>En plus de rendre service à votre voisin, vous êtes rémunéré pour le service rendu !</p>
       </div>
-    </div>
-    <div class="col-lg-4 col-lg-offset-4">
-      <img src="../imgs/fake_relayers.png" class="img-responsive img-thumbnail"alt="fake" width="auto">
     </div>
   </div>
 
   <div class="container-fluid" id="contact">
-
-    <!------ Contact alert window ------>
-    <div id="contact-alert" style="display: none" class="col-lg-6 col-lg-offset-3 alert alert-success text-center">
-      <a class="close" data-hide="alert">&times;</a>
-      <span id="text-contact-alert"></span>
-    </div>
-
-
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 text-center">
         <h2>Contactez nous !</h2>
@@ -257,6 +247,15 @@
     </div>
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
+        <hr>
+
+        <!------ Contact alert window ------>
+        <div id="contact-alert" style="display: none" class="col-lg-6 col-lg-offset-3 alert alert-success text-center">
+          <a class="close" data-hide="alert">&times;</a>
+          <span id="text-contact-alert"></span>
+        </div>
+
+
         <form class="form-horizontal" id="contact-form" action="#contact">
           <div class="form-group">
             <input type="text" class="form-control" id="sender_mail" name="sender_mail" placeholder="Adresse email" onblur="checkMail(this)" onfocus="highlight(this, false)">
