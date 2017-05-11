@@ -213,7 +213,7 @@ $(function() {
 
       success: function(data) {
         if (data.reponse == 'success') {
-          $(location).attr('href', 'http://stackoverflow.com');
+          $(location).attr('href', 'https://relayers.fr/');
         }
         else {
           if (data.msg == 'user not found') {
