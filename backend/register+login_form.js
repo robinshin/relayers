@@ -170,13 +170,13 @@ app.get('/email-verification/:URL', (req, res) => {
     if (user) {
       nev.sendConfirmationEmail(user.username, function(err, info) {
         if (err) {
-          return res.status(404).send('Erreur');
+          return res.redirect('https://relayers.fr/' + '?confirm=false');
         }
-        res.redirect('https://relayers.fr/');
+        res.redirect('https://relayers.fr/' + '?confirm=true');
       });
     }
     else {
-      return res.status(404).send('Erreur de validation');
+      return res.redirect('https://relayers.fr/' + '?confirm=false');
     }
   });
 });
