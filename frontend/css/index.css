@@ -7,8 +7,10 @@
 }
 
 #home {
+  background-image: url("../imgs/map_pin.png");
   background-size: cover;
-  height:850px;
+  height: auto;
+  width: auto;
   color: #fff;
   text-align: center;
 }
@@ -25,7 +27,7 @@
   padding-top:50px;
   height:600px;
   color: #fff;
-  background-color: #444;
+  background-color: #222222;
 }
 
 @media screen and (min-width: 480px) {
@@ -33,7 +35,6 @@
     font-size: 100%;
   }
   #home {
-    background-image: url("../imgs/map_pin.png");
     padding: 100px;
   }
 
@@ -51,6 +52,9 @@
     margin-top: 20px;
     border: none;
   }
+  #home h2 {
+    margin-top:40px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -59,9 +63,34 @@
   }
 
   #home {
-    background-image: url("../imgs/map_pin_mobile.jpg");
+    background-size: auto;
     margin-top: 30px;
     padding: 10%;
+  }
+
+  #home h1 {
+    margin-top: 30px;
+  }
+
+  #home h2 {
+    margin-top: 50px;
+  }
+
+  #home .container {
+    margin-top: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    font-family: Trebuchet MS, sans-serif;
+  }
+
+  #home .btn-default {
+    margin-top: 75px;
+  }
+
+  #contact .row {
+    padding: 10px;
   }
 }
 
