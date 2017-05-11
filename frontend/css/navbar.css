@@ -67,13 +67,18 @@
 
 /* Navbar height */
 
-.navbar-brand,
-.navbar-nav .navbar-head {
-    line-height: 75px;
-    height: 75px;
-    padding-top: 0;
-}
+@media screen and (min-width: 480px) {
+  footer {
+    font-size: 100%;
+  }
+  .navbar-brand,
+  .navbar-nav .navbar-head {
+      line-height: 75px;
+      height: 75px;
+      padding-top: 0;
+  }
 
-.navbar-nav .navbar-btn {
-  margin-top: 21px;
+  .navbar-nav .navbar-btn {
+    margin-top: 21px;
+  }
 }
