@@ -261,13 +261,14 @@ function display_login_alert(success, msg_id) {
 
 // confirmation
 $(function() {
-  var userConfirmed = window.location.pathname;
-  if (userConfirmed === '/?confirm=true') {
+  var url = window.location.href;
+  var userConfirmed = url.split('?')[1];
+  if (userConfirmed === 'confirm=true') {
     $('#text-mail-confirmedModal').html('Votre adresse mail a bien été confirmée');
     $('#mail-confirmedModal').modal('show');
     $(location).attr('href', '#');
   }
-  else if (userConfirmed==='/?confirm=false') {
+  else if (userConfirmed==='confirm=false') {
     $('#text-mail-confirmedModal').html('Erreur : le lien de confirmation est incorrect');
     $('#mail-confirmedModal').modal('show');
     $(location).attr('href', '#');
