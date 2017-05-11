@@ -181,10 +181,10 @@ app.get('/email-verification/:URL', (req, res) => {
   });
 });
 
-app.post('/login', function(req, res) {
+app.post('/login', (req, res) => {
   User.findOne({
     username: req.body.username
-  }, function(err, user) {
+  }, (err, user) => {
     if (err)
     throw err;
     if (!user) {
@@ -192,7 +192,7 @@ app.post('/login', function(req, res) {
     }
     else {
       // check if password matches
-      user.comparePassword(req.body.password, function (err, isMatch) {
+      user.comparePassword(req.body.password, (err, isMatch) => {
         if (isMatch && !err) {
           // if user is found and password is right create a token
           var token = jwt.sign(user, config.secret);
@@ -206,6 +206,7 @@ app.post('/login', function(req, res) {
     }
   });
 });
+
 
 //// Port
 app.listen(app.get('port'), () => {
