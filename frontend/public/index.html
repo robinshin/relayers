@@ -34,85 +34,79 @@
 
 <body data-spy="scroll" data-target=".navbar">
 
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" style="color:#F7230C!important" href="#"><span><img src="../imgs/logo.png" width="25" alt="Relayers"></span> Relayers</a>
-      </div>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand text-uppercase" href="#home"><span class="label text-capitalize">RELAYERS</span></a>
+        </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar">
-        <!-- Navbar left -->
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Accueil</a></li>
-          <li><a href="#about"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> À propos</a></li>
-          <li><a href="#contact"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></li>
-        </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown"><button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion </button>
+                  <!-------- Login dropdown -------->
+                  <ul id="login-dp" class="dropdown-menu">
+                    <li>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <!------ Login alert window ------>
+                          <div id="login-alert" style="display: none" class="alert alert-danger text-center">
+                            <a class="close" data-hide="alert">&times;</a>
+                            <span id="text-login-alert"></span>
+                          </div>
 
-        <!-- Navbar right -->
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="" data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-new-window"></span> Inscription <span class="caret"></span></a></li>
-          <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Connexion <span class="caret"></span></a>
-            <!-------- Login dropdown -------->
-            <ul id="login-dp" class="dropdown-menu">
-              <li>
-                <div class="row">
-                  <div class="col-md-12">
-                    <!------ Login alert window ------>
-                    <div id="login-alert" style="display: none" class="alert alert-danger text-center">
-                      <a class="close" data-hide="alert">&times;</a>
-                      <span id="text-login-alert"></span>
-                    </div>
+                          <form class="form" action="" accept-charset="UTF-8" id="login-form">
+                            <!-- Username -->
+                            <div class="form-group">
+                              <label class="sr-only" for="login_username">Adresse Email</label>
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input type="email" class="form-control input-md" id="login_username" placeholder="Adresse mail">
+                              </div>
+                            </div>
 
-                    <form class="form" action="" accept-charset="UTF-8" id="login-form">
-                      <!-- Username -->
-                      <div class="form-group">
-                        <label class="sr-only" for="login_username">Adresse Email</label>
-                        <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input type="email" class="form-control input-md" id="login_username" placeholder="Adresse mail">
+                            <!-- Password -->
+                            <div class="form-group">
+                              <label class="sr-only" for="login_password">Mot de passe</label>
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input type="password" class="form-control input-md" id="login_password" placeholder="Mot de passe">
+                              </div>
+                              <div class="help-block text-right"><a href="">Mot de passe oublié ?</a>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <button type="button" id="login_btn" class="btn btn-default btn-block">Se connecter</button>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox"> Rester connecter
+                              </label>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="bottom text-center">
+                          Vous êtes nouveau ? <br> <a href="" data-toggle="modal" data-target="#registerModal"><b>Rejoignez nous !</b></a>
                         </div>
                       </div>
-
-                      <!-- Password -->
-                      <div class="form-group">
-                        <label class="sr-only" for="login_password">Mot de passe</label>
-                        <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                          <input type="password" class="form-control input-md" id="login_password" placeholder="Mot de passe">
-                        </div>
-                        <div class="help-block text-right"><a href="">Mot de passe oublié ?</a>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <button type="button" id="login_btn" class="btn btn-default btn-block">Se connecter</button>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> Rester connecter
-                        </label>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="bottom text-center">
-                    Vous êtes nouveau ? <br> <a href="" data-toggle="modal" data-target="#registerModal"><b>Rejoignez nous !</b></a>
-                  </div>
-                </div>
-              </li>
+                    </li>
+                  </ul>
+                </li>
             </ul>
-          </li>
-        </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+
 
   <!-------- Register modal -------->
   <div id="registerModal" class="modal fade" role="dialog">
@@ -221,7 +215,7 @@
 
 <div class="container-fluid" id="about">
   <div class="row">
-    <h1 style="color:#DB6562;">Comment ca marche ?</h1>
+    <h1 style="color:#fd971c;">Comment ca marche ?</h1>
     <hr>
     <div class="col-lg-4">
       <h2 style=>Une alternative intelligente aux relais colis</h2>

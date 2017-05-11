@@ -51,18 +51,16 @@
 
 /* Navbar color */
 
-.navbar-inverse{
-    background-color: #404040 !important;
+.btn {
+	background-color: #e27e03;
+	color: white;
 }
 
-.navbar-inverse .navbar-nav>.active>a,
-.navbar-inverse .navbar-nav>.active>a:hover,
-.navbar-inverse .navbar-nav>.active>a:focus {
-  background-color: #e27e03;
+.btn:hover {
+	background-color: #fd971c;
+	color: white;
 }
 
-.navbar-brand > img {
-  height: 100%;
-  padding: 0px;
-  width: auto;
+.label {
+	background-color: #e27e03;
 }
