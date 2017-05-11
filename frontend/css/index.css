@@ -30,6 +30,7 @@
 /*** About section ***/
 #about {
   padding: 70px;
+  height:auto;
   color: #3D4957;
   vertical-align: top;
   text-align: center;
@@ -43,7 +44,7 @@
 /*** Contact section ***/
 #contact {
   padding-top:50px;
-  height:600px;
+  height:auto;
   color: #fff;
   background-color: #222222;
 }
