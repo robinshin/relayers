@@ -14,17 +14,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="../javascript/google_localisation_inscription.js"></script>
   <style>
-  /* Always set the map height explicitly to define the size of the div
-  * element that contains the map. */
-  #map {
-    height: 100%;
-  }
-  /* Optional: Makes the sample page fill the window. */
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
   /* z-index allows autocomplete to be above the dropdown-menu */
   .pac-container {
     z-index: 2000;
@@ -59,6 +48,7 @@
             <!-------- Login dropdown -------->
             <ul id="login-dp" class="dropdown-menu">
               <li>
+                <div class="container-fluid"
                 <div class="row">
                   <div class="col-md-12">
                     <!------ Login alert window ------>
@@ -98,6 +88,7 @@
                       </div>
                     </form>
                   </div>
+                </div>
                   <div class="bottom text-center">
                     Vous êtes nouveau ? <br> <a href="" data-toggle="modal" data-target="#registerModal"><b>Rejoignez nous !</b></a>
                   </div>
@@ -121,6 +112,7 @@
           <h4 class="text-center">Inscription</h4>
         </div>
         <div class="modal-body">
+          <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
               <form class="form" action="" accept-charset="UTF-8" id="register-form">
@@ -193,6 +185,7 @@
               </form>
             </div>
           </div>
+        </div>
         </div>
         <!--
         <div class="modal-footer">
