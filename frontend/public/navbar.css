@@ -18,40 +18,12 @@
     padding:14px;
 }
 
-#login-dp .social-buttons{
-    margin:12px 0
-}
-
-#login-dp .social-buttons a{
-    width: 49%;
-}
-
 #login-dp .form-group {
     margin-bottom: 10px;
 }
 
-.btn-fb{
-    color: #fff;
-    background-color:#3b5998;
-}
-
-.btn-fb:hover{
-    color: #fff;
-    background-color:#496ebc
-}
-
-.btn-tw{
-    color: #fff;
-    background-color:#55acee;
-}
-
-.btn-tw:hover{
-    color: #fff;
-    background-color:#59b5fa;
-}
-
 #login-dp .btn{
-  background-color: #DB6562;
+  background-color: #FF8C00;
   color: white;
 }
 
@@ -73,20 +45,20 @@
 }
 
 #registerModal .btn{
-    background-color: #DB6562;
+    background-color: #e27e03;
     color: white;
 }
 
 /* Navbar color */
 
 .navbar-inverse{
-    background-color:#3D4957 !important;
+    background-color: #404040 !important;
 }
 
 .navbar-inverse .navbar-nav>.active>a,
 .navbar-inverse .navbar-nav>.active>a:hover,
 .navbar-inverse .navbar-nav>.active>a:focus {
-  background-color: #3D4957;
+  background-color: #e27e03;
 }
 
 .navbar-brand > img {
