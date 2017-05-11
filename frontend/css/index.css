@@ -73,17 +73,14 @@ body {
   }
 
   /** Home section **/
-  #home {
-    padding: 100px;
-  }
-
   #home .container {
-    margin-top: 140px;
+    margin-top: 240px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 3px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     padding: 50px;
     font-family: Trebuchet MS, sans-serif;
+    margin-bottom: 140px;
   }
 
   #home .btn-default {
