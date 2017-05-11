@@ -12,10 +12,10 @@ var UserSchema = new Schema({
     type: String,
     required: true
   },
-  firstname: {
+  firstName: {
     type: String,
   },
-  secondname: {
+  secondName: {
     type: String,
   },
   address: {
