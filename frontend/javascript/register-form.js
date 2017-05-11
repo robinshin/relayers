@@ -198,8 +198,9 @@ function display_register_alert(success, msg_id) {
 $(function() {
   $('#login_btn').click(function() {
     $('#login-alert').css('display', 'none');
-    if (!checkLoginForm($('#login-form')[0]))
-    return;
+    if (!checkLoginForm($('#login-form')[0])) {
+      return;
+    }
     $.ajax({
       url : '/login',
       type : 'POST',
@@ -221,7 +222,8 @@ $(function() {
           }
           else if (data.msg == 'wrong password') {
             display_login_alert(false, 'wrong_password');
-          }                               else {
+          }
+          else {
             display_login_alert(false, 'unknown');
           }
           checkLoginForm($('#login-form')[0]);
@@ -256,3 +258,18 @@ function display_login_alert(success, msg_id) {
   $('#text-login-alert').html(msg);
   $('#login-alert').css('display', 'block');
 }
+
+// confirmation
+$(function() {
+  var userConfirmed = window.location.pathname;
+  if (userConfirmed === '/?confirm=true') {
+    $('#text-mail-confirmedModal').html('Votre adresse mail a bien été confirmée');
+    $('#mail-confirmedModal').modal('show');
+    $(location).attr('href', '#');
+  }
+  else if (userConfirmed==='/?confirm=false') {
+    $('#text-mail-confirmedModal').html('Erreur : le lien de confirmation est incorrect');
+    $('#mail-confirmedModal').modal('show');
+    $(location).attr('href', '#');
+  }
+});
