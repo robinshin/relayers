@@ -268,6 +268,9 @@ $(function() {
     $('#glyphicon-mail-confirmedModal').removeClass('glyphicon-remove');
     $('#glyphicon-mail-confirmedModal').addClass('glyphicon-ok');
     $('#glyphicon-mail-confirmedModal').css('color', 'green');
+    //// Temporary : service not openened
+    $('#temporary-service-closed').html('Merci de nous porter un tel intérêt ! </br>Malheureusement, notre service n\'est pas encore disponible. </br>Nous vous recontacterons dès qu\'il le sera :)');
+
     $('#mail-confirmedModal').modal('show');
     $(location).attr('href', '#');
   }
@@ -276,6 +279,9 @@ $(function() {
     $('#glyphicon-mail-confirmedModal').removeClass('glyphicon-ok');
     $('#glyphicon-mail-confirmedModal').addClass('glyphicon-remove');
     $('#glyphicon-mail-confirmedModal').css('color', 'red');
+    //// Temporary : service not openened
+    $('#temporary-service-closed').html('');
+
     $('#mail-confirmedModal').modal('show');
     $(location).attr('href', '#');
   }
