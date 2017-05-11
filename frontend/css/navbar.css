@@ -22,7 +22,7 @@
     margin-bottom: 10px;
 }
 
-#login-dp .btn{
+#login-dp .btn {
   background-color: #FF8C00;
   color: white;
 }
@@ -36,7 +36,7 @@
 #registerModal .modal-content {
     min-width: 250px;
     padding: 14px 14px 0;
-    overflow:hidden;
+    overflow: hidden;
     background-color:rgba(255,255,255,.8);
 }
 
@@ -44,25 +44,36 @@
     margin-bottom: 15px;
 }
 
-#registerModal .btn{
+#registerModal .btn {
     background-color: #e27e03;
     color: white;
 }
 
 /* Navbar color */
 
-.navbar-inverse{
-    background-color: #404040 !important;
+.btn {
+	background-color: #e27e03;
+	color: white;
 }
 
-.navbar-inverse .navbar-nav>.active>a,
-.navbar-inverse .navbar-nav>.active>a:hover,
-.navbar-inverse .navbar-nav>.active>a:focus {
-  background-color: #e27e03;
+.btn:hover {
+	background-color: #fd971c;
+	color: white;
 }
 
-.navbar-brand > img {
-  height: 100%;
-  padding: 0px;
-  width: auto;
+.label {
+	background-color: #e27e03;
+}
+
+/* Navbar height */
+
+.navbar-brand,
+.navbar-nav .navbar-head {
+    line-height: 75px;
+    height: 75px;
+    padding-top: 0;
+}
+
+.navbar-nav .navbar-btn {
+  margin-top: 21px;
 }
