@@ -209,7 +209,7 @@ app.post('/login', function(req, res) {
 
 //// Port
 app.listen(app.get('port'), () => {
-  console.log('Register form app is running on port', app.get('port'));
+  console.log('Register + login form app is running on port', app.get('port'));
 })
 
 module.exports = app;
