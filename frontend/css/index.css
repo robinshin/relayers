@@ -53,6 +53,11 @@
   color: #fd971c;
 }
 
+/** Contact section **/
+#contact .row {
+  padding: 10px;
+}
+
 /*** Others ***/
 .dropdown-menu {
   margin:10px auto;
@@ -133,10 +138,5 @@
 
   #home .btn-default {
     margin-top: 75px;
-  }
-
-  /** Contact section **/
-  #contact .row {
-    padding: 10px;
   }
 }
