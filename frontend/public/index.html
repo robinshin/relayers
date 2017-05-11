@@ -246,16 +246,13 @@
       </div>
     </div>
     <div class="row">
+      <!------ Contact alert window ------>
+      <div id="contact-alert" style="display: none" class="col-lg-6 col-lg-offset-3 alert alert-success text-center">
+        <a class="close" data-hide="alert">&times;</a>
+        <span id="text-contact-alert"></span>
+      </div>
       <div class="col-lg-8 col-lg-offset-2">
         <hr>
-
-        <!------ Contact alert window ------>
-        <div id="contact-alert" style="display: none" class="col-lg-6 col-lg-offset-3 alert alert-success text-center">
-          <a class="close" data-hide="alert">&times;</a>
-          <span id="text-contact-alert"></span>
-        </div>
-
-
         <form class="form-horizontal" id="contact-form" action="#contact">
           <div class="form-group">
             <input type="text" class="form-control" id="sender_mail" name="sender_mail" placeholder="Adresse email" onblur="checkMail(this)" onfocus="highlight(this, false)">
