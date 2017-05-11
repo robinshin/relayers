@@ -265,11 +265,17 @@ $(function() {
   var userConfirmed = url.split('?')[1];
   if (userConfirmed === 'confirm=true') {
     $('#text-mail-confirmedModal').html('Votre adresse mail a bien été confirmée');
+    $('#glyphicon-mail-confirmedModal').removeClass('glyphicon-remove');
+    $('#glyphicon-mail-confirmedModal').addClass('glyphicon-ok');
+    $('#glyphicon-mail-confirmedModal').css('color', 'green');
     $('#mail-confirmedModal').modal('show');
     $(location).attr('href', '#');
   }
   else if (userConfirmed==='confirm=false') {
     $('#text-mail-confirmedModal').html('Erreur : le lien de confirmation est incorrect');
+    $('#glyphicon-mail-confirmedModal').removeClass('glyphicon-ok');
+    $('#glyphicon-mail-confirmedModal').addClass('glyphicon-remove');
+    $('#glyphicon-mail-confirmedModal').css('color', 'red');
     $('#mail-confirmedModal').modal('show');
     $(location).attr('href', '#');
   }
