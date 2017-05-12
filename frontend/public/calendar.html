@@ -9,6 +9,8 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <link href="../css/calendar.css" rel="stylesheet" type="text/css">
   <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="style_index.css">
   <style>
   body { font-family:'Open Sans'; background-color:#ECF0F1;}
   </style>
@@ -17,28 +19,78 @@
 <body>
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand text-uppercase" href="#home">RELAYERS <span class="label text-capitalize">Free</span></a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navigation">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><button type="button" class="btn navbar-btn btn-circle">Connexion </button></li>
-            </ul>
-        </div>
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand text-uppercase" href="#home"> <span> <img src="../imgs/logo.png" id="logo_title" alt="Relayers"> </span> <span class="label text-capitalize" id="text_title">RELAYERS</span></a>
       </div>
-    </nav>
+
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#about" class="navbar-head">À propos</a></li>
+          <li><a href="#contact" class="navbar-head">Contact</a></li>
+          <li class="dropdown"><button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion</button>
+            <!-------- Login dropdown -------->
+            <ul id="login-dp" class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <!------ Login alert window ------>
+                    <div id="login-alert" style="display: none" class="alert alert-danger text-center">
+                      <a class="close" data-hide="alert">&times;</a>
+                      <span id="text-login-alert"></span>
+                    </div>
+
+                    <form class="form" action="" accept-charset="UTF-8" id="login-form">
+                      <!-- Username -->
+                      <div class="form-group">
+                        <label class="sr-only" for="login_username">Adresse Email</label>
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input type="email" class="form-control input-md" id="login_username" placeholder="Adresse mail">
+                        </div>
+                      </div>
+
+                      <!-- Password -->
+                      <div class="form-group">
+                        <label class="sr-only" for="login_password">Mot de passe</label>
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                          <input type="password" class="form-control input-md" id="login_password" placeholder="Mot de passe">
+                        </div>
+                        <div class="help-block text-right"><a href="">Mot de passe oublié ?</a>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <button type="button" id="login_btn" class="btn btn-default btn-block">Se connecter</button>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Rester connecter
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="bottom text-center">
+                    Vous êtes nouveau ? <br> <a href="" data-toggle="modal" data-target="#registerModal"><b>Rejoignez nous !</b></a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <div class="jquery-script-center">
 
@@ -56,7 +108,7 @@
     <div class="jquery-script-clear"></div>
   </div>
 <div class="container">
-  <h1 style="margin-bottom:50px;">jQuery Availability Calendar Plugin Demo</h1>
+  <h1 style="margin-bottom:50px;">Calendrier</h1>
   <div id="calendar"></div>
 </div>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
