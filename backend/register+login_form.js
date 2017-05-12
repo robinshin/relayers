@@ -104,28 +104,31 @@ app.post('/register', (req, res) => {
   password = req.body.password,
   password_confirm = req.body.password_confirm,
   firstName = req.body.firstName,
-  secondName = req.body.secondName,
-  address = req.body.address;
+  lastName = req.body.lastName,
+  address = req.body.address,
+  phoneNumber = req.body.phoneNumber;
 
   //// Form errors
-  var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/; // Checks if mail is valid
-  if (!username || !password || !password_confirm || !firstName || !secondName || !address) {
+  const regexMail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/, // Checks if mail is valid
+  regexPhone = /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/; // Checks if phone is valid
+  if (!username || !password || !password_confirm || !firstName || !lastName || !address) {
     res.json({ reponse: 'error', msg: 'empty fields' });
   }
-  else if (!regex.test(req.body.username)) {
+  else if (!regexMail.test(req.body.username)) {
     res.json({ reponse: 'error', msg: 'wrong username' });
+  }
+  else if (!regexPhone.test(req.body.phoneNumber)) {
+    res.json({ reponse: 'error', msg: 'wrong phone number' });
   }
   else if (req.body.password !== req.body.password_confirm) {
     res.json({ reponse: 'error', msg: 'passwords mismatch' });
   }
   //// Here : no basic form error
   else {
-    var newUser = User({
+    const newUser = User({
       username: username,
       password: password,
-      firstName: firstName,
-      secondName: secondName,
-      address: address
+      profile: { firstName: firstName, lastName: lastName, address: address, phoneNumber: phoneNumber }
     });
 
     nev.createTempUser(newUser, (err, existingPersistentUser, newTempUser) => {
