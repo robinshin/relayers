@@ -12,12 +12,12 @@ var UserSchema = new Schema({
     type: String,
     required: true
   },
-  profile: {
-    firstName: { type: String },
-    lastName: { type: String },
-    address: { type: String },
-    phoneNumber: {type: String}
-  },
+  profile: [{
+    firstName: String,
+    lastName: String,
+    address: String,
+    phoneNumber: String
+  }]
 });
 
 UserSchema.methods.comparePassword = function (passw, cb) {
