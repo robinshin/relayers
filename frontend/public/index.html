@@ -225,116 +225,116 @@
 </div>
 
 
-      <div class="container-fluid" id="home">
+<div class="container-fluid" id="home">
 
-        <div class="container">
+  <div class="container">
 
-          <h1>Une journée à la maison ?</h1>
+    <h1>Une journée à la maison ?</h1>
 
-          <h2>Réceptionnez des colis pour vos voisins et soyez rémunéré !</h2>
+    <h2>Réceptionnez des colis pour vos voisins et soyez rémunéré !</h2>
 
-          <button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#registerModal">Inscrivez-vous gratuitement !</button>
+    <button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#registerModal">Inscrivez-vous gratuitement !</button>
 
-        </div>
+  </div>
+</div>
+
+
+<div class="container-fluid" id="about">
+  <div class="row">
+    <h1>Comment ça marche ?</h1>
+    <h3><i>En 3 étapes ...</i></h3>
+    <hr>
+    <div class="col-lg-4">
+      <h2>&#9312; Commande</h2>
+      <p>Votre voisin souhaite commander un article sur un site de e-commerce partenaire, mais il n'est pas disponible pour réceptionner ce colis.
+        Heureusement, vous l'êtes ! Il va donc choisir le mode de livraison "Relayers" et vous sélectionner pour que son colis soit livré directement chez vous !</p>
       </div>
+      <div class="col-lg-4">
+        <h2>&#9313; Réception</h2>
+        <p>Vous réceptionnez le colis de votre voisin, et le gardez précieusement chez vous jusqu'à que votre voisin vienne le chercher.</p>
+      </div>
+      <div class="col-lg-4">
+        <h2>&#9314; Rémunération</h2>
+        <p>En plus de rendre service à votre voisin, vous êtes rémunéré pour le service rendu !</p>
+      </div>
+    </div>
+  </div>
 
-
-      <div class="container-fluid" id="about">
-        <div class="row">
-          <h1>Comment ça marche ?</h1>
-          <h3><i>En 3 étapes ...</i></h3>
+  <div class="container-fluid" id="contact">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2>Contactez nous !</h2>
+        <p class="lead">N'hésitez pas à nous contacter directement en remplissant le formulaire ci-dessous</p>
+      </div>
+    </div>
+    <div class="row">
+      <!------ Contact alert window ------>
+      <div id="contact-alert" style="display: none" class="col-lg-6 col-lg-offset-3 alert text-center">
+        <a class="close" data-hide="alert">&times;</a>
+        <span id="text-contact-alert"></span>
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <hr>
+        <form class="form-horizontal" id="contact-form" action="#contact">
+          <div class="form-group">
+            <input type="text" class="form-control" id="sender_mail" name="sender_mail" placeholder="Adresse email" onblur="checkMail(this)" onfocus="highlight(this, false)">
+          </div>
+          <div class="form-group">
+            <textarea  class="form-control" id="msg" name="msg" placeholder="Votre message" style="resize:none;" rows="5"></textarea>
+          </div>
+          <button type="button" class="btn btn-default center-block" id="contact_btn">Envoyer</button>
           <hr>
-          <div class="col-lg-4">
-            <h2>&#9312; Commande</h2>
-            <p>Votre voisin souhaite commander un article sur un site de e-commerce partenaire, mais il n'est pas disponible pour réceptionner ce colis.
-              Heureusement, vous l'êtes ! Il va donc choisir le mode de livraison "Relayers" et vous sélectionner pour que son colis soit livré directement chez vous !</p>
-            </div>
-            <div class="col-lg-4">
-              <h2>&#9313; Réception</h2>
-              <p>Vous réceptionnez le colis de votre voisin, et le gardez précieusement chez vous jusqu'à que votre voisin vienne le chercher.</p>
-            </div>
-            <div class="col-lg-4">
-              <h2>&#9314; Rémunération</h2>
-              <p>En plus de rendre service à votre voisin, vous êtes rémunéré pour le service rendu !</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="container-fluid" id="contact">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-              <h2>Contactez nous !</h2>
-              <p class="lead">N'hésitez pas à nous contacter directement en remplissant le formulaire ci-dessous</p>
-            </div>
-          </div>
-          <div class="row">
-            <!------ Contact alert window ------>
-            <div id="contact-alert" style="display: none" class="col-lg-6 col-lg-offset-3 alert text-center">
-              <a class="close" data-hide="alert">&times;</a>
-              <span id="text-contact-alert"></span>
-            </div>
-            <div class="col-lg-8 col-lg-offset-2">
-              <hr>
-              <form class="form-horizontal" id="contact-form" action="#contact">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="sender_mail" name="sender_mail" placeholder="Adresse email" onblur="checkMail(this)" onfocus="highlight(this, false)">
-                </div>
-                <div class="form-group">
-                  <textarea  class="form-control" id="msg" name="msg" placeholder="Votre message" style="resize:none;" rows="5"></textarea>
-                </div>
-                <button type="button" class="btn btn-default center-block" id="contact_btn">Envoyer</button>
-                <hr>
-              </form>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-              <h3>Suivez-nous sur les réseaux sociaux !</h3>
-              <ul class="list-inline">
-                <li><a href="#" class="fa fa-twitter"></a></li>
-                <li><a href="#" class="fa fa-facebook"></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h3>Suivez-nous sur les réseaux sociaux !</h3>
+        <ul class="list-inline">
+          <li><a href="#" class="fa fa-twitter"></a></li>
+          <li><a href="#" class="fa fa-facebook"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
 
-        <footer class="footer">
-          <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
-        </footer>
+  <footer class="footer">
+    <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
+  </footer>
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="../bootstrap/docs/dist/js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="../bootstrap/docs/dist/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="../bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-        <!-- General forms javascript -->
-        <script src="../javascript/forms.js"></script>
-        <!-- Contact form javascript -->
-        <script src="../javascript/contact-form.js"></script>
-        <!-- Register form javascript -->
-        <script src="../javascript/register-form.js"></script>
+  <!-- General forms javascript -->
+  <script src="../javascript/forms.js"></script>
+  <!-- Contact form javascript -->
+  <script src="../javascript/contact-form.js"></script>
+  <!-- Register form javascript -->
+  <script src="../javascript/register-form.js"></script>
 
-        <script>
-        $('a[href^="#"]').click(function(){
-          var the_id = $(this).attr("href");
-          if (the_id != "#") {
-            $('html, body').animate({
-              scrollTop:$(the_id).offset().top
-            }, 'slow');
-          }
-          return false;
-        });
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete" async defer></script>
+  <script>
+  $('a[href^="#"]').click(function(){
+    var the_id = $(this).attr("href");
+    if (the_id != "#") {
+      $('html, body').animate({
+        scrollTop:$(the_id).offset().top
+      }, 'slow');
+    }
+    return false;
+  });
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete" async defer></script>
 
-        <!-- Google analytics -->
-        <script src="../javascript/analytics.js"></script>
+  <!-- Google analytics -->
+  <script src="../javascript/analytics.js"></script>
 
-      </body>
+</body>
 
-      </html>
+</html>
