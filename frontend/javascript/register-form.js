@@ -24,19 +24,21 @@ function checkEquals(field)
 function checkRegisterForm(form)
 {
   var firstName = form.firstName,
-  secondName = form.secondName,
+  lastName = form.lastName,
   mail = form.username,
   address = form.address,
+  phoneNumber = form.phoneNumber,
   password = form.password,
   password_confirm = form.password_confirm;
 
   var firstNameCorrect = checkLength(firstName),
-  secondNameCorrect = checkLength(secondName),
+  lastNameCorrect = checkLength(lastName),
   mailCorrect = checkMail(mail),
   addressCorrect = checkLength(address),
+  phoneCorrect = checkPhone(phoneNumber),
   passwordCorrect = checkEquals(password_confirm);
 
-  if (firstNameCorrect && secondNameCorrect && mailCorrect && passwordCorrect) {
+  if (firstNameCorrect && lastNameCorrect && mailCorrect && passwordCorrect) {
     return true;
   }
   else if (!firstNameCorrect)
@@ -44,7 +46,7 @@ function checkRegisterForm(form)
     display_register_alert(false, 'empty_fields');
     return false;
   }
-  else if (!secondNameCorrect)
+  else if (!lastNameCorrect)
   {
     display_register_alert(false, 'empty_fields');
     return false;
@@ -57,6 +59,11 @@ function checkRegisterForm(form)
   else if (!mailCorrect)
   {
     display_register_alert(false, 'wrong_username');
+    return false;
+  }
+  else if (!phoneCorrect)
+  {
+    display_register_alert(false, 'wrong_phonenumber');
     return false;
   }
   else if (!passwordCorrect)
@@ -116,8 +123,9 @@ $(function() {
         password : $('#password').val(),
         password_confirm : $('#password_confirm').val(),
         firstName : $('#firstName').val(),
-        secondName : $('#secondName').val(),
-        address : $('#autocomplete').val()
+        lastName : $('#lastName').val(),
+        address : $('#autocomplete').val(),
+        phoneNumber : $('#phoneNumber').val()
       },
       cache : false,
       timeout : 5000,
@@ -133,6 +141,9 @@ $(function() {
           }
           else if (data.msg == 'wrong username') {
             display_register_alert(false, 'wrong_username');
+          }
+          else if (data.msg == 'wrong phone number') {
+            display_register_alert(false, 'wrong_phonenumber');
           }
           else if (data.msg == 'passwords mismatch') {
             display_register_alert(false, 'passwords_mismatch');
@@ -176,6 +187,9 @@ function display_register_alert(success, msg_id) {
     break;
     case 'wrong_username':
     msg = '<strong>Veuillez vérifier votre adresse mail</strong>';
+    break;
+    case 'wrong_phonenumber':
+    msg = '<strong>Veuillez vérifier votre adresse numéro de téléphone</strong>';
     break;
     case 'passwords_mismatch':
     msg = '<strong>Les mots de passe ne correspondent pas</strong>';
@@ -259,7 +273,7 @@ function display_login_alert(success, msg_id) {
   $('#login-alert').css('display', 'block');
 }
 
-// confirmation
+// Confirmation
 $(function() {
   var url = window.location.href;
   var userConfirmed = url.split('?')[1];

@@ -137,16 +137,16 @@
                   <label class="sr-only" for="firstName">Prénom</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    <input class="form-control input-md" id="firstName" name="firstName"type="text" placeholder="Prénom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                    <input class="form-control input-md" id="firstName" name="firstName" type="text" placeholder="Prénom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
                   </div>
                 </div>
 
                 <!-- Second name -->
                 <div class="form-group">
-                  <label class="sr-only" for="secondName">Nom</label>
+                  <label class="sr-only" for="lastName">Nom</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    <input class="form-control input-md" id="secondName" name="secondName"type="text" placeholder="Nom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                    <input class="form-control input-md" id="lastName" name="lastName" type="text" placeholder="Nom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
                   </div>
                 </div>
 
@@ -155,7 +155,7 @@
                   <label class="sr-only" for="address">Adresse</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <input class="form-control input-md" id="autocomplete" name="address"type="text" placeholder="Adresse" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                    <input class="form-control input-md" id="autocomplete" name="address" type="text" placeholder="Adresse" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
                   </div>
                 </div>
 
@@ -164,7 +164,16 @@
                   <label class="sr-only" for="email">Adresse Email</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                    <input class="form-control input-md" id="username" name="username"type="text" placeholder="Adresse Email" required="" onblur="checkMail(this)" onfocus="highlight(this, false)">
+                    <input class="form-control input-md" id="username" name="username" type="text" placeholder="Adresse Email" required="" onblur="checkMail(this)" onfocus="highlight(this, false)">
+                  </div>
+                </div>
+
+                <!-- Phone number -->
+                <div class="form-group">
+                  <label class="sr-only" for="phoneNumber">Numéro de téléphone</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+                    <input class="form-control input-md" id="phoneNumber" name="phoneNumber" type="tel" placeholder="Numéro de téléphone" required="" onblur="checkPhone(this)" onfocus="highlight(this, false)">
                   </div>
                 </div>
 
@@ -173,7 +182,7 @@
                   <label class="sr-only" for="password">Mot de passe</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input class="form-control input-md" id="password" name="password"type="password" placeholder="Mot de passe" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                    <input class="form-control input-md" id="password" name="password" type="password" placeholder="Mot de passe" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
                   </div>
                 </div>
 
