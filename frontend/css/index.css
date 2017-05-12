@@ -91,15 +91,6 @@ body {
   #home h2 {
     margin-top:40px;
   }
-
-  /* Others */
-  #logo_title {
-    width: 30px;
-  }
-
-  #text_title {
-    font-size: 125%
-  }
 }
 
 /* Small screens */
@@ -140,14 +131,5 @@ body {
     text-align: center;
     margin-top: 75px;
     margin-bottom: 10px;
-  }
-
-  /* Others */
-  #logo_title {
-    width: 25px;
-  }
-
-  #text_title {
-    font-size: 62,5%
   }
 }
