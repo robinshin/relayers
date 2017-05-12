@@ -189,7 +189,7 @@ function display_register_alert(success, msg_id) {
     msg = '<strong>Veuillez vérifier votre adresse mail</strong>';
     break;
     case 'wrong_phonenumber':
-    msg = '<strong>Veuillez vérifier votre adresse numéro de téléphone</strong>';
+    msg = '<strong>Veuillez vérifier votre numéro de téléphone</strong>';
     break;
     case 'passwords_mismatch':
     msg = '<strong>Les mots de passe ne correspondent pas</strong>';
