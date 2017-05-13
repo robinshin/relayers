@@ -219,13 +219,13 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
   if (token) {
     jwt.verify(token, config.secret, function(err, decoded){
       if (err) {
-        return res.json(reponse: 'error');
+        return res.json({reponse: 'error'});
       }
       else if (req.user.role != "Owner") {
-        return res.json(reponse: 'error');
+        return res.json({reponse: 'error'});
       }
       else {
-        res.json(reponse: 'success');
+        res.json({reponse: 'success'});
       }
       return res.redirect("https://relayers.fr");
     });
