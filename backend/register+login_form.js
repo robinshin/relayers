@@ -227,7 +227,6 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
       else {
         res.json({reponse: 'success'});
       }
-      return res.redirect("https://relayers.fr");
     });
   }
 });
