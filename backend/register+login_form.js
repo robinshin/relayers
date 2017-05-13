@@ -214,20 +214,20 @@ app.post('/login', (req, res) => {
   });
 });
 
-app.get('/account', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) => {
   var token = getToken(req.headers);
   if (token) {
     jwt.verify(token, config.secret, function(err, decoded){
       if (err) {
-        return res.redirect("https://relayers.fr");
+        return res.json(reponse: 'error');
       }
       else if (req.user.role != "Owner") {
-        return res.redirect("https://relayers.fr");
+        return res.json(reponse: 'error');
       }
       else {
-        req.decoded = decoded;
-        res.sendFile('/home/server/relayers/frontend/public/account.html');
+        res.json(reponse: 'success');
       }
+      return res.redirect("https://relayers.fr");
     });
   }
 });
@@ -245,6 +245,10 @@ getToken = function (headers) {
   }
 };
 
+
+app.get('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.sendFile('/home/server/relayers/frontend/public/profile.html');
+});
 
 //// Port
 app.listen(app.get('port'), () => {
