@@ -229,6 +229,25 @@ $(function() {
       success: function(data) {
         if (data.reponse == 'success') {
           localStorage.setItem('token', data.token);
+          $.ajax({
+            url : '/account',
+            type : 'GET',
+            dataType : 'json',
+            cache : false,
+            timeout : 5000,
+            beforeSend : function(xhr) {
+              xhr.setRequestHeader("Authorization", "Bearer " + data.token);
+            },
+
+            success: function(data) {
+              return ;
+            },
+
+            error: function() {
+              display_login_alert(false, 'unknown');
+            }
+          });
+
           $(location).attr('href', 'https://relayers.fr/account');
         }
         else {
