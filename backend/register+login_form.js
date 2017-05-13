@@ -87,8 +87,21 @@ nev.generateTempUserModel(User, (err, tempUserModel) => {
 
 //// Passport
 var passport = require('passport');
+var session = require('express-session');
 // Initialize passport for use
 app.use(passport.initialize());
+app.use(passport.session());
+
+
+// Checks if user is authenticated
+function isAuthenticated = function(req,res,next){
+   if(req.user)
+      return next();
+   else
+      return res.status(401).json({
+        error: 'User not authenticated'
+      });
+}
 
 // Passport configuration
 var config = require('./config/database');
@@ -245,7 +258,7 @@ getToken = function (headers) {
 };
 
 
-app.get('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/profile', isAuthenticated, (req, res) => {
   res.sendFile('/home/server/relayers/frontend/public/profile.html');
 });
 
