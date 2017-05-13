@@ -232,7 +232,7 @@ $(function() {
           $.ajax({
             url :"/account",
             type:'GET',
-            headers : { "Authorization" : $.cookie('token') },
+            headers : { "Authorization" : document.cookie.token },
             dataType: 'json',
             data: {
               role: data.role
