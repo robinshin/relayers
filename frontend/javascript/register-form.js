@@ -228,7 +228,8 @@ $(function() {
 
       success: function(data) {
         if (data.reponse == 'success') {
-          $(location).attr('href', 'https://relayers.fr/');
+          headers: {"Authorization": "Bearer " + data.token}
+          $(location).attr('href', 'https://relayers.fr/account');
         }
         else {
           if (data.msg == 'user not found') {
