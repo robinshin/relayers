@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const app = express();
 const bcrypt = require('bcrypt-nodejs');
+var cookieParser = require('cookie-parser');
 
 app.set('port', 8082);
 
@@ -92,8 +93,7 @@ var session = require('express-session');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.cookieParser());
-app.use(express.session(config.secret));
+app.use(cookieParser(config.cookieSecret))
 
 
 // Checks if user is authenticated
