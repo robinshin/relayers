@@ -230,8 +230,8 @@ $(function() {
         if (data.reponse == 'success') {
           createCookie('token', data.token, 7);
           $.ajax({
-            url :"/account",
-            type:'GET',
+            url :"/auth",
+            type:'POST',
             headers : { "Authorization" : readCookie('token') },
             dataType: 'html',
             data: {
@@ -239,7 +239,7 @@ $(function() {
             },
 
             success: function(data) {
-              document.write(data);
+              console.log(data);
             }
           });
         }
@@ -312,4 +312,23 @@ $(function() {
     $('#mail-confirmedModal').modal('show');
     $(location).attr('href', '#');
   }
+});
+
+// Profile button
+
+$(function() {
+  $('#profile_btn').click(function() {
+    $.ajax({
+      url : '/register',
+      type : 'GET',
+      dataType : 'html',
+      headers : { "Authorization" : readCookie('token') },
+      cache : false,
+      timeout : 5000,
+
+      success: function(data) {
+        document.write(data);
+      }
+    });
+  });
 });
