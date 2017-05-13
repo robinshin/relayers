@@ -13,17 +13,19 @@ var morgan = require('morgan'),
 mongoose = require('mongoose'),
 nev = require('email-verification')(mongoose);
 
+app.use(morgan('dev'));
+
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI + '/users?authSource=admin');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
-app.use( (req, res, next) => {
+/*app.use( (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
-});
+});*/
 
 
 //// Nev configuration
@@ -85,16 +87,16 @@ nev.generateTempUserModel(User, (err, tempUserModel) => {
 
 //// Passport
 var passport = require('passport');
-
+// Initialize passport for use
 app.use(passport.initialize());
-
 
 // Passport configuration
 var config = require('./config/database');
+// Bring in defined Passport Strategy
+require('./config/passport')(passport);
 
 
 //// Routes
-require('./config/passport')(passport);
 var jwt = require('jsonwebtoken');
 
 ////// Register route
@@ -195,7 +197,7 @@ app.post('/login', (req, res) => {
       user.comparePassword(req.body.password, (err, isMatch) => {
         if (isMatch && !err) {
           // if user is found and password is right create a token
-          var token = jwt.sign(user, config.secret, { expiresIn: 7200 });
+          var token = jwt.sign(user, config.secret, { expiresIn: 21600 });
           // return the information including token as JSON
           res.json({
             reponse: 'success',
@@ -212,7 +214,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-app.get('/account', passport.authenticate('jwt', { session: false}), (req, res) => {
+app.get('/account', passport.authenticate('jwt', { session: false }), (req, res) => {
   var token = getToken(req.headers);
   if (token) {
     jwt.verify(token, config.secret, function(err, decoded){
