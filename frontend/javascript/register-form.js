@@ -250,8 +250,6 @@ $(function() {
               display_login_alert(false, 'unknown');
             }
           });
-
-          $(location).attr('href', 'https://relayers.fr/account');
         }
         else {
           if (data.msg == 'user not found') {
