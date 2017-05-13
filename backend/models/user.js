@@ -17,7 +17,12 @@ var UserSchema = new Schema({
     lastName: String,
     address: String,
     phoneNumber: String
-  }]
+  }],
+  role: {
+    type: String,
+    enum: ['Member', 'Owner', 'Admin'],
+    default: 'Member'
+  }
 });
 
 UserSchema.methods.comparePassword = function (passw, cb) {
