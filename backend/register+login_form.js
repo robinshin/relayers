@@ -201,7 +201,7 @@ app.post('/login', (req, res) => {
             reponse: 'success',
             token: token,
             profile: user.profile,
-            role: user.role;
+            role: user.role
           });
         }
         else {
@@ -217,7 +217,7 @@ app.get('/account', jwt({ secret: config.secret }), (req, res) => {
     return res.redirect("https://relayers.fr");
   }
   else {
-    res.sendFile(path.join('/home/server/relayers/frontend/public/account.html')
+    res.sendFile('/home/server/relayers/frontend/public/account.html');
   }
 });
 

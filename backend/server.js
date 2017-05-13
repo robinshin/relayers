@@ -12,7 +12,7 @@ app.use('/account.html', (req, res) => {
 })
 
 app.use(express.static('/home/server/relayers/frontend/public'));
-app.use(express.static('/home/server/relayers/frontend'));e
+app.use(express.static('/home/server/relayers/frontend'));
 
 //// Port
 app.listen(app.get('port'), () => {
