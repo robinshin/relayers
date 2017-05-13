@@ -89,11 +89,15 @@ nev.generateTempUserModel(User, (err, tempUserModel) => {
 //// Passport
 var passport = require('passport');
 var session = require('express-session');
+
+app.use(cookieParser());
+app.use(express.session({ secret: 'sessionsecret' }));
+
 // Initialize passport for use
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(cookieParser('cookieparsersecret'))
+
 
 
 // Checks if user is authenticated
