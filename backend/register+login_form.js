@@ -91,7 +91,7 @@ var passport = require('passport');
 var session = require('express-session');
 
 app.use(cookieParser());
-app.use(express.session({ secret: 'sessionsecret' }));
+app.use(session({ secret: 'sessionsecret' }));
 
 // Initialize passport for use
 app.use(passport.initialize());
