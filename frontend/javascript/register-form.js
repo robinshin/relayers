@@ -228,26 +228,18 @@ $(function() {
 
       success: function(data) {
         if (data.reponse == 'success') {
-          localStorage.setItem('token', data.token);
           $.ajax({
-            url : '/account',
-            type : 'POST',
-            dataType : 'json',
-            cache : false,
-            timeout : 10000,
-            headers: {
-              token: data.token
-            },
+            url :"/account",
+            type:'GET',
+            headers : { "Authorization" : $.cookie('token') },
+            dataType: 'json',
             data: {
               role: data.role
             },
 
-            success: function(data) {
-              return ;
-            },
-
-            error: function() {
-              display_login_alert(false, 'unknown');
+            success: function(data, status) {
+              console.log("Status " + status);
+              console.log(data);
             }
           });
         }
