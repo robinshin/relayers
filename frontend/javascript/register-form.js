@@ -319,7 +319,7 @@ $(function() {
 $(function() {
   $('#profile_btn').click(function() {
     $.ajax({
-      url : '/register',
+      url : '/profile',
       type : 'GET',
       dataType : 'html',
       headers : { "Authorization" : readCookie('token') },
