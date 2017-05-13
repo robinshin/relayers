@@ -231,12 +231,15 @@ $(function() {
           localStorage.setItem('token', data.token);
           $.ajax({
             url : '/account',
-            type : 'GET',
+            type : 'POST',
             dataType : 'json',
             cache : false,
-            timeout : 5000,
-            beforeSend : function(xhr) {
-              xhr.setRequestHeader("Authorization", "Bearer " + data.token);
+            timeout : 10000,
+            headers: {
+              token: data.token
+            },
+            data: {
+              role: data.role;
             },
 
             success: function(data) {
