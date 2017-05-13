@@ -212,7 +212,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-app.get('/account', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.post('/account', passport.authenticate('jwt', { session: false }), (req, res) => {
   var token = getToken(req.headers);
   if (token) {
     if (req.user.role != "Owner") {
