@@ -313,22 +313,3 @@ $(function() {
     $(location).attr('href', '#');
   }
 });
-
-// Profile button
-
-$(function() {
-  $('#profile_btn').click(function() {
-    $.ajax({
-      url : '/profile',
-      type : 'GET',
-      dataType : 'html',
-      headers : { "Authorization" : readCookie('token') },
-      cache : false,
-      timeout : 5000,
-
-      success: function(data) {
-        document.write(data);
-      }
-    });
-  });
-});
