@@ -228,9 +228,7 @@ $(function() {
 
       success: function(data) {
         if (data.reponse == 'success') {
-          var date = new Date();
-		        date.setTime(date.getTime()+(7*24*60*60*1000)); // Cookie expires in 7 days
-          document.cookie = 'token=' + data.token + '; expires=' + date.toGMTString() + '; path=/';
+          createCookie('token', data.token, 7);
           $.ajax({
             url :"/account",
             type:'GET',
