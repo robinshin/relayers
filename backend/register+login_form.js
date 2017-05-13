@@ -92,9 +92,12 @@ var session = require('express-session');
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(express.cookieParser());
+app.use(express.session(config.secret));
+
 
 // Checks if user is authenticated
-function isAuthenticated = function(req,res,next){
+isAuthenticated = function(req,res,next){
    if(req.user)
       return next();
    else
@@ -102,6 +105,19 @@ function isAuthenticated = function(req,res,next){
         error: 'User not authenticated'
       });
 }
+
+// Serialize / deserialize user
+// used to serialize the user for the session
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
 
 // Passport configuration
 var config = require('./config/database');
