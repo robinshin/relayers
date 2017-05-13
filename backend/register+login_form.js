@@ -199,7 +199,7 @@ app.post('/login', (req, res) => {
           // return the information including token as JSON
           res.json({
             reponse: 'success',
-            token: token,
+            token: 'JWT ' + token,
             profile: user.profile,
             role: user.role
           });
@@ -212,7 +212,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-app.get('/account', (req, res) => {
+app.get('/account', passport.authenticate('jwt', { session: false}), (req, res) => {
   var token = getToken(req.headers);
   if (token) {
     jwt.verify(token, config.secret, function(err, decoded){
@@ -229,6 +229,19 @@ app.get('/account', (req, res) => {
     });
   }
 });
+
+getToken = function (headers) {
+  if (headers && headers.authorization) {
+    var parted = headers.authorization.split(' ');
+    if (parted.length === 2) {
+      return parted[1];
+    } else {
+      return null;
+    }
+  } else {
+    return null;
+  }
+};
 
 
 //// Port
