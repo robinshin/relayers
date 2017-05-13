@@ -93,7 +93,7 @@ var session = require('express-session');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(cookieParser(config.cookieSecret))
+app.use(cookieParser('cookieparsersecret'))
 
 
 // Checks if user is authenticated
