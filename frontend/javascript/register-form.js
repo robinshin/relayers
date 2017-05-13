@@ -228,11 +228,13 @@ $(function() {
 
       success: function(data) {
         if (data.reponse == 'success') {
-          document.cookie = "token = " + data.token;
+          var date = new Date();
+		        date.setTime(date.getTime()+(7*24*60*60*1000)); // Cookie expires in 7 days
+          document.cookie = 'token=' + data.token + '; expires=' + date.toGMTString() + '; path=/';
           $.ajax({
             url :"/account",
             type:'GET',
-            headers : { "Authorization" : document.cookie.token },
+            headers : { "Authorization" : readCookie('token') },
             dataType: 'json',
             data: {
               role: data.role
