@@ -228,6 +228,7 @@ $(function() {
 
       success: function(data) {
         if (data.reponse == 'success') {
+          document.cookie = "token = " + data.token;
           $.ajax({
             url :"/account",
             type:'GET',
