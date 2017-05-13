@@ -212,15 +212,21 @@ app.post('/login', (req, res) => {
   });
 });
 
-app.post('/account', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/account', (req, res) => {
   var token = getToken(req.headers);
   if (token) {
-    if (req.user.role != "Owner") {
-      return res.redirect("https://relayers.fr");
-    }
-    else {
-      res.sendFile('/home/server/relayers/frontend/public/account.html');
-    }
+    jwt.verify(token, config.secret, function(err, decoded){
+      if (err) {
+        return res.redirect("https://relayers.fr");
+      }
+      else if (req.user.role != "Owner") {
+        return res.redirect("https://relayers.fr");
+      }
+      else {
+        req.decoded = decoded;
+        res.sendFile('/home/server/relayers/frontend/public/account.html');
+      }
+    });
   }
 });
 
