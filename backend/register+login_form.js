@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser= require('body-parser')
+const bodyParser = require('body-parser')
 const app = express();
 const bcrypt = require('bcrypt-nodejs');
 
@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 //// Authentification
 // Database
-var morgan   = require('morgan'),
+var morgan = require('morgan'),
 mongoose = require('mongoose'),
 nev = require('email-verification')(mongoose);
 
@@ -94,7 +94,6 @@ var config = require('./config/database');
 
 
 //// Routes
-
 require('./config/passport')(passport);
 var jwt = require('jsonwebtoken');
 
@@ -153,8 +152,6 @@ app.post('/register', (req, res) => {
               res.json({ reponse: 'success', msg: '' });
             }
           });
-
-          // User already exists in temporary collection...
         }
         else {
           res.json({ reponse: 'error', msg: 'verif mail already sent' });
@@ -198,9 +195,14 @@ app.post('/login', (req, res) => {
       user.comparePassword(req.body.password, (err, isMatch) => {
         if (isMatch && !err) {
           // if user is found and password is right create a token
-          var token = jwt.sign(user, config.secret);
+          var token = jwt.sign(user, config.secret, { expiresIn: 7200 });
           // return the information including token as JSON
-          res.json({reponse: 'success', token: 'JWT ' + token});
+          res.json({
+            reponse: 'success',
+            token: token,
+            profile: user.profile,
+            role: user.role;
+          });
         }
         else {
           res.send({reponse: 'error', msg: 'wrong password'});
@@ -208,6 +210,15 @@ app.post('/login', (req, res) => {
       });
     }
   });
+});
+
+app.get('/account', jwt({ secret: config.secret }), (req, res) => {
+  if (req.user.role != "Owner") {
+    return res.redirect("https://relayers.fr");
+  }
+  else {
+    res.sendFile(path.join('/home/server/relayers/frontend/public/account.html')
+  }
 });
 
 
