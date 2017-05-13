@@ -239,7 +239,7 @@ $(function() {
               token: data.token
             },
             data: {
-              role: data.role;
+              role: data.role
             },
 
             success: function(data) {
