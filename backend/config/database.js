@@ -1,4 +1,3 @@
 module.exports = {
-  'secret':'nodeauthsecret',
-  'cookieSecret':'cookieparsersecret'
+  'secret':'nodeauthsecret'
 };
