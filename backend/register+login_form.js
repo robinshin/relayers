@@ -212,12 +212,15 @@ app.post('/login', (req, res) => {
   });
 });
 
-app.get('/account', jwt({ secret: config.secret }), (req, res) => {
-  if (req.user.role != "Owner") {
-    return res.redirect("https://relayers.fr");
-  }
-  else {
-    res.sendFile('/home/server/relayers/frontend/public/account.html');
+app.get('/account', passport.authenticate('jwt', { session: false }), (req, res) => {
+  var token = getToken(req.headers);
+  if (token) {
+    if (req.user.role != "Owner") {
+      return res.redirect("https://relayers.fr");
+    }
+    else {
+      res.sendFile('/home/server/relayers/frontend/public/account.html');
+    }
   }
 });
 
