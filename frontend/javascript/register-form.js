@@ -233,14 +233,13 @@ $(function() {
             url :"/account",
             type:'GET',
             headers : { "Authorization" : readCookie('token') },
-            dataType: 'json',
+            dataType: 'html',
             data: {
               role: data.role
             },
 
-            success: function(data, status) {
-              console.log("Status " + status);
-              console.log(data);
+            success: function(data) {
+              document.write(data);
             }
           });
         }
