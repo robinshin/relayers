@@ -18,7 +18,6 @@ $(function() {
     $.ajax({
       url :"/check",
       type:'POST',
-      headers : { "Authorization" : token },
       dataType: 'json',
       cache: false,
       timeout: 5000,
