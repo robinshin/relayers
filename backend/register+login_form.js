@@ -251,7 +251,7 @@ getToken = function (headers) {
 };
 
 
-app.get('/profile', isAuthenticated, (req, res) => {
+app.get('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.sendFile('/home/server/relayers/frontend/public/profile.html');
 });
 
