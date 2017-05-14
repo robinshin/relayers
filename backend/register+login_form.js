@@ -264,9 +264,6 @@ function checkAuthentication(req, res, next) {
         if (err) {
           return res.json({reponse: 'error'});
         }
-        else if (req.user.role != "Owner") {
-          return res.json({reponse: 'error'});
-        }
         else {
           next();
         }
