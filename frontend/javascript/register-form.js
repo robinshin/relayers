@@ -228,11 +228,10 @@ $(function() {
 
       success: function(data) {
         if (data.reponse == 'success') {
-          createCookie('token', data.token, 7);
           $.ajax({
             url :"/auth",
             type:'POST',
-            headers : { "Authorization" : readCookie('token') },
+            headers : { "Authorization" : data.token },
             dataType: 'html',
             data: {
               role: data.role
