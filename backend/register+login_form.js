@@ -245,9 +245,9 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
 
 //// Checks if user is authentified
 app.post('/check', (req, res) => {
-  var token = getToken(req.headers);
+  var token = req.cookies.token;
   if (token) {
-    jwt.verify(token, config.secret, function(err, decoded) {
+    jwt.verify(token.split(' ')[1], config.secret, function(err, decoded) {
       if (err) {
         res.cookie('token', '', {maxAge: 0});
         return res.json({ reponse: 'error' });
@@ -288,6 +288,7 @@ function checkAuthentication(req, res, next) {
   if (token) {
     jwt.verify(token.split(' ')[1], config.secret, function(err, decoded) {
       if (err) {
+        res.cookie('token', '', {maxAge: 0});
         return res.json({reponse: 'error'});
       }
       else {
