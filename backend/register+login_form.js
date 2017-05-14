@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 app.set('port', 8082);
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(cookieParser());
 
 //// Authentification
 // Database
@@ -223,7 +224,7 @@ app.post('/login', (req, res) => {
 app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) => {
   var token = getToken(req.headers);
   if (token) {
-    jwt.verify(token, config.secret, function(err, decoded){
+    jwt.verify(token, config.secret, function(err, decoded) {
       if (err) {
         return res.json({reponse: 'error'});
       }
@@ -231,29 +232,36 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
         return res.json({reponse: 'error'});
       }
       else {
-        res.json({reponse: 'success'});
+        res.cookie('token', 'JWT ' + token, {maxAge: 172800, secure: true});
       }
     });
   }
 });
 
-getToken = function (headers) {
-  if (headers && headers.authorization) {
-    var parted = headers.authorization.split(' ');
-    if (parted.length === 2) {
-      return parted[1];
-    } else {
-      return null;
-    }
-  } else {
-    return null;
-  }
-};
 
-
-app.get('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/profile', checkAuthentication, (req, res) => {
   res.sendFile('/home/server/relayers/frontend/public/profile.html');
 });
+
+function checkAuthentication(req, res, next) {
+  var token = req.cookies.token.split(' ')[1];
+    if (token) {
+      jwt.verify(token, config.secret, function(err, decoded) {
+        if (err) {
+          return res.json({reponse: 'error'});
+        }
+        else if (req.user.role != "Owner") {
+          return res.json({reponse: 'error'});
+        }
+        else {
+          next();
+        }
+      });
+    }
+    else {
+        res.redirect("/");
+    }
+}
 
 //// Port
 app.listen(app.get('port'), () => {
