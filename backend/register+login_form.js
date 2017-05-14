@@ -233,6 +233,7 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
       }
       else {
         res.cookie('token', 'JWT ' + token, {maxAge: 172800, secure: true});
+        res.end();
       }
     });
   }
