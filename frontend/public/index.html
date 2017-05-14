@@ -55,8 +55,8 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#about" class="navbar-head">À propos</a></li>
           <li><a href="#contact" class="navbar-head">Contact</a></li>
-          <li><form action="/profile"><button type="submit" class="btn navbar-btn btn-circle">Profil</button></form></li>
-          <li class="dropdown"><button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion</button>
+          <li><form action="/profile" style="display: none" id="profile"><button type="submit" class="btn navbar-btn btn-circle">Mon compte</button></form></li>
+          <li class="dropdown" style="display: block" id="login"><button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion</button>
             <!-------- Login dropdown -------->
             <ul id="login-dp" class="dropdown-menu">
               <li>
@@ -328,6 +328,8 @@
   <script src="../javascript/contact-form.js"></script>
   <!-- Register form javascript -->
   <script src="../javascript/register-form.js"></script>
+
+  <script src="../javascript/loggedin.js"></script>
 
   <script>
   $('a[href^="#"]').click(function(){
