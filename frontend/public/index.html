@@ -53,10 +53,21 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav navbar-right">
+
           <li><a href="#about" class="navbar-head">À propos</a></li>
+
           <li><a href="#contact" class="navbar-head">Contact</a></li>
-          <li><form action="/profile" style="display: none" id="profile"><button type="submit" class="btn navbar-btn btn-circle">Mon compte</button></form></li>
-          <li class="dropdown" style="display: block" id="login"><button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion</button>
+
+          <li class="dropdown" style="display: block" id="profile">
+            <button class="btn navbar-btn btn-circle dropbtn"> Mon compte</button>
+            <div class="dropdown-content">
+              <a href="/profile">Mon profil</a>
+              <form class="form" action="/logout" method="POST" accept-charset="UTF-8"><button type="submit">Déconnexion</button></form>
+            </div>
+          </li>
+
+          <li class="dropdown" style="display: block" id="login">
+            <button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion</button>
             <!-------- Login dropdown -------->
             <ul id="login-dp" class="dropdown-menu">
               <li>
