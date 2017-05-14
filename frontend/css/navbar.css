@@ -72,7 +72,7 @@
 }
 
 /* Profile hover   */
-.dropdown-content {
+.dropdown-menu {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -81,7 +81,7 @@
     z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-menu a {
     float: none;
     color: black;
     padding: 12px 16px;
@@ -90,11 +90,11 @@
     text-align: left;
 }
 
-.dropdown-content a:hover {
+.dropdown-menu a:hover {
     background-color: #ddd;
 }
 
-.dropdown-content form {
+.dropdown-menu form {
     float: none;
     color: black;
     padding: 12px 16px;
@@ -103,18 +103,17 @@
     text-align: left;
 }
 
-.dropdown-content form button {
+.dropdown-menu form button {
   background: none;
   border: none;
+  margin: 0px;
+  padding: 0px;
 }
 
-.dropdown-content form:hover {
+.dropdown-menu form:hover {
     background-color: #ddd;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 
 /****** Responsiveness ******/

@@ -59,11 +59,11 @@
           <li><a href="#contact" class="navbar-head">Contact</a></li>
 
           <li class="dropdown" style="display: none" id="profile">
-            <button class="btn navbar-btn btn-circle dropbtn"> Mon compte</button>
-            <div class="dropdown-content">
-              <a href="/profile">Mon profil</a>
+            <button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Mon compte</button>
+            <ul id="profile-dp" class="dropdown-menu">
+              <a href="/profile">  Mon profil</a>
               <form class="form" action="/logout" method="POST" accept-charset="UTF-8"><button type="submit">Déconnexion</button></form>
-            </div>
+            </ul>
           </li>
 
           <li class="dropdown" style="display: none" id="login">
