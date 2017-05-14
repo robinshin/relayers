@@ -258,8 +258,7 @@ getToken = function (headers) {
 };
 
 function checkAuthentication(req, res, next) {
-  var token = req.cookies.token.split(' ')[1];
-    if (token) {
+    if (var token = req.cookies.token.split(' ')[1]) {
       jwt.verify(token, config.secret, function(err, decoded) {
         if (err) {
           return res.json({reponse: 'error'});
