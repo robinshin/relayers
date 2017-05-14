@@ -190,6 +190,7 @@ app.get('/email-verification/:URL', (req, res) => {
   });
 });
 
+//// Login route
 app.post('/login', (req, res) => {
   User.findOne({
     username: req.body.username
@@ -221,25 +222,34 @@ app.post('/login', (req, res) => {
   });
 });
 
+//// Checks if user is authentified
 app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) => {
   var token = getToken(req.headers);
   if (token) {
     jwt.verify(token, config.secret, function(err, decoded) {
       if (err) {
-        return res.json({reponse: 'error'});
+        res.cookie('token', '', {maxAge: 0});
+        return res.json({ reponse: 'error' });
       }
       else if (req.user.role != "Owner") {
-        return res.json({reponse: 'error'});
+        res.cookie('token', '', {maxAge: 0});
+        return res.json({ reponse: 'error' });
       }
       else {
         res.cookie('token', 'JWT ' + token, {maxAge: 86400000, secure: true});
-        res.end();
+        res.json({ reponse: 'success' });
       }
     });
   }
 });
 
+//// Logout route
+app.post('/logout', (req, res) => {
+  res.cookie('token', '', {maxAge: 0});
+  res.redirect('/');
+});
 
+//// Protected routes
 app.get('/profile', checkAuthentication, (req, res) => {
   res.sendFile('/home/server/relayers/frontend/public/profile.html');
 });
