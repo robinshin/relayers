@@ -1,4 +1,9 @@
+<!DOCTYPE html>
+<html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../imgs/logo.png" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
   <link rel="stylesheet" href="../css/navbar.css">
@@ -16,21 +21,29 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand text-uppercase" href="#home"> <span class="label text-capitalize" id="text_title">RELAYERS</span></a>
+        <a class="navbar-brand text-uppercase" href="https://relayers.fr"><span class="label text-capitalize" id="text_title"><img src="../imgs/logo_blank.png" id="logo_title" alt="Relayers"> RELAYERS</span></a>
       </div>
 
+
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="#section1">Accueil</a></li>
-          <li><a href="#section2">À propos</a></li>
-          <li><a href="#section3">Contact</a></li>
-        </ul>
+      <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">Connecté</a></li>
+
+          <li><a href="#about" class="navbar-head">À propos</a></li>
+
+          <li><a href="#contact" class="navbar-head">Contact</a></li>
+
+          <li class="dropdown" style="display: block" id="profile">
+            <button class="btn navbar-btn btn-circle dropbtn"> Mon compte</button>
+            <div class="dropdown-content">
+              <a href="/profile">Mon profil</a>
+              <form class="form" action="/logout" method="POST" accept-charset="UTF-8"><button type="submit">Déconnexion</button></form>
+            </div>
+          </li>
+
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+      </div>
+    </div>
   </nav>
 
 
@@ -488,3 +501,4 @@
 
 
 </body>
+</html>
