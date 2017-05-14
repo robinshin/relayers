@@ -232,7 +232,7 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
         return res.json({reponse: 'error'});
       }
       else {
-        res.cookie('token', 'JWT ' + token, {maxAge: 172800, secure: true});
+        res.cookie('token', 'JWT ' + token, {maxAge: 86400000, secure: true});
         res.end();
       }
     });
