@@ -243,6 +243,19 @@ app.get('/profile', checkAuthentication, (req, res) => {
   res.sendFile('/home/server/relayers/frontend/public/profile.html');
 });
 
+getToken = function (headers) {
+  if (headers && headers.authorization) {
+    var parted = headers.authorization.split(' ');
+    if (parted.length === 2) {
+      return parted[1];
+    } else {
+      return null;
+    }
+  } else {
+    return null;
+  }
+};
+
 function checkAuthentication(req, res, next) {
   var token = req.cookies.token.split(' ')[1];
     if (token) {
