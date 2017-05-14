@@ -24,9 +24,9 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 /*app.use( (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+res.header("Access-Control-Allow-Origin", "*");
+res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+next();
 });*/
 
 
@@ -258,19 +258,20 @@ getToken = function (headers) {
 };
 
 function checkAuthentication(req, res, next) {
-    if (var token = req.cookies.token.split(' ')[1]) {
-      jwt.verify(token, config.secret, function(err, decoded) {
-        if (err) {
-          return res.json({reponse: 'error'});
-        }
-        else {
-          next();
-        }
-      });
-    }
-    else {
-        res.redirect("/");
-    }
+  var token;
+  if (token = req.cookies.token.split(' ')[1]) {
+    jwt.verify(token, config.secret, function(err, decoded) {
+      if (err) {
+        return res.json({reponse: 'error'});
+      }
+      else {
+        next();
+      }
+    });
+  }
+  else {
+    res.redirect("/");
+  }
 }
 
 //// Port
