@@ -28,68 +28,12 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav navbar-right">
-
-          <li><a href="#about" class="navbar-head">À propos</a></li>
-
-          <li><a href="#contact" class="navbar-head">Contact</a></li>
-
+          
           <li class="dropdown" style="display: block" id="profile">
             <button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Mon compte</button>
-            <ul id="profile-dp" class="dropdown-menu">
+            <ul id="profile-dp" class="dropdown-menu dropdown-profile">
               <a href="/profile">  Mon profil</a>
               <form class="form" action="/logout" method="POST" accept-charset="UTF-8"><button type="submit">Déconnexion</button></form>
-            </ul>
-          </li>
-
-          <li class="dropdown" style="display: none" id="login">
-            <button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion</button>
-            <!-------- Login dropdown -------->
-            <ul id="login-dp" class="dropdown-menu">
-              <li>
-                <div class="row">
-                  <div class="col-md-12">
-                    <!------ Login alert window ------>
-                    <div id="login-alert" style="display: none" class="alert alert-danger text-center">
-                      <a class="close" data-hide="alert">&times;</a>
-                      <span id="text-login-alert"></span>
-                    </div>
-
-                    <form class="form" action="" accept-charset="UTF-8" id="login-form">
-                      <!-- Username -->
-                      <div class="form-group">
-                        <label class="sr-only" for="login_username">Adresse Email</label>
-                        <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input type="email" class="form-control input-md" id="login_username" placeholder="Adresse mail">
-                        </div>
-                      </div>
-
-                      <!-- Password -->
-                      <div class="form-group">
-                        <label class="sr-only" for="login_password">Mot de passe</label>
-                        <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                          <input type="password" class="form-control input-md" id="login_password" placeholder="Mot de passe">
-                        </div>
-                        <div class="help-block text-right"><a href="">Mot de passe oublié ?</a>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <button type="button" id="login_btn" class="btn btn-default btn-block">Se connecter</button>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> Rester connecter
-                        </label>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="bottom text-center">
-                    Vous êtes nouveau ? <br> <a href="" data-toggle="modal" data-target="#registerModal"><b>Rejoignez nous !</b></a>
-                  </div>
-                </div>
-              </li>
             </ul>
           </li>
         </ul>
@@ -546,6 +490,14 @@
   		dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   	});
   </script>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="../bootstrap/docs/dist/js/bootstrap.min.js"></script>
+
 
   <!-- Google analytics -->
   <script src="../javascript/analytics.js"></script>
