@@ -1,24 +1,25 @@
 /* Login form */
 
 #login-dp{
-    min-width: 250px;
-    padding: 14px 14px 0;
-    overflow: hidden;
+  background-color: rgba(255,255,255,.8);
+  min-width: 250px;
+  padding: 14px 14px 0;
+  overflow: hidden;
 }
 
 #login-dp .help-block{
-    font-size: 12px
+  font-size: 12px
 }
 
 #login-dp .bottom{
-    background-color: rgba(255,255,255,.8);
-    border-top: 1px solid #ddd;
-    clear: both;
-    padding: 14px;
+  background-color: rgba(255,255,255,.8);
+  border-top: 1px solid #ddd;
+  clear: both;
+  padding: 14px;
 }
 
 #login-dp .form-group {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #login-dp .btn {
@@ -29,77 +30,79 @@
 /* Register form */
 
 #registerModal {
-    background-color: rgba(100,100,100,.5);
+  background-color: rgba(100,100,100,.5);
 }
 
 #registerModal .modal-content {
-    min-width: 250px;
-    padding: 14px 14px 0;
-    overflow: hidden;
-    background-color:rgba(255,255,255,.8);
+  min-width: 250px;
+  padding: 14px 14px 0;
+  overflow: hidden;
+  background-color:rgba(255,255,255,.8);
 }
 
 #registerModal .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 #registerModal .btn {
-    background-color: #e27e03;
-    color: white;
+  background-color: #e27e03;
+  color: white;
 }
 
 /* Navbar color */
 
 .btn {
-	background-color: #e27e03;
-	color: white;
+  background-color: #e27e03;
+  color: white;
 }
 
 .btn:hover {
-	background-color: #fd971c;
-	color: white;
+  background-color: #fd971c;
+  color: white;
 }
 
 .label {
-	background-color: #e27e03;
+  background-color: #e27e03;
 }
 
 /*** Others ***/
 .dropdown-menu {
-  background-color: rgba(255,255,255,.8);
   margin: 10px auto;
   top: 75px;
 }
 
 /* Profile dropdown menu */
+#profile-dp {
+  background-color: rgba(255,255,255,.8);
+}
 .dropdown-profile {
-    display: none;
-    position: absolute;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 .dropdown-profile a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
 
 .dropdown-profile a:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .dropdown-profile form {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
 
 .dropdown-profile form button {
@@ -110,7 +113,7 @@
 }
 
 .dropdown-profile form:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 
@@ -124,9 +127,9 @@
   }
   .navbar-brand,
   .navbar-nav .navbar-head {
-      line-height: 75px;
-      height: 75px;
-      padding-top: 0;
+    line-height: 75px;
+    height: 75px;
+    padding-top: 0;
   }
 
   .navbar-nav .navbar-btn {
