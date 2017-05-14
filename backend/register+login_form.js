@@ -88,43 +88,12 @@ nev.generateTempUserModel(User, (err, tempUserModel) => {
 
 //// Passport
 var passport = require('passport');
-var session = require('express-session');
-
-app.use(cookieParser());
-app.use(session({
-  secret: 'sessionsecret',
-  resave: true,
-  saveUninitialized: true
-}));
 
 // Initialize passport for use
 app.use(passport.initialize());
-app.use(passport.session());
 
 
 
-
-// Checks if user is authenticated
-isAuthenticated = function(req,res,next){
-   if(req.user)
-      return next();
-   else
-      return res.status(401).json({
-        error: 'User not authenticated'
-      });
-}
-
-// Serialize / deserialize user
-// used to serialize the user for the session
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
-  });
-});
 
 
 // Passport configuration
@@ -282,7 +251,7 @@ getToken = function (headers) {
 };
 
 
-app.get('/profile', isAuthenticated, (req, res) => {
+app.get('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.sendFile('/home/server/relayers/frontend/public/profile.html');
 });
 
