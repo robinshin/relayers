@@ -35,7 +35,7 @@ $(function() {
     });
   }
   else {
-    $('#profile').css('display', 'block');
+    $('#profile').css('display', 'none');
     $('#login').css('display', 'block');
   }
 });
