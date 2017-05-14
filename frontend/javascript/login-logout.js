@@ -16,13 +16,10 @@ $(function() {
   var token = readCookie('token');
   if (token) {
     $.ajax({
-      url :"/auth",
+      url :"/check",
       type:'POST',
       headers : { "Authorization" : token },
       dataType: 'json',
-      data: {
-        role: 'Owner'
-      },
       cache: false,
       timeout: 5000,
 
