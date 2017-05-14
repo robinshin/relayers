@@ -3,19 +3,18 @@
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
-    overflow:hidden;
-    background-color:rgba(255,255,255,.8);
+    overflow: hidden;
 }
 
 #login-dp .help-block{
-    font-size:12px
+    font-size: 12px
 }
 
 #login-dp .bottom{
-    background-color:rgba(255,255,255,.8);
-    border-top:1px solid #ddd;
-    clear:both;
-    padding:14px;
+    background-color: rgba(255,255,255,.8);
+    border-top: 1px solid #ddd;
+    clear: both;
+    padding: 14px;
 }
 
 #login-dp .form-group {
@@ -30,7 +29,7 @@
 /* Register form */
 
 #registerModal {
-    background-color:rgba(100,100,100,.5);
+    background-color: rgba(100,100,100,.5);
 }
 
 #registerModal .modal-content {
@@ -67,21 +66,21 @@
 
 /*** Others ***/
 .dropdown-menu {
-  margin:10px auto;
+  background-color: rgba(255,255,255,.8);
+  margin: 10px auto;
   top: 75px;
 }
 
-/* Profile hover   */
-.dropdown-menu {
+/* Profile dropdown menu */
+.dropdown-profile {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
-.dropdown-menu a {
+.dropdown-profile a {
     float: none;
     color: black;
     padding: 12px 16px;
@@ -90,11 +89,11 @@
     text-align: left;
 }
 
-.dropdown-menu a:hover {
+.dropdown-profile a:hover {
     background-color: #ddd;
 }
 
-.dropdown-menu form {
+.dropdown-profile form {
     float: none;
     color: black;
     padding: 12px 16px;
@@ -103,14 +102,14 @@
     text-align: left;
 }
 
-.dropdown-menu form button {
+.dropdown-profile form button {
   background: none;
   border: none;
   margin: 0px;
   padding: 0px;
 }
 
-.dropdown-menu form:hover {
+.dropdown-profile form:hover {
     background-color: #ddd;
 }
 
