@@ -222,7 +222,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-//// Checks if user is authentified
+
 app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) => {
   var token = getToken(req.headers);
   if (token) {
@@ -237,6 +237,22 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
       }
       else {
         res.cookie('token', 'JWT ' + token, {maxAge: 86400000, secure: true});
+        res.json({ reponse: 'success' });
+      }
+    });
+  }
+});
+
+//// Checks if user is authentified
+app.post('/check', (req, res) => {
+  var token = getToken(req.headers);
+  if (token) {
+    jwt.verify(token, config.secret, function(err, decoded) {
+      if (err) {
+        res.cookie('token', '', {maxAge: 0});
+        return res.json({ reponse: 'error' });
+      }
+      else {
         res.json({ reponse: 'success' });
       }
     });
