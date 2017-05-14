@@ -30,13 +30,13 @@ $(function() {
         }
         else {
           $('#profile').css('display', 'none');
-          $('#login').css('display', 'none');
+          $('#login').css('display', 'block');
         }
       }
     });
   }
   else {
     $('#profile').css('display', 'none');
-    $('#login').css('display', 'none');
+    $('#login').css('display', 'block');
   }
 });
