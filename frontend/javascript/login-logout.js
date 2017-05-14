@@ -21,7 +21,7 @@ $(function() {
       headers : { "Authorization" : token },
       dataType: 'json',
       data: {
-        role: data.role
+        role: 'Owner'
       },
       cache: false,
       timeout: 5000,
