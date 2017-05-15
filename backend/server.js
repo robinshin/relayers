@@ -264,7 +264,7 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
 //// Logout route
 app.post('/logout', (req, res) => {
   res.cookie('token', '', {maxAge: 0});
-  res.render('index', { logged: false });
+  res.redirect('https://relayers.fr');
 });
 
 //// Protected routes
