@@ -62,12 +62,12 @@
 
           <li class="dropdown" style="display: none" id="login">
             <button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion</button>
-            <!-------- Login dropdown -------->
+            <!-- Login dropdown -->
             <ul id="login-dp" class="dropdown-menu">
               <li>
                 <div class="row">
                   <div class="col-md-12">
-                    <!------ Login alert window ------>
+                    <!-- Login alert window -->
                     <div id="login-alert" style="display: none" class="alert alert-danger text-center">
                       <a class="close" data-hide="alert">&times;</a>
                       <span id="text-login-alert"></span>
@@ -117,7 +117,7 @@
   </nav>
 
 
-  <!-------- Register modal -------->
+  <!-- Register modal -->
   <div id="registerModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -131,7 +131,7 @@
             <div class="col-md-12">
               <form class="form" action="" accept-charset="UTF-8" id="register-form">
 
-                <!------ Register alert window ------>
+                <!-- Register alert window -->
                 <div id="register-alert" style="display: none" class="alert text-center">
                   <a class="close" data-hide="alert">&times;</a>
                   <span id="text-register-alert"></span>
@@ -209,60 +209,54 @@
             </div>
           </div>
         </div>
-        <!--
-        <div class="modal-footer">
-        <div style="padding:10px"></div>
       </div>
-    -->
+    </div>
   </div>
-</div>
-</div>
 
 
-<!-------- Mail confirmed modal -------->
-<div id="mail-confirmedModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"> &times;</button>
-        <h4 class="text-center"><span id="text-mail-confirmedModal"></span> <span id="glyphicon-mail-confirmedModal" class="glyphicon"></span></h4>
-      </div>
-      <!-- Temporaire : à supprimer quand le service sera ouvert -->
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-12">
-            <h5 class="text-center"><span id="temporary-service-closed"></span></h5>
+  <!-- Mail confirmed modal -->
+  <div id="mail-confirmedModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"> &times;</button>
+          <h4 class="text-center"><span id="text-mail-confirmedModal"></span> <span id="glyphicon-mail-confirmedModal" class="glyphicon"></span></h4>
+        </div>
+        <!-- Temporaire : à supprimer quand le service sera ouvert -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class="text-center"><span id="temporary-service-closed"></span></h5>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<div class="container-fluid" id="home">
+  <div class="container-fluid" id="home">
 
-  <div class="container">
+    <div class="container">
 
-    <h1>Une journée à la maison ?</h1>
+      <h1>Une journée à la maison ?</h1>
 
-    <h2>Réceptionnez des colis pour vos voisins et soyez rémunéré !</h2>
+      <h2>Réceptionnez des colis pour vos voisins et soyez rémunéré !</h2>
 
-    <button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#registerModal">Inscrivez-vous gratuitement !</button>
+      <button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#registerModal">Inscrivez-vous gratuitement !</button>
 
+    </div>
   </div>
-</div>
 
 
-<div class="container-fluid" id="about">
-  <div class="row">
-    <h1>Comment ça marche ?</h1>
-    <h3><i>En 3 étapes ...</i></h3>
-    <hr>
-    <div class="col-lg-4">
-      <h2>&#9312; Commande</h2>
-      <p>Votre voisin souhaite commander un article sur un site de e-commerce partenaire, mais il n'est pas disponible pour réceptionner ce colis.
-        Heureusement, vous l'êtes ! Il va donc choisir le mode de livraison "Relayers" et vous sélectionner pour que son colis soit livré directement chez vous !</p>
+  <div class="container-fluid" id="about">
+    <div class="row">
+      <h1>Comment ça marche ?</h1>
+      <h3><i>En 3 étapes ...</i></h3>
+      <hr>
+      <div class="col-lg-4">
+        <h2>&#9312; Commande</h2>
+        <p>Votre voisin souhaite commander un article sur un site de e-commerce partenaire, mais il n'est pas disponible pour réceptionner ce colis. Heureusement, vous l'êtes ! Il va donc choisir le mode de livraison "Relayers" et vous sélectionner pour que son colis soit livré directement chez vous !</p>
       </div>
       <div class="col-lg-4">
         <h2>&#9313; Réception</h2>
@@ -283,7 +277,7 @@
       </div>
     </div>
     <div class="row">
-      <!------ Contact alert window ------>
+      <!-- Contact alert window -->
       <div id="contact-alert" style="display: none" class="col-lg-6 col-lg-offset-3 alert text-center">
         <a class="close" data-hide="alert">&times;</a>
         <span id="text-contact-alert"></span>
@@ -311,55 +305,56 @@
         </div>
       </div>
     </div>
+  </div>
 
 
-    <footer class="footer">
-      <p class="text-muted text-center" style="padding:5px">@ Relayers 2017 - Tous droits réservés - Mentions légales - CGU</p>
-    </footer>
+  <footer class="footer">
+    <p class="text-muted text-center" style="padding:5px">@ Relayers 2017 - Tous droits réservés - Mentions légales - CGU</p>
+  </footer>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../bootstrap/docs/dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../bootstrap/docs/dist/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="../bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- General forms javascript -->
-    <script src="../javascript/forms.js"></script>
-    <!-- Contact form javascript -->
-    <script src="../javascript/contact-form.js"></script>
-    <!-- Register form javascript -->
-    <script src="../javascript/register-form.js"></script>
-    <!-- Login form javascript -->
-    <script src="../javascript/login-form.js"></script>
+  <!-- General forms javascript -->
+  <script src="../javascript/forms.js"></script>
+  <!-- Contact form javascript -->
+  <script src="../javascript/contact-form.js"></script>
+  <!-- Register form javascript -->
+  <script src="../javascript/register-form.js"></script>
+  <!-- Login form javascript -->
+  <script src="../javascript/login-form.js"></script>
 
-    <script src="../javascript/logged.js"></script>
+  <script src="../javascript/logged.js"></script>
 
-    <script>
-    $('a[href^="#"]').click(function(){
-      var the_id = $(this).attr("href");
-      if (the_id != "#") {
-        $('html, body').animate({
-          scrollTop:$(the_id).offset().top
-        }, 'slow');
-      }
-      return false;
-    });
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete" async defer></script>
+  <script>
+  $('a[href^="#"]').click(function(){
+    var the_id = $(this).attr("href");
+    if (the_id != "#") {
+      $('html, body').animate({
+        scrollTop:$(the_id).offset().top
+      }, 'slow');
+    }
+    return false;
+  });
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete" async defer></script>
 
-    <!-- Google analytics -->
-    <script src="../javascript/analytics.js"></script>
+  <!-- Google analytics -->
+  <script src="../javascript/analytics.js"></script>
 
-    <noscript>
-      <div class="nojs-overlay" style="width: 100%">
-        <div class="nojs-overlay-content">
-          Veuillez activer le javascript
-        </div>
+  <noscript>
+    <div class="nojs-overlay" style="width: 100%">
+      <div class="nojs-overlay-content">
+        Veuillez activer le javascript
       </div>
-    </noscript>
+    </div>
+  </noscript>
 
-  </body>
+</body>
 
-  </html>
+</html>
