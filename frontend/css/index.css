@@ -57,6 +57,18 @@ body {
   padding: 10px;
 }
 
+#sender_mail {
+  width: 600px;
+  display:block;
+  margin:auto;
+}
+
+#msg {
+  width: 600px;
+  display:block;
+  margin:auto;
+}
+
 /*** Others ***/
 
 /* Register form */
