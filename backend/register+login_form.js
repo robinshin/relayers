@@ -204,15 +204,22 @@ app.post('/login', (req, res) => {
       // check if password matches
       user.comparePassword(req.body.password, (err, isMatch) => {
         if (isMatch && !err) {
-          // if user is found and password is right create a token
-          var token = jwt.sign(user, config.secret, { expiresIn: 21600 });
-          // return the information including token as JSON
-          res.json({
-            reponse: 'success',
-            token: 'JWT ' + token,
-            profile: user.profile,
-            role: user.role
-          });
+          ///// Temporary
+          if (user.role != "Owner") {
+            res.cookie('token', '', {maxAge: 0});
+            return res.json({ reponse: 'error', msg: 'not owner' });
+          }
+          else {
+            // if user is found and password is right create a token
+            var token = jwt.sign(user, config.secret, { expiresIn: 21600 });
+            // return the information including token as JSON
+            res.json({
+              reponse: 'success',
+              token: 'JWT ' + token,
+              profile: user.profile,
+              role: user.role
+            });
+          }
         }
         else {
           res.send({reponse: 'error', msg: 'wrong password'});
@@ -230,10 +237,6 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
       if (err) {
         res.cookie('token', '', {maxAge: 0});
         return res.json({ reponse: 'error' });
-      }
-      else if (req.user.role != "Owner") {
-        res.cookie('token', '', {maxAge: 0});
-        return res.json({ reponse: 'error', msg: 'not owner' });
       }
       else {
         res.cookie('token', 'JWT ' + token, {maxAge: 86400000, secure: true});
