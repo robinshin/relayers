@@ -205,7 +205,7 @@ app.post('/login', (req, res) => {
       user.comparePassword(req.body.password, (err, isMatch) => {
         if (req.user.role != "Owner") {
           res.cookie('token', '', {maxAge: 0});
-          return res.json({ reponse: 'not owner' });
+          return res.json({ reponse: 'error', msg: 'not owner' });
         }
         if (isMatch && !err) {
           // if user is found and password is right create a token
