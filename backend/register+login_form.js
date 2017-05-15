@@ -308,7 +308,7 @@ var checkAuthentication = function(req) {
 }
 
 //// Port
-app.listen(app.get(8082), () => {
+app.listen(8082, () => {
   console.log('Register + login form app is running on port 8082');
 })
 

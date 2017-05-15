@@ -1,10 +1,12 @@
 const express = require('express');
 const bodyParser= require('body-parser')
 const app = express();
+var cookieParser = require('cookie-parser');
 
 var login = require('./register+login_form')
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(cookieParser());
 
 //// Configure pug
 app.set("view engine", "pug");
