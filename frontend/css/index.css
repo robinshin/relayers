@@ -120,9 +120,9 @@ body {
   /** Home section **/
   #home .container {
     margin-top: 240px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.25);
     border-radius: 3px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
     padding: 50px;
     font-family: 'Droid Serif', serif;
     margin-bottom: 140px;
