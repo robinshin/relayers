@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     res.render('index', { logged: true });
   }
   else {
-    res.render('index', {logged: false});
+    res.render('index', { logged: false });
   }
 
 });
