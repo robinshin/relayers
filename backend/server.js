@@ -17,7 +17,8 @@ app.use('/profile.html', (req, res) => {
 app.get('/', (req, res) => {
   res.render("index");
 });
-//app.use(express.static('/home/server/relayers/frontend/public'));
+
+app.use(express.static('/home/server/relayers/frontend/public'));
 
 //// Port
 app.listen(app.get('port'), () => {
