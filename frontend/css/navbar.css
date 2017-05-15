@@ -110,6 +110,7 @@
   }
   .navbar-brand,
   .navbar-nav .navbar-head {
+    font-family: 'Oswald', sans-serif;
     line-height: 75px;
     height: 75px;
     padding-top: 0;
