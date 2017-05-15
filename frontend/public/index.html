@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/social_icons.css">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Slabo+27px">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="../javascript/google_localisation_inscription.js"></script>
   <style>
@@ -36,7 +36,7 @@
 
 <body data-spy="scroll" data-target=".navbar">
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -46,16 +46,28 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand text-uppercase" href="#home"><span class="label text-capitalize" id="text_title"><img src="../imgs/logo_blank.png" id="logo_title" alt="Relayers"> RELAYERS</span></a>
+        <a class="navbar-brand text-uppercase" href="https://relayers.fr"><span class="label text-capitalize" id="text_title"><img src="../imgs/logo_blank.png" id="logo_title" alt="Relayers"> RELAYERS</span></a>
       </div>
 
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav navbar-right">
+
           <li><a href="#about" class="navbar-head">À propos</a></li>
+
           <li><a href="#contact" class="navbar-head">Contact</a></li>
-          <li class="dropdown"><button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion</button>
+
+          <li class="dropdown" style="display: none" id="profile">
+            <button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Mon compte</button>
+            <ul id="profile-dp" class="dropdown-menu dropdown-profile">
+              <a href="/profile">  Mon profil</a>
+              <form class="form" action="/logout" method="POST" accept-charset="UTF-8"><button type="submit">Déconnexion</button></form>
+            </ul>
+          </li>
+
+          <li class="dropdown" style="display: none" id="login">
+            <button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion</button>
             <!-------- Login dropdown -------->
             <ul id="login-dp" class="dropdown-menu">
               <li>
@@ -137,16 +149,16 @@
                   <label class="sr-only" for="firstName">Prénom</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    <input class="form-control input-md" id="firstName" name="firstName"type="text" placeholder="Prénom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                    <input class="form-control input-md" id="firstName" name="firstName" type="text" placeholder="Prénom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
                   </div>
                 </div>
 
                 <!-- Second name -->
                 <div class="form-group">
-                  <label class="sr-only" for="secondName">Nom</label>
+                  <label class="sr-only" for="lastName">Nom</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    <input class="form-control input-md" id="secondName" name="secondName"type="text" placeholder="Nom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                    <input class="form-control input-md" id="lastName" name="lastName" type="text" placeholder="Nom" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
                   </div>
                 </div>
 
@@ -155,7 +167,7 @@
                   <label class="sr-only" for="address">Adresse</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <input class="form-control input-md" id="autocomplete" name="address"type="text" placeholder="Adresse" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                    <input class="form-control input-md" id="autocomplete" name="address" type="text" placeholder="Adresse" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
                   </div>
                 </div>
 
@@ -164,7 +176,16 @@
                   <label class="sr-only" for="email">Adresse Email</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                    <input class="form-control input-md" id="username" name="username"type="text" placeholder="Adresse Email" required="" onblur="checkMail(this)" onfocus="highlight(this, false)">
+                    <input class="form-control input-md" id="username" name="username" type="text" placeholder="Adresse Email" required="" onblur="checkMail(this)" onfocus="highlight(this, false)">
+                  </div>
+                </div>
+
+                <!-- Phone number -->
+                <div class="form-group">
+                  <label class="sr-only" for="phoneNumber">Numéro de téléphone</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+                    <input class="form-control input-md" id="phoneNumber" name="phoneNumber" type="tel" placeholder="Numéro de téléphone" required="" onblur="checkPhone(this)" onfocus="highlight(this, false)">
                   </div>
                 </div>
 
@@ -173,7 +194,7 @@
                   <label class="sr-only" for="password">Mot de passe</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input class="form-control input-md" id="password" name="password"type="password" placeholder="Mot de passe" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
+                    <input class="form-control input-md" id="password" name="password" type="password" placeholder="Mot de passe" required="" onblur="checkLength(this)" onfocus="highlight(this, false)">
                   </div>
                 </div>
 
@@ -298,42 +319,53 @@
     </div>
 
 
-    <footer class="footer">
-      <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
-    </footer>
+  <footer class="footer">
+    <p class="text-muted text-center" style="padding:5px">@ Relayer 2017 - Tous droits réservés - Mentions légales - CGU</p>
+  </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../bootstrap/docs/dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- General forms javascript -->
-    <script src="../javascript/forms.js"></script>
-    <!-- Contact form javascript -->
-    <script src="../javascript/contact-form.js"></script>
-    <!-- Register form javascript -->
-    <script src="../javascript/register-form.js"></script>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="../bootstrap/docs/dist/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="../bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-    <script>
-    $('a[href^="#"]').click(function(){
-      var the_id = $(this).attr("href");
-      if (the_id != "#") {
-        $('html, body').animate({
-          scrollTop:$(the_id).offset().top
-        }, 'slow');
-      }
-      return false;
-    });
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete" async defer></script>
+  <!-- General forms javascript -->
+  <script src="../javascript/forms.js"></script>
+  <!-- Contact form javascript -->
+  <script src="../javascript/contact-form.js"></script>
+  <!-- Register form javascript -->
+  <script src="../javascript/register-form.js"></script>
 
-    <!-- Google analytics -->
-    <script src="../javascript/analytics.js"></script>
+  <script src="../javascript/login-logout.js"></script>
 
-  </body>
+  <script>
+  $('a[href^="#"]').click(function(){
+    var the_id = $(this).attr("href");
+    if (the_id != "#") {
+      $('html, body').animate({
+        scrollTop:$(the_id).offset().top
+      }, 'slow');
+    }
+    return false;
+  });
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete" async defer></script>
 
-  </html>
+  <!-- Google analytics -->
+  <script src="../javascript/analytics.js"></script>
+
+  <noscript>
+    <div class="nojs-overlay" style="width: 100%">
+      <div class="nojs-overlay-content">
+        Veuillez activer le javascript
+      </div>
+    </div>
+  </noscript>
+
+</body>
+
+</html>

@@ -10,8 +10,24 @@ function highlight(field, error)
 // Verifies that the input mail is correct
 function checkMail(field)
 {
-    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-    if(!regex.test(field.value))
+    const regexMail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+    if(!regexMail.test(field.value))
+    {
+        highlight(field, true);
+        return false;
+    }
+    else
+    {
+        highlight(field, false);
+        return true;
+    }
+}
+
+// Verifies that the input phone number is correct
+function checkPhone(field)
+{
+    const regexPhone = /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/;
+    if(!regexPhone.test(field.value))
     {
         highlight(field, true);
         return false;
