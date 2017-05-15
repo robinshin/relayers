@@ -14,7 +14,7 @@ var UserSchema = new Schema({
     required: true
   },
   profile: [{
-     _id: false
+     _id: false,
     firstName: String,
     lastName: String,
     address: String,
