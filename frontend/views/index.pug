@@ -1,0 +1,257 @@
+doctype html
+head
+  title Relayers
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='icon', type='image/png', href='./imgs/logo.png')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Oswald|Droid+Serif')
+  link(rel='stylesheet', href='./css/index.css')
+  link(rel='stylesheet', href='./css/navbar.css')
+  link(rel='stylesheet', href='./css/social_icons.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(type='text/javascript', src='./javascript/google_localisation_inscription.js')
+  style.
+    /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+    #map {
+    height: 100%;
+    }
+    /* z-index allows autocomplete to be above the dropdown-menu */
+    .pac-container {
+    z-index: 2000;
+    }
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    // Brand and toggle get grouped for better mobile display
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navigation')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand.text-uppercase(href='https://relayers.fr')
+        span#text_title.label.text-capitalize
+          img#logo_title(src='./imgs/logo_blank.png', alt='Relayers')
+          |  RELAYERS
+    // Collect the nav links, forms, and other content for toggling
+    #navigation.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li
+          a.navbar-head(href='#about') À propos
+        li
+          a.navbar-head(href='#contact') Contact
+        li#profile.dropdown(style='display: none')
+          button.btn.navbar-btn.btn-circle.dropdown-toggle(type='button', data-toggle='dropdown') Mon compte
+          ul#profile-dp.dropdown-menu.dropdown-profile
+            a(href='/profile')   Mon profil
+            form.form(action='/logout', method='POST', accept-charset='UTF-8')
+              button(type='submit') Déconnexion
+        li#login.dropdown(style='display: none')
+          button.btn.navbar-btn.btn-circle.dropdown-toggle(type='button', data-toggle='dropdown') Connexion
+          // Login dropdown
+          ul#login-dp.dropdown-menu
+            li
+              .row
+                .col-md-12
+                  // Login alert window
+                  #login-alert.alert.alert-danger.text-center(style='display: none')
+                    a.close(data-hide='alert') ×
+                    span#text-login-alert
+                  form#login-form.form(action='', accept-charset='UTF-8')
+                    // Username
+                    .form-group
+                      label.sr-only(for='login_username') Adresse Email
+                      .input-group
+                        span.input-group-addon
+                          i.glyphicon.glyphicon-user
+                        input#login_username.form-control.input-md(type='email', placeholder='Adresse mail')
+                    // Password
+                    .form-group
+                      label.sr-only(for='login_password') Mot de passe
+                      .input-group
+                        span.input-group-addon
+                          i.glyphicon.glyphicon-lock
+                        input#login_password.form-control.input-md(type='password', placeholder='Mot de passe')
+                      .help-block.text-right
+                        a(href='') Mot de passe oublié ?
+                    .form-group
+                      button#login_btn.btn.btn-default.btn-block(type='button') Se connecter
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  Rester connecter
+                .bottom.text-center
+                  br
+                  a(href='', data-toggle='modal', data-target='#registerModal')
+                    b Rejoignez nous !
+// Register modal
+#registerModal.modal.fade(role='dialog')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal')  ×
+        // Form name
+        h4.text-center Inscription
+      .modal-body
+        .row
+          .col-md-12
+            form#register-form.form(action='', accept-charset='UTF-8')
+              // Register alert window
+              #register-alert.alert.text-center(style='display: none')
+                a.close(data-hide='alert') ×
+                span#text-register-alert
+              // First name
+              .form-group
+                label.sr-only(for='firstName') Prénom
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-pencil
+                  input#firstName.form-control.input-md(name='firstName', type='text', placeholder='Prénom', required='', onblur='checkLength(this)', onfocus='highlight(this, false)')
+              // Second name
+              .form-group
+                label.sr-only(for='lastName') Nom
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-pencil
+                  input#lastName.form-control.input-md(name='lastName', type='text', placeholder='Nom', required='', onblur='checkLength(this)', onfocus='highlight(this, false)')
+              // Address
+              #locationField.form-group
+                label.sr-only(for='address') Adresse
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-home
+                  input#autocomplete.form-control.input-md(name='address', type='text', placeholder='Adresse', required='', onblur='checkLength(this)', onfocus='highlight(this, false)')
+              // Email
+              .form-group
+                label.sr-only(for='email') Adresse Email
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-envelope
+                  input#username.form-control.input-md(name='username', type='text', placeholder='Adresse Email', required='', onblur='checkMail(this)', onfocus='highlight(this, false)')
+              // Phone number
+              .form-group
+                label.sr-only(for='phoneNumber') Numéro de téléphone
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-phone-alt
+                  input#phoneNumber.form-control.input-md(name='phoneNumber', type='tel', placeholder='Numéro de téléphone', required='', onblur='checkPhone(this)', onfocus='highlight(this, false)')
+              // Password
+              .form-group
+                label.sr-only(for='password') Mot de passe
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-lock
+                  input#password.form-control.input-md(name='password', type='password', placeholder='Mot de passe', required='', onblur='checkLength(this)', onfocus='highlight(this, false)')
+              // Password confirm
+              .form-group
+                label.sr-only(for='password-confirm') Confirmez le mot de passe
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-lock
+                  input#password_confirm.form-control.input-md(name='password_confirm', type='password', placeholder='Confirmez le mot de passe', required='', onblur='checkEquals(this)', onfocus='highlight(this, false)')
+              // Button
+              .form-group
+                button#register_btn.btn.btn-default.btn-block(type='button') S'inscrire
+// Mail confirmed modal
+#mail-confirmedModal.modal.fade(role='dialog')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal')  ×
+        h4.text-center
+          span#text-mail-confirmedModal
+          span#glyphicon-mail-confirmedModal.glyphicon
+      // Temporaire : à supprimer quand le service sera ouvert
+      .modal-body
+        .row
+          .col-md-12
+            h5.text-center
+              span#temporary-service-closed
+#home.container-fluid
+  .container
+    h1 Une journée à la maison ?
+    h2 Réceptionnez des colis pour vos voisins et soyez rémunéré !
+    button.btn.btn-default.btn-lg(type='button', data-toggle='modal', data-target='#registerModal') Inscrivez-vous gratuitement !
+#about.container-fluid
+  .row
+    h1 Comment ça marche ?
+    h3
+      i En 3 étapes ...
+    hr
+    .col-lg-4
+      h2 ① Commande
+      p
+        | Votre voisin souhaite commander un article sur un site de e-commerce partenaire, mais il n'est pas disponible pour réceptionner ce colis. Heureusement, vous l'êtes ! Il va donc choisir le mode de livraison "Relayers" et vous sélectionner pour que son colis soit livré directement chez vous !
+    .col-lg-4
+      h2 ② Réception
+      p
+        | Vous réceptionnez le colis de votre voisin, et le gardez précieusement chez vous jusqu'à que votre voisin vienne le chercher.
+    .col-lg-4
+      h2 ③ Rémunération
+      p
+        | En plus de rendre service à votre voisin, vous êtes rémunéré pour le service rendu !
+#contact.container-fluid
+  .row
+    .col-lg-8.col-lg-offset-2.text-center
+      h2 Contactez nous !
+      p.lead
+        | N'hésitez pas à nous contacter directement en remplissant le formulaire ci-dessous
+  .row
+    // Contact alert window
+    #contact-alert.col-lg-6.col-lg-offset-3.alert.text-center(style='display: none')
+      a.close(data-hide='alert') ×
+      span#text-contact-alert
+    .col-lg-8.col-lg-offset-2
+      hr
+      form#contact-form.form-horizontal(action='#contact')
+        .form-group
+          input#sender_mail.form-control(type='text', name='sender_mail', placeholder='Adresse email', onblur='checkMail(this)', onfocus='highlight(this, false)')
+        .form-group
+          textarea#msg.form-control(name='msg', placeholder='Votre message', style='resize:none;', rows='5')
+        button#contact_btn.btn.btn-default.center-block(type='button') Envoyer
+        hr
+      .row
+        .col-lg-8.col-lg-offset-2.text-center
+          h3 Suivez-nous sur les réseaux sociaux !
+          ul.list-inline
+            li
+              a.fa.fa-twitter(href='https://twitter.com/Relayers_fr')
+            li
+              a.fa.fa-facebook(href='https://www.facebook.com/Relayers.fr')
+footer.footer
+  p.text-muted.text-center(style='padding:5px') @ Relayers 2017 - Tous droits réservés - Mentions légales - CGU
+//
+  Bootstrap core JavaScript
+  ==================================================
+// Placed at the end of the document so the pages load faster
+script(src='./bootstrap/docs/dist/js/bootstrap.min.js')
+// IE10 viewport hack for Surface/desktop Windows 8 bug
+script(src='./bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js')
+// General forms javascript
+script(src='./javascript/forms.js')
+// Contact form javascript
+script(src='./javascript/contact-form.js')
+// Register form javascript
+script(src='./javascript/register-form.js')
+// Login form javascript
+script(src='./javascript/login-form.js')
+script(src='./javascript/logged.js')
+script.
+  $('a[href^="#"]').click(function(){
+  var the_id = $(this).attr("href");
+  if (the_id != "#") {
+  $('html, body').animate({
+  scrollTop:$(the_id).offset().top
+  }, 'slow');
+  }
+  return false;
+  });
+script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete', async='', defer='')
+// Google analytics
+script(src='./javascript/analytics.js')
+noscript
+  .nojs-overlay(style='width: 100%')
+    .nojs-overlay-content
+      | Veuillez activer le javascript
