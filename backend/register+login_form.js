@@ -203,10 +203,6 @@ app.post('/login', (req, res) => {
     else {
       // check if password matches
       user.comparePassword(req.body.password, (err, isMatch) => {
-        if (req.user.role != "Owner") {
-          res.cookie('token', '', {maxAge: 0});
-          return res.json({ reponse: 'error', msg: 'not owner' });
-        }
         if (isMatch && !err) {
           // if user is found and password is right create a token
           var token = jwt.sign(user, config.secret, { expiresIn: 21600 });
@@ -234,6 +230,10 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
       if (err) {
         res.cookie('token', '', {maxAge: 0});
         return res.json({ reponse: 'error' });
+      }
+      else if (req.user.role != "Owner") {
+        res.cookie('token', '', {maxAge: 0});
+        return res.json({ reponse: 'error', msg: 'not owner' });
       }
       else {
         res.cookie('token', 'JWT ' + token, {maxAge: 86400000, secure: true});
