@@ -51,7 +51,7 @@ $(function() {
             url :"/auth",
             type:'POST',
             headers : { "Authorization" : data.token },
-            dataType: 'html',
+            dataType: 'json',
             data: {
               role: data.role
             },
