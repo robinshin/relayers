@@ -4,7 +4,7 @@ body {
   min-height: 100%;
   margin-right: auto;
   margin-left: auto;
-  font-family: 'Slabo 27px', serif;
+  font-family: 'Droid Serif', serif;
 }
 
 /*** Home section ***/
@@ -57,13 +57,7 @@ body {
   padding: 10px;
 }
 
-#sender_mail {
-  width: 600px;
-  display:block;
-  margin:auto;
-}
-
-#msg {
+#sender_mail, #msg {
   width: 600px;
   display:block;
   margin:auto;
@@ -130,7 +124,7 @@ body {
     border-radius: 3px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     padding: 50px;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Droid Serif', serif;
     margin-bottom: 140px;
   }
 
@@ -172,7 +166,7 @@ body {
     border-radius: 3px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     padding: 10px;
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Droid Serif', serif;
   }
 
   #about h2 {
