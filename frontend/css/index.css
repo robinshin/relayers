@@ -26,6 +26,13 @@ body {
   color: white;
 }
 
+#home .container {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+  font-family: 'Droid Serif', serif;
+}
+
 
 /*** About section ***/
 #about {
@@ -120,12 +127,8 @@ body {
   /** Home section **/
   #home .container {
     margin-top: 240px;
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 3px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
-    padding: 50px;
-    font-family: 'Droid Serif', serif;
     margin-bottom: 140px;
+    padding: 50px;
   }
 
   #home .btn-default {
@@ -162,11 +165,7 @@ body {
   #home .container {
     margin-top: 50px;
     margin-bottom: 30px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     padding: 10px;
-    font-family: 'Droid Serif', serif;
   }
 
   #about h2 {
