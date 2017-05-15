@@ -67,6 +67,7 @@ $(function() {
                 }
                 else {
                   display_login_alert(false, 'unknown');
+                }
               }
             }
           });
