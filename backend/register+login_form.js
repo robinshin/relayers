@@ -233,7 +233,7 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
       }
       else if (req.user.role != "Owner") {
         res.cookie('token', '', {maxAge: 0});
-        return res.json({ reponse: 'error' });
+        return res.json({ reponse: 'not owner' });
       }
       else {
         res.cookie('token', 'JWT ' + token, {maxAge: 86400000, secure: true});
