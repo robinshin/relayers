@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser= require('body-parser')
 const app = express();
 
+var login = require('./register+login_form.js')
+
 app.use(bodyParser.urlencoded({extended: true}))
 
 //// Configure pug
@@ -15,7 +17,7 @@ app.use('/profile.html', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  if (checkAuthentication(req)) {
+  if (login.checkAuthentication(req)) {
     res.render('index', { logged: true });
   }
   else {
