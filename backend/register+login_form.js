@@ -247,7 +247,7 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
 });
 
 //// Checks if user is authentified
-app.post('/check', (req, res) => {
+/*app.post('/check', (req, res) => {
   var token = req.cookies.token;
   if (token) {
     jwt.verify(token.split(' ')[1], config.secret, function(err, decoded) {
@@ -260,17 +260,23 @@ app.post('/check', (req, res) => {
       }
     });
   }
-});
+});*/
 
 //// Logout route
 app.post('/logout', (req, res) => {
   res.cookie('token', '', {maxAge: 0});
-  res.redirect('/');
+  res.render('index', { logged: false });
 });
 
 //// Protected routes
-app.get('/profile', checkAuthentication, (req, res) => {
-  res.sendFile('/home/server/relayers/frontend/public/profile.html');
+app.get('/profile', (req, res) => {
+  if (checkAuthentication(req)) {
+    res.sendFile('/home/server/relayers/frontend/public/profile.html');
+  }
+  else {
+    res.cookie('token', '', {maxAge: 0});
+    res.render('index', { logged: false })
+  }
 });
 
 getToken = function (headers) {
@@ -286,21 +292,20 @@ getToken = function (headers) {
   }
 };
 
-function checkAuthentication(req, res, next) {
+function checkAuthentication(req) {
   var token = req.cookies.token;
   if (token) {
     jwt.verify(token.split(' ')[1], config.secret, function(err, decoded) {
       if (err) {
-        res.cookie('token', '', {maxAge: 0});
-        return res.json({reponse: 'error'});
+        return false
       }
       else {
-        next();
+        return true;
       }
     });
   }
   else {
-    res.redirect("/");
+    return false;
   }
 }
 
