@@ -59,11 +59,11 @@
           scheduler.init('scheduler_here',new Date(2017,4,10),"month");
 
           scheduler.templates.xml_date = function(value){ return new Date(value); };
-          scheduler.load("https://relayers.fr/cal", "json");
+          scheduler.load("/cal", "json");
 
           scheduler.config.xml_date="%Y-%m-%d %H:%i";
 
-          var dp = new dataProcessor("https://relayers.fr/cal");
+          var dp = new dataProcessor("/cal");
           dp.init(scheduler);
           dp.setTransactionMode("POST", false);
       }
