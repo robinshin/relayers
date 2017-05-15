@@ -57,7 +57,17 @@ $(function() {
             },
 
             success: function(data) {
-              window.location.reload();
+              if (data.reponse === 'success') {
+                window.location.reload();
+              }
+              else {
+                ////// Temporaire
+                if (data.msg === 'not owner') {
+                  display_login_alert(false, 'not_owner');
+                }
+                else {
+                  display_login_alert(false, 'unknown');
+              }
             }
           });
         }
@@ -67,10 +77,6 @@ $(function() {
           }
           else if (data.msg == 'wrong password') {
             display_login_alert(false, 'wrong_password');
-          }
-          ////// Temporaire
-          else if (data.msg == 'not owner') {
-            display_login_alert(false, 'not_owner');
           }
           else {
             display_login_alert(false, 'unknown');
