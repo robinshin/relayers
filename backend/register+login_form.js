@@ -292,7 +292,7 @@ getToken = function (headers) {
   }
 };
 
-function checkAuthentication(req) {
+export.checkAuthentication = function(req) {
   var token = req.cookies.token;
   if (token) {
     jwt.verify(token.split(' ')[1], config.secret, function(err, decoded) {
