@@ -15,7 +15,7 @@ app.use('/profile.html', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  if checkAuthentication(req) {
+  if (checkAuthentication(req)) {
     res.render('index', { logged: true });
   }
   else {
