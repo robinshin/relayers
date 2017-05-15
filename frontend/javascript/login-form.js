@@ -61,13 +61,7 @@ $(function() {
                 window.location.reload();
               }
               else {
-                ////// Temporaire
-                if (data.msg === 'not owner') {
-                  display_login_alert(false, 'not_owner');
-                }
-                else {
                   display_login_alert(false, 'unknown');
-                }
               }
             }
           });
@@ -78,6 +72,10 @@ $(function() {
           }
           else if (data.msg == 'wrong password') {
             display_login_alert(false, 'wrong_password');
+          }
+          //// Temporary
+          else if (data.msg === 'not owner') {
+            display_login_alert(false, 'not_owner');
           }
           else {
             display_login_alert(false, 'unknown');
