@@ -35,3 +35,20 @@ body {
     color: #ffffff;
     display: block;
 }
+
+
+/****** Responsiveness ******/
+
+/* Big screens */
+@media only screen and (min-width: 480px) {
+  footer {
+    font-size: 100%;
+  }
+}
+
+/* Small screens */
+@media only screen and (max-width: 480px) {
+  footer {
+    font-size: 75%;
+  }
+}
