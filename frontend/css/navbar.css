@@ -47,6 +47,11 @@
   background-color: #e27e03;
 }
 
+.navbar-brand,
+.navbar-nav .navbar-head {
+  font-family: 'Oswald', sans-serif;
+}
+
 /*** Others ***/
 .dropdown-menu {
   margin: 10px auto;
@@ -110,7 +115,6 @@
   }
   .navbar-brand,
   .navbar-nav .navbar-head {
-    font-family: 'Oswald', sans-serif;
     line-height: 75px;
     height: 75px;
     padding-top: 0;
