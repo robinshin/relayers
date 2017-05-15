@@ -4,8 +4,6 @@ const app = express();
 const bcrypt = require('bcrypt-nodejs');
 var cookieParser = require('cookie-parser');
 
-app.set('port', 8082);
-
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cookieParser());
 
@@ -292,7 +290,7 @@ getToken = function (headers) {
   }
 };
 
-export.checkAuthentication = function(req) {
+var checkAuthentication = function(req) {
   var token = req.cookies.token;
   if (token) {
     jwt.verify(token.split(' ')[1], config.secret, function(err, decoded) {
@@ -310,8 +308,8 @@ export.checkAuthentication = function(req) {
 }
 
 //// Port
-app.listen(app.get('port'), () => {
-  console.log('Register + login form app is running on port', app.get('port'));
+app.listen(app.get(8082), () => {
+  console.log('Register + login form app is running on port 8082');
 })
 
-module.exports = app;
+exports.checkAuthentication = checkAuthentication;
