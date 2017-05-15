@@ -1,0 +1,16 @@
+{
+  "name": "clement",
+  "version": "1.0.0",
+  "description": "relayers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "clement",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongoskin": "^2.1.0"
+  },
+  "devDependencies": {}
+}

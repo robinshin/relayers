@@ -1,141 +1,50 @@
 <!doctype html>
-<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calendar</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link href="../css/calendar.css" rel="stylesheet" type="text/css">
-  <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/style_index.css">
-  <style>
-  body { font-family:'Open Sans'; background-color:#ECF0F1;}
-  </style>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <script src="codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="codebase/dhtmlxscheduler.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <style type="text/css" media="screen">
+        html, body{
+            margin:0px;
+            padding:0px;
+            height:100%;
+            overflow:hidden;
+        }
+    </style>
 </head>
 
-<body>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand text-uppercase" href="#home"><span class="label text-capitalize" id="text_title"><img src="../imgs/logo_blank.png" id="logo_title" alt="Relayers"> RELAYERS</span></a>
-      </div>
+<script type="text/javascript" charset="utf-8">
+    function init() {
+        scheduler.init('scheduler_here',new Date(2017,4,10),"month");
 
+        scheduler.templates.xml_date = function(value){ return new Date(value); };
+        scheduler.load("/data", "json");
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navigation">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#about" class="navbar-head">À propos</a></li>
-          <li><a href="#contact" class="navbar-head">Contact</a></li>
-          <li class="dropdown"><button type="button" class="btn navbar-btn btn-circle dropdown-toggle" data-toggle="dropdown">Connexion</button>
-            <!-------- Login dropdown -------->
-            <ul id="login-dp" class="dropdown-menu">
-              <li>
-                <div class="row">
-                  <div class="col-md-12">
-                    <!------ Login alert window ------>
-                    <div id="login-alert" style="display: none" class="alert alert-danger text-center">
-                      <a class="close" data-hide="alert">&times;</a>
-                      <span id="text-login-alert"></span>
-                    </div>
+        scheduler.config.xml_date="%Y-%m-%d %H:%i";
 
-                    <form class="form" action="" accept-charset="UTF-8" id="login-form">
-                      <!-- Username -->
-                      <div class="form-group">
-                        <label class="sr-only" for="login_username">Adresse Email</label>
-                        <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input type="email" class="form-control input-md" id="login_username" placeholder="Adresse mail">
-                        </div>
-                      </div>
+        var dp = new dataProcessor("/data");
+        dp.init(scheduler);
+        dp.setTransactionMode("POST", false);
+    }
+</script>
 
-                      <!-- Password -->
-                      <div class="form-group">
-                        <label class="sr-only" for="login_password">Mot de passe</label>
-                        <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                          <input type="password" class="form-control input-md" id="login_password" placeholder="Mot de passe">
-                        </div>
-                        <div class="help-block text-right"><a href="">Mot de passe oublié ?</a>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <button type="button" id="login_btn" class="btn btn-default btn-block">Se connecter</button>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> Rester connecter
-                        </label>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="bottom text-center">
-                    Vous êtes nouveau ? <br> <a href="" data-toggle="modal" data-target="#registerModal"><b>Rejoignez nous !</b></a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+<body onload="init();">
+    <div id="scheduler_here" class="dhx_cal_container well" style='width:50%; height:50%;'>
+        <div class="dhx_cal_navline">
+            <div class="dhx_cal_prev_button">&nbsp;</div>
+            <div class="dhx_cal_next_button">&nbsp;</div>
+            <div class="dhx_cal_today_button"></div>
+            <div class="dhx_cal_date"></div>
+            <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+            <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+            <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
+        </div>
+        <div class="dhx_cal_header">
+        </div>
+        <div class="dhx_cal_data">
+        </div>
     </div>
-  </nav>
-
-  <div class="jquery-script-center">
-
-    <div class="jquery-script-ads"><script type="text/javascript"><!--
-    google_ad_client = "ca-pub-2783044520727903";
-    /* jQuery_demo */
-    google_ad_slot = "2780937993";
-    google_ad_width = 728;
-    google_ad_height = 90;
-    //-->
-    </script>
-    <script type="text/javascript"
-    src="//pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script></div>
-    <div class="jquery-script-clear"></div>
-  </div>
-<div class="container">
-  <h1 style="margin-bottom:50px;">Calendrier</h1>
-  <div id="calendar"></div>
-</div>
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="../javascript/calendar.js"></script>
-<script>
-var unavailableDates = [
-  {start: '2015-08-31', end: '2015-09-05'},
-  {start: '2015-09-11', end: '2015-09-15'},
-  {start: '2015-09-15', end: '2015-09-23'},
-  {start: '2015-10-01', end: '2015-10-07'}
-];
-
-$('#calendar').availabilityCalendar(unavailableDates);
-</script>
-<script type="text/javascript">
-
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-36251023-1']);
-_gaq.push(['_setDomainName', 'jqueryscript.net']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-
-</script>
 </body>
-</html>
