@@ -9,23 +9,17 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Droid+Serif">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/profile.css">
+  <script src="../codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
   <link rel="stylesheet" href="../codebase/dhtmlxscheduler.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
-  <script type="text/javascript" charset="utf-8">
-      function init() {
-          scheduler.init('scheduler_here',new Date(2017,4,10),"month");
-
-          scheduler.templates.xml_date = function(value){ return new Date(value); };
-          scheduler.load("/data", "json");
-
-          scheduler.config.xml_date="%Y-%m-%d %H:%i";
-
-          var dp = new dataProcessor("/data");
-          dp.init(scheduler);
-          dp.setTransactionMode("POST", false);
-      }
-
-  </script>
+  <style type="text/css" media="screen">
+  	html, body{
+  		margin:0px;
+  		padding:0px;
+  		height:100%;
+  		overflow:hidden;
+  	}
+  </style>
 
 </head>
 <body onload="init()">
@@ -60,8 +54,24 @@
     </div>
   </nav>
 
+  <script type="text/javascript" charset="utf-8">
+      function init() {
+          scheduler.init('scheduler_here',new Date(2017,4,10),"month");
 
-    <div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
+          scheduler.templates.xml_date = function(value){ return new Date(value); };
+          scheduler.load("https://relayers.fr/cal", "json");
+
+          scheduler.config.xml_date="%Y-%m-%d %H:%i";
+
+          var dp = new dataProcessor("https://relayers.fr/cal");
+          dp.init(scheduler);
+          dp.setTransactionMode("POST", false);
+      }
+
+  </script>
+
+
+    <div id="scheduler_here" class="dhx_cal_container well center-block" style='width:50%; height:50%; margin-top:100px;'>
         <div class="dhx_cal_navline">
             <div class="dhx_cal_prev_button">&nbsp;</div>
             <div class="dhx_cal_next_button">&nbsp;</div>
