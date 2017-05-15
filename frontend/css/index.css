@@ -135,6 +135,10 @@ body {
     margin-top:40px;
   }
 
+  #contact hr {
+    width: 600px;
+  }
+
   #sender_mail, #msg {
     width: 600px;
     display:block;
