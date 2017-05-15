@@ -51,43 +51,43 @@ nav.navbar.navbar-default.navbar-fixed-top
                 button(type='submit') Déconnexion
         else
           li#login.dropdown
-            button.btn.navbar-btn.btn-circle.dropdown-toggle(type='button', data-toggle='dropdown') Connexion
-            // Login dropdown
-            ul#login-dp.dropdown-menu
-              li
-                .row
-                  .col-md-12
-                    // Login alert window
-                    #login-alert.alert.alert-danger.text-center(style='display: none')
-                      a.close(data-hide='alert') ×
-                      span#text-login-alert
-                      form#login-form.form(action='', accept-charset='UTF-8')
-                      // Username
-                      .form-group
-                        label.sr-only(for='login_username') Adresse Email
-                        .input-group
-                          span.input-group-addon
-                            i.glyphicon.glyphicon-user
-                            input#login_username.form-control.input-md(type='email', placeholder='Adresse mail')
-                      // Password
-                      .form-group
-                        label.sr-only(for='login_password') Mot de passe
-                        .input-group
-                          span.input-group-addon
-                            i.glyphicon.glyphicon-lock
-                          input#login_password.form-control.input-md(type='password', placeholder='Mot de passe')
-                        .help-block.text-right
-                          a(href='') Mot de passe oublié ?
-                      .form-group
-                        button#login_btn.btn.btn-default.btn-block(type='button') Se connecter
-                      .checkbox
-                        label
-                          input(type='checkbox')
-                          |  Rester connecter
-                  .bottom.text-center
-                    br
-                    a(href='', data-toggle='modal', data-target='#registerModal')
-                      b Rejoignez nous !
+          button.btn.navbar-btn.btn-circle.dropdown-toggle(type='button', data-toggle='dropdown') Connexion
+          // Login dropdown
+          ul#login-dp.dropdown-menu
+            li
+              .row
+                .col-md-12
+                  // Login alert window
+                  #login-alert.alert.alert-danger.text-center(style='display: none')
+                    a.close(data-hide='alert') ×
+                    span#text-login-alert
+                  form#login-form.form(action='', accept-charset='UTF-8')
+                    // Username
+                    .form-group
+                      label.sr-only(for='login_username') Adresse Email
+                      .input-group
+                        span.input-group-addon
+                          i.glyphicon.glyphicon-user
+                        input#login_username.form-control.input-md(type='email', placeholder='Adresse mail')
+                    // Password
+                    .form-group
+                      label.sr-only(for='login_password') Mot de passe
+                      .input-group
+                        span.input-group-addon
+                          i.glyphicon.glyphicon-lock
+                        input#login_password.form-control.input-md(type='password', placeholder='Mot de passe')
+                      .help-block.text-right
+                        a(href='') Mot de passe oublié ?
+                    .form-group
+                      button#login_btn.btn.btn-default.btn-block(type='button') Se connecter
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  Rester connecter
+                .bottom.text-center
+                  br
+                  a(href='', data-toggle='modal', data-target='#registerModal')
+                    b Rejoignez nous !
 // Register modal
 #registerModal.modal.fade(role='dialog')
   .modal-dialog
@@ -239,7 +239,6 @@ script(src='./javascript/contact-form.js')
 script(src='./javascript/register-form.js')
 // Login form javascript
 script(src='./javascript/login-form.js')
-script(src='./javascript/logged.js')
 script.
   $('a[href^="#"]').click(function(){
   var the_id = $(this).attr("href");
