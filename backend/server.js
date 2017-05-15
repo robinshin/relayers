@@ -19,7 +19,7 @@ app.use('/profile.html', (req, res) => {
 });
 
 app.get('/', checkAuthentication, (req, res) => {
-    res.render('index', { logged: true });
+  res.render('index', { logged: true });
 });
 
 app.use(express.static('/home/server/relayers/frontend/public'));
@@ -260,21 +260,6 @@ app.post('/auth', passport.authenticate('jwt', { session: false }), (req, res) =
   }
 });
 
-//// Checks if user is authentified
-/*app.post('/check', (req, res) => {
-  var token = req.cookies.token;
-  if (token) {
-    jwt.verify(token.split(' ')[1], config.secret, function(err, decoded) {
-      if (err) {
-        res.cookie('token', '', {maxAge: 0});
-        return res.json({ reponse: 'error' });
-      }
-      else {
-        res.json({ reponse: 'success' });
-      }
-    });
-  }
-});*/
 
 //// Logout route
 app.post('/logout', (req, res) => {
@@ -283,14 +268,8 @@ app.post('/logout', (req, res) => {
 });
 
 //// Protected routes
-app.get('/profile', (req, res) => {
-  if (checkAuthentication(req)) {
-    res.sendFile('/home/server/relayers/frontend/public/profile.html');
-  }
-  else {
-    res.cookie('token', '', {maxAge: 0});
-    res.render('index', { logged: false })
-  }
+app.get('/profile', , checkAuthentication, (req, res) => {
+  res.sendFile('/home/server/relayers/frontend/public/profile.html');
 });
 
 getToken = function (headers) {
@@ -312,6 +291,7 @@ function checkAuthentication(req, res, next) {
   if (token) {
     jwt.verify(token.split(' ')[1], config.secret, function(err, decoded) {
       if (err) {
+        res.cookie('token', '', {maxAge: 0});
         res.render('index', { logged: false });
       }
       else {
@@ -320,6 +300,7 @@ function checkAuthentication(req, res, next) {
     });
   }
   else {
+    res.cookie('token', '', {maxAge: 0});
     res.render('index', { logged: false });
   }
 }
