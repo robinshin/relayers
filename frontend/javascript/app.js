@@ -1,13 +1,18 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var app = express();
+
+
+//create express app
+app.use(bodyParser.urlencoded({extended: true}));
 
 //connect to the mongoDB
-var db = require('mongoskin').db("localhost/testdb", { w: 0});
+var db = require('mongoskin').db("mongodb://relayer:colislapepite@ds123331.mlab.com:23331/relayer-clients", { w: 0});
     db.bind('event');
 
-//create express app, use public folder for static files
-var app = express();
+//use public folder for static files
+
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/init', function(req, res){
@@ -42,6 +47,8 @@ app.get('/data', function(req, res){
 
 app.post('/data', function(req, res){
     var data = req.body;
+
+    console.log(data);
 
     //get operation type
     var mode = data["!nativeeditor_status"];
@@ -78,7 +85,6 @@ app.post('/data', function(req, res){
 });
 
 //is necessary for parsing POST request
-app.use(bodyParser());
 
 
 app.listen(3000);
