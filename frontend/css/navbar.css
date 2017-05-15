@@ -27,29 +27,11 @@
   color: white;
 }
 
-/* Register form */
-
-#registerModal {
-  background-color: rgba(100,100,100,.5);
-}
-
-#registerModal .modal-content {
-  min-width: 250px;
-  padding: 14px 14px 0;
-  overflow: hidden;
-  background-color:rgba(255,255,255,.8);
-}
-
-#registerModal .form-group {
-  margin-bottom: 15px;
-}
-
-#registerModal .btn {
-  background-color: #e27e03;
-  color: white;
-}
-
 /* Navbar color */
+
+.navbar-default {
+  background-color: rgba(255, 255, 255, .8);
+}
 
 .btn {
   background-color: #e27e03;
@@ -75,6 +57,7 @@
 #profile-dp {
   background-color: rgba(255,255,255,.8);
 }
+
 .dropdown-profile {
   display: none;
   position: absolute;
@@ -133,7 +116,7 @@
   }
 
   .navbar-nav .navbar-btn {
-    margin-top: 21px;
+    margin-top: 20px;
   }
 
   /* Others */
