@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser= require('body-parser')
 const app = express();
 
-var login = require('./register+login_form.js')
+var login = require('./register+login_form')
 
 app.use(bodyParser.urlencoded({extended: true}))
 
@@ -29,9 +29,6 @@ app.get('/', (req, res) => {
 app.use(express.static('/home/server/relayers/frontend/public'));
 
 //// Port
-app.set('port', 8080);
-app.listen(app.get('port'), () => {
-  console.log('Node app is running on port', app.get('port'));
+app.listen(app.get(8080), () => {
+  console.log('Node app is running on port 8080');
 })
-
-module.exports = app;
