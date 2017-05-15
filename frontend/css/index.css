@@ -64,12 +64,6 @@ body {
   padding: 10px;
 }
 
-#sender_mail, #msg {
-  width: 600px;
-  display:block;
-  margin:auto;
-}
-
 /*** Others ***/
 
 /* Register form */
@@ -139,6 +133,12 @@ body {
 
   #home h2 {
     margin-top:40px;
+  }
+
+  #sender_mail, #msg {
+    width: 600px;
+    display:block;
+    margin:auto;
   }
 }
 
