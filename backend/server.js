@@ -18,14 +18,8 @@ app.use('/profile.html', (req, res) => {
   res.redirect("https://relayers.fr/profile");
 });
 
-app.get('/', (req, res) => {
-  if (checkAuthentication(req)) {
+app.get('/', checkAuthentication, (req, res) => {
     res.render('index', { logged: true });
-  }
-  else {
-    res.render('index', { logged: false });
-  }
-
 });
 
 app.use(express.static('/home/server/relayers/frontend/public'));
@@ -313,20 +307,20 @@ getToken = function (headers) {
 };
 
 
-var checkAuthentication = function(req) {
+function checkAuthentication(req, res, next) {
   var token = req.cookies.token;
   if (token) {
     jwt.verify(token.split(' ')[1], config.secret, function(err, decoded) {
       if (err) {
-        return false
+        res.render('index', { logged: false });
       }
       else {
-        return true;
+        next();
       }
     });
   }
   else {
-    return false;
+    res.render('index', { logged: false });
   }
 }
 
