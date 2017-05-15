@@ -29,6 +29,6 @@ app.get('/', (req, res) => {
 app.use(express.static('/home/server/relayers/frontend/public'));
 
 //// Port
-app.listen(app.get(8080), () => {
+app.listen(8080, () => {
   console.log('Node app is running on port 8080');
 })
