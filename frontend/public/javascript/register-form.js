@@ -183,6 +183,7 @@ function display_register_alert(success, msg_id) {
 //// Mail confirmation
 $(function() {
   $('#mailConfirmationModal').click(function() {
-    $('#mail-confirmedModal').modal('hide');
+    $('#mail-confirmedModal').removeClass('show');
+    $('#mail-confirmedModal').addClass('hide');
   });
 });
