@@ -168,7 +168,7 @@ nav.navbar.navbar-default.navbar-fixed-top
     .modal-dialog
       .modal-content
         .modal-header
-          button.close(type='button', data-dismiss='modal', onclick='document.getElementById('mail-confirmedModal').removeClass('show')')  ×
+          button.close(type='button', id="mailConfirmationModal")  ×
           h4.text-center
             | #{textmailconfirmedModal} 
             span(class='glyphicon ' + glyphiconconfirmedModal)
