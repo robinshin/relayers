@@ -20,70 +20,69 @@ head
 
 nav.navbar.navbar-default.navbar-fixed-top
   .container
-    // Brand and toggle get grouped for better mobile display
-.navbar-header
-  button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navigation')
-    span.sr-only Toggle navigation
-    span.icon-bar
-    span.icon-bar
-    span.icon-bar
-  a.navbar-brand.text-uppercase(href='https://relayers.fr')
-    span#text_title.label.text-capitalize
-      img#logo_title(src='/static/imgs/logo_blank.png', alt='Relayers')
-      |  RELAYERS
-// Collect the nav links, forms, and other content for toggling
-#navigation.collapse.navbar-collapse
-  ul.nav.navbar-nav.navbar-right
-    li
-      a.navbar-head(href='#about') À propos
-    li
-      a.navbar-head(href='#contact') Contact
-    if logged == true
-      li#profile.dropdown
-        button.btn.navbar-btn.btn-circle.dropdown-toggle(type='button', data-toggle='dropdown') Mon compte
-        ul#profile-dp.dropdown-menu.dropdown-profile
-          a(href='/profile')   Mon profil
-          form.form(action='/logout', method='POST', accept-charset='UTF-8')
-            button(type='submit') Déconnexion
-    else
-      li#login.dropdown
-        button.btn.navbar-btn.btn-circle.dropdown-toggle(type='button', data-toggle='dropdown') Connexion
-        // Login dropdown
-        ul#login-dp.dropdown-menu
-          li
-            .row
-              .col-md-12
-                // Login alert window
-                #login-alert.alert.alert-danger.text-center(style='display: none')
-                  a.close(data-hide='alert') ×
-                  span#text-login-alert
-                form#login-form.form(action='', accept-charset='UTF-8')
-                  // Username
-                  .form-group
-                    label.sr-only(for='login_username') Adresse Email
-                    .input-group
-                      span.input-group-addon
-                        i.glyphicon.glyphicon-user
-                      input#login_username.form-control.input-md(type='email', placeholder='Adresse mail')
-                  // Password
-                  .form-group
-                    label.sr-only(for='login_password') Mot de passe
-                    .input-group
-                      span.input-group-addon
-                        i.glyphicon.glyphicon-lock
-                      input#login_password.form-control.input-md(type='password', placeholder='Mot de passe')
-                    .help-block.text-right
-                      a(href='') Mot de passe oublié ?
-                  .form-group
-                    button#login_btn.btn.btn-default.btn-block(type='button') Se connecter
-                  .checkbox
-                    label
-                      input(type='checkbox')
-                      |  Rester connecter
-              .bottom.text-center
-                br
-                a(href='', data-toggle='modal', data-target='#registerModal')
-                  b Rejoignez nous !
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navigation')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand.text-uppercase(href='https://relayers.fr')
+        span#text_title.label.text-capitalize
+          img#logo_title(src='/static/imgs/logo_blank.png', alt='Relayers')
+          |  RELAYERS
+    // Collect the nav links, forms, and other content for toggling
+    #navigation.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li
+          a.navbar-head(href='#about') À propos
+        li
+          a.navbar-head(href='#contact') Contact
+        if logged == true
+          li#profile.dropdown
+            button.btn.navbar-btn.btn-circle.dropdown-toggle(type='button', data-toggle='dropdown') Mon compte
+            ul#profile-dp.dropdown-menu.dropdown-profile
+              a(href='/profile')   Mon profil
+              form.form(action='/logout', method='POST', accept-charset='UTF-8')
+                button(type='submit') Déconnexion
+        else
+          li#login.dropdown
+            button.btn.navbar-btn.btn-circle.dropdown-toggle(type='button', data-toggle='dropdown') Connexion
+            // Login dropdown
+            ul#login-dp.dropdown-menu
+              li
+                .row
+                  .col-md-12
+                    // Login alert window
+                    #login-alert.alert.alert-danger.text-center(style='display: none')
+                      a.close(data-hide='alert') ×
+                      span#text-login-alert
+                    form#login-form.form(action='', accept-charset='UTF-8')
+                      // Username
+                      .form-group
+                        label.sr-only(for='login_username') Adresse Email
+                        .input-group
+                          span.input-group-addon
+                            i.glyphicon.glyphicon-user
+                          input#login_username.form-control.input-md(type='email', placeholder='Adresse mail')
+                      // Password
+                      .form-group
+                        label.sr-only(for='login_password') Mot de passe
+                        .input-group
+                          span.input-group-addon
+                            i.glyphicon.glyphicon-lock
+                          input#login_password.form-control.input-md(type='password', placeholder='Mot de passe')
+                        .help-block.text-right
+                          a(href='') Mot de passe oublié ?
+                      .form-group
+                        button#login_btn.btn.btn-default.btn-block(type='button') Se connecter
+                      .checkbox
+                        label
+                          input(type='checkbox')
+                          |  Rester connecter
+                  .bottom.text-center
+                    br
+                    a(href='', data-toggle='modal', data-target='#registerModal')
+                      b Rejoignez nous !
 // Register modal
 #registerModal.modal.fade(role='dialog')
   .modal-dialog
