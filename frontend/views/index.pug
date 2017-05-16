@@ -169,7 +169,7 @@ if mailConfirmed == true
           button.close(type='button', data-dismiss='modal')  ×
           h4.text-center
             span #{textmailconfirmedModal}
-            span.glyphicon.class={glyphiconmailconfirmedModal}
+            span(class='glyphicon' + #{glyphiconmailconfirmedModal})
         // Temporaire : à supprimer quand le service sera ouvert
         .modal-body
           .row
