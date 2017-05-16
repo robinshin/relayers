@@ -269,7 +269,7 @@ app.post('/logout', (req, res) => {
 
 //// Protected routes
 app.get('/profile', checkAuthentication, (req, res) => {
-  res.sendFile('/home/server/relayers/frontend/public/profile.html');
+  res.render('profile');
 });
 
 getToken = function (headers) {
