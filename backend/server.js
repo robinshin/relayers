@@ -199,7 +199,7 @@ app.get('/email-verification/:URL', (req, res) => {
       });
     }
     else {
-      return res.render('index', { mailConfirmed: true,  text-mail-confirmedModal: Erreur : le lien de confirmation est incorrect, glyphicon-mail-confirmedModal: glyphicon-remove});
+      return res.render('index', { mailConfirmed: true,  text-mail-confirmedModal: 'Erreur : le lien de confirmation est incorrect', glyphicon-mail-confirmedModal: glyphicon-remove});
     }
   });
 });
