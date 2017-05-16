@@ -18,8 +18,7 @@ head
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
   script(type='text/javascript', src='./javascript/google_localisation_inscription.js')
   style.
-    /* Always set the map height explicitly to define the size of the div
-    * element that contains the map. */
+    /* Always set the map height explicitly to define the size of the div element that contains the map. */
     #map {
     height: 100%;
     }
@@ -162,20 +161,21 @@ nav.navbar.navbar-default.navbar-fixed-top
               .form-group
                 button#register_btn.btn.btn-default.btn-block(type='button') S'inscrire
 // Mail confirmed modal
-#mail-confirmedModal.modal.fade(role='dialog')
-  .modal-dialog
-    .modal-content
-      .modal-header
-        button.close(type='button', data-dismiss='modal')  ×
-        h4.text-center
-          span#text-mail-confirmedModal
-          span#glyphicon-mail-confirmedModal.glyphicon
-      // Temporaire : à supprimer quand le service sera ouvert
-      .modal-body
-        .row
-          .col-md-12
-            h5.text-center
-              span#temporary-service-closed
+if mailConfirmed == true
+  #mail-confirmedModal.modal.show(role='dialog')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal')  ×
+          h4.text-center
+            span #{text-mail-confirmedModal}
+            span.glyphicon.class={glyphicon-mail-confirmedModal})
+        // Temporaire : à supprimer quand le service sera ouvert
+        .modal-body
+          .row
+            .col-md-12
+              h5.text-center
+                span #{temporary-service-closed}
 #home.container-fluid
   .container
     h1 Une journée à la maison ?
