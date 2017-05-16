@@ -193,7 +193,7 @@ app.get('/email-verification/:URL', (req, res) => {
     if (user) {
       nev.sendConfirmationEmail(user.username, function(err, info) {
         if (err) {
-          return res.render('index', { mailConfirmed: true,  text-mail-confirmedModal: Erreur : le lien de confirmation est incorrect, glyphicon-mail-confirmedModal: glyphicon-remove});
+          return res.render('index', { mailConfirmed: true,  text-mail-confirmedModal: 'Erreur : le lien de confirmation est incorrect', glyphicon-mail-confirmedModal: 'glyphicon-remove'});
         }
         res.redirect('https://relayers.fr/' + '?confirm=true');
       });
