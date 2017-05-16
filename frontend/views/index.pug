@@ -161,7 +161,9 @@ nav.navbar.navbar-default.navbar-fixed-top
               .form-group
                 button#register_btn.btn.btn-default.btn-block(type='button') S'inscrire
 // Mail confirmed modal
-if mailConfirmed == true
+- if (typeof mailConfirmed !== 'undefined')
+  - var textmailconfirmedModal = (mailConfirmed)? 'Votre adresse mail a bien été confirmée': 'Erreur : le lien de confirmation est incorrect';
+  - var glyphiconconfirmedModal = (mailConfirmed)? 'glyphicon-ok' : 'glyphicon-remove';
   #mail-confirmedModal.modal.show(role='dialog', style='background-color: rgba(0, 0, 0, .5);')
     .modal-dialog
       .modal-content
@@ -169,7 +171,7 @@ if mailConfirmed == true
           button.close(type='button', data-dismiss='modal')  ×
           h4.text-center
             | #{textmailconfirmedModal} 
-            | span(class='glyphicon ' + glyphiconmailconfirmedModal, style= 'color: ' + colormailconfirmedModal)
+            | span(class='glyphicon ${glyphiconconfirmedModal}', style='color: ' + (mailConfirmed)? green : red + ';') 
         // Temporaire : à supprimer quand le service sera ouvert
         .modal-body
           .row
