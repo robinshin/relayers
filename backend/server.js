@@ -22,7 +22,7 @@ app.get('/', checkAuthentication, (req, res) => {
   res.render('index', { logged: true });
 });
 
-app.use(express.static('/home/server/relayers/frontend/public'));
+app.use('public', express.static('/home/server/relayers/frontend/public'));
 
 
 
