@@ -182,28 +182,8 @@ function display_register_alert(success, msg_id) {
 
 //// Mail confirmation
 $(function() {
-  var url = window.location.href;
-  var userConfirmed = url.split('?')[1];
-  if (userConfirmed === 'confirm=true') {
-    $('#text-mail-confirmedModal').html('Votre adresse mail a bien été confirmée');
-    $('#glyphicon-mail-confirmedModal').removeClass('glyphicon-remove');
-    $('#glyphicon-mail-confirmedModal').addClass('glyphicon-ok');
-    $('#glyphicon-mail-confirmedModal').css('color', 'green');
-    //// Temporary : service not openened
-    $('#temporary-service-closed').html('Merci de nous porter un tel intérêt ! </br>Malheureusement, notre service n\'est pas encore disponible. </br>Nous vous recontacterons dès qu\'il le sera :)');
-
-    $('#mail-confirmedModal').modal('show');
-    $(location).attr('href', '#');
-  }
-  else if (userConfirmed==='confirm=false') {
-    $('#text-mail-confirmedModal').html('Erreur : le lien de confirmation est incorrect');
-    $('#glyphicon-mail-confirmedModal').removeClass('glyphicon-ok');
-    $('#glyphicon-mail-confirmedModal').addClass('glyphicon-remove');
-    $('#glyphicon-mail-confirmedModal').css('color', 'red');
-    //// Temporary : service not openened
-    $('#temporary-service-closed').html('');
-
-    $('#mail-confirmedModal').modal('show');
-    $(location).attr('href', '#');
-  }
+  $('#mailConfirmationModal').click(function() {
+    $('#mail-confirmedModal').removeClass('show');
+    $('#mail-confirmedModal').addClass('hide');
+  });
 });
