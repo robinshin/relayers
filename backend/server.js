@@ -195,7 +195,7 @@ app.get('/email-verification/:URL', (req, res) => {
         if (err) {
           return res.render('index', { mailConfirmed: true });
         }
-        res.redirect('https://relayers.fr/' + '?confirm=true');
+        return res.render('index', { mailConfirmed: true });
       });
     }
     else {
