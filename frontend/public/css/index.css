@@ -115,6 +115,14 @@ body {
     display: block;
 }
 
+.glyphicon-ok {
+  color: green;
+}
+
+.glyphicon-remove {
+  color: red;
+}
+
 
 /****** Responsiveness ******/
 

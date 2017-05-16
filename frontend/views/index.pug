@@ -168,16 +168,17 @@ nav.navbar.navbar-default.navbar-fixed-top
     .modal-dialog
       .modal-content
         .modal-header
-          button.close(type='button', data-dismiss='modal')  ×
+          button.close(type='button', data-dismiss='modal', onclick='document.getElementById('mail-confirmedModal').removeClass('show')')  ×
           h4.text-center
             | #{textmailconfirmedModal} 
-            | span(class='glyphicon ${glyphiconconfirmedModal}', style='color: ' + (mailConfirmed)? green : red + ';') 
-        // Temporaire : à supprimer quand le service sera ouvert
-        .modal-body
-          .row
-            .col-md-12
-              h5.text-center
-                span #{temporaryserviceclosed}
+            span(class='glyphicon ' + glyphiconconfirmedModal)
+        if (mailConfirmed == true)
+          // Temporaire : à supprimer quand le service sera ouvert
+          .modal-body
+            .row
+              .col-md-12
+                h5.text-center
+                  | Merci de nous porter un tel intérêt ! </br>Malheureusement, notre service n\'est pas encore disponible. </br>Nous vous recontacterons dès qu\'il le sera :)'
 #home.container-fluid
   .container
     h1 Une journée à la maison ?
