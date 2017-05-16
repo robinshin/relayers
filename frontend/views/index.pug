@@ -5,18 +5,18 @@ head
   meta(charset='utf-8')
   meta(name='viewport', content='width=device-width, initial-scale=1')
   meta(property="og:title", content="Relayers")
-  meta(property="og:image", content="https://relayers.fr/imgs/logo_corner_reduced.png")
+  meta(property="og:image", content="https://www.relayers.fr/static/imgs/logo_corner_reduced.png")
   meta(property="og:description", content="La livraison d\'une commande via un site de e-commerce est souvent difficile (horaires incompatibles). Nous vous mettons en relation avec vos voisins qui peuvent receptionner vos colis.")
   meta(property="og:url", content="relayers.fr")
-  link(rel='icon apple-touch-icon apple-touch-icon-precomposed', type='image/png', href='./imgs/logo_corner_reduced.png')
+  link(rel='icon apple-touch-icon apple-touch-icon-precomposed', type='image/png', href='/static/imgs/logo_corner_reduced.png')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
   link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Oswald|Droid+Serif')
-  link(rel='stylesheet', href='./css/index.css')
-  link(rel='stylesheet', href='./css/navbar.css')
-  link(rel='stylesheet', href='./css/social_icons.css')
+  link(rel='stylesheet', href='/static/css/index.css')
+  link(rel='stylesheet', href='/static/css/navbar.css')
+  link(rel='stylesheet', href='/static/css/social_icons.css')
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
-  script(type='text/javascript', src='./javascript/google_localisation_inscription.js')
+  script(type='text/javascript', src='/static/javascript/google_localisation_inscription.js')
   style.
     /* Always set the map height explicitly to define the size of the div element that contains the map. */
     #map {
@@ -37,7 +37,7 @@ nav.navbar.navbar-default.navbar-fixed-top
         span.icon-bar
       a.navbar-brand.text-uppercase(href='https://relayers.fr')
         span#text_title.label.text-capitalize
-          img#logo_title(src='./imgs/logo_blank.png', alt='Relayers')
+          img#logo_title(src='/static/imgs/logo_blank.png', alt='Relayers')
           |  RELAYERS
     // Collect the nav links, forms, and other content for toggling
     #navigation.collapse.navbar-collapse
@@ -233,17 +233,17 @@ footer.footer
   Bootstrap core JavaScript
   ==================================================
 // Placed at the end of the document so the pages load faster
-script(src='./bootstrap/docs/dist/js/bootstrap.min.js')
+script(src='/static/bootstrap/docs/dist/js/bootstrap.min.js')
 // IE10 viewport hack for Surface/desktop Windows 8 bug
-script(src='./bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js')
+script(src='/static/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js')
 // General forms javascript
-script(src='./javascript/forms.js')
+script(src='/static/javascript/forms.js')
 // Contact form javascript
-script(src='./javascript/contact-form.js')
+script(src='/static/javascript/contact-form.js')
 // Register form javascript
-script(src='./javascript/register-form.js')
+script(src='/static/javascript/register-form.js')
 // Login form javascript
-script(src='./javascript/login-form.js')
+script(src='/static/javascript/login-form.js')
 script.
   $('a[href^="#"]').click(function(){
   var the_id = $(this).attr("href");
@@ -256,7 +256,7 @@ script.
   });
 script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLLyzwuKDu1Ys2az4cjGlm31gUN-2rDY&libraries=places&callback=initAutocomplete', async='', defer='')
 // Google analytics
-script(src='./javascript/analytics.js')
+script(src='/static/javascript/analytics.js')
 noscript
   .nojs-overlay(style='width: 100%')
     .nojs-overlay-content
