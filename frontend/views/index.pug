@@ -13,9 +13,9 @@ head
   link(rel='stylesheet', href='./css/social_icons.css')
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
   script(type='text/javascript', src='./javascript/google_localisation_inscription.js')
-
   style.
-    /* Always set the map height explicitly to define the size of the div element that contains the map. */
+    /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
     #map {
     height: 100%;
     }
@@ -23,8 +23,6 @@ head
     .pac-container {
     z-index: 2000;
     }
-
-/* Navbar */
 nav.navbar.navbar-default.navbar-fixed-top
   .container
     // Brand and toggle get grouped for better mobile display
@@ -91,7 +89,7 @@ nav.navbar.navbar-default.navbar-fixed-top
                     br
                     a(href='', data-toggle='modal', data-target='#registerModal')
                       b Rejoignez nous !
-/* Register modal */
+// Register modal
 #registerModal.modal.fade(role='dialog')
   .modal-dialog
     .modal-content
@@ -159,8 +157,7 @@ nav.navbar.navbar-default.navbar-fixed-top
               // Button
               .form-group
                 button#register_btn.btn.btn-default.btn-block(type='button') S'inscrire
-
-/* Mail confirmed modal */
+// Mail confirmed modal
 #mail-confirmedModal.modal.fade(role='dialog')
   .modal-dialog
     .modal-content
