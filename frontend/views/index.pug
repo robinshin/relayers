@@ -162,14 +162,13 @@ nav.navbar.navbar-default.navbar-fixed-top
                 button#register_btn.btn.btn-default.btn-block(type='button') S'inscrire
 // Mail confirmed modal
 - if (typeof mailConfirmed !== 'undefined')
-  - document.getElementById('mail-confirmedModal').style.display = "block";
   - var textmailconfirmedModal = (mailConfirmed)? 'Votre adresse mail a bien été confirmée': 'Erreur : le lien de confirmation est incorrect';
   - var glyphiconconfirmedModal = (mailConfirmed)? 'glyphicon-ok' : 'glyphicon-remove';
-  #mail-confirmedModal.modal(role='dialog', style='background-color: rgba(0, 0, 0, .5);')
+  #mail-confirmedModal.modal.show(role='dialog', style='background-color: rgba(0, 0, 0, .5);')
     .modal-dialog
       .modal-content
         .modal-header
-          button.close(type='button', data-dismiss='modal')  ×
+          button.close(type='button', data-dismiss='modal', onclick='document.getElementById('mail-confirmedModal').removeClass('show')')  ×
           h4.text-center
             | #{textmailconfirmedModal} 
             span(class='glyphicon ' + glyphiconconfirmedModal)
