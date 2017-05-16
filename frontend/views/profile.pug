@@ -1,0 +1,82 @@
+doctype html
+head
+  title Profil
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='icon', type='image/png', href='/static/imgs/logo.png')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+  link(rel='stylesheet', href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Oswald|Droid+Serif')
+  link(rel='stylesheet', href='/static/css/profile.css')
+  link(rel='stylesheet', href='/static/css/navbar.css')
+  link(rel='stylesheet', href='/static/codebase/dhtmlxscheduler.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(type='text/javascript', src='/static/codebase/dhtmlxscheduler.js')
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    // Brand and toggle get grouped for better mobile display
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navigation')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand.text-uppercase(href='https://relayers.fr')
+        span#text_title.label.text-capitalize
+          img#logo_title(src='/static/imgs/logo_blank.png', alt='Relayers')
+          |  RELAYERS
+    // Collect the nav links, forms, and other content for toggling
+    #navigation.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li#profile.dropdown(style='display: block')
+          button.btn.navbar-btn.btn-circle.dropdown-toggle(type='button', data-toggle='dropdown') Mon compte
+          ul#profile-dp.dropdown-menu.dropdown-profile
+            a(href='/profile')   Mon profil
+            form.form(action='/logout', method='POST', accept-charset='UTF-8')
+              button(type='submit') Déconnexion
+script(type='text/javascript', charset='utf-8').
+  function init() {
+  scheduler.init('scheduler_here',new Date(2017,4,10),"month");
+  scheduler.templates.xml_date = function(value){ return new Date(value); };
+  scheduler.load("/cal", "json");
+  scheduler.config.xml_date="%Y-%m-%d %H:%i";
+  var dp = new dataProcessor("/cal");
+  dp.init(scheduler);
+  dp.setTransactionMode("POST", false);
+  }
+#scheduler_here.dhx_cal_container.well.center-block(style='width:50%; height:50%; margin-top:100px;')
+  .dhx_cal_navline
+    .dhx_cal_prev_button  
+    .dhx_cal_next_button  
+    .dhx_cal_today_button
+    .dhx_cal_date
+    .dhx_cal_tab(name='day_tab', style='right:204px;')
+    .dhx_cal_tab(name='week_tab', style='right:140px;')
+    .dhx_cal_tab(name='month_tab', style='right:76px;')
+  .dhx_cal_header
+  .dhx_cal_data
+footer.footer
+  p.text-muted.text-center(style='padding:5px') @ Relayers 2017 - Tous droits réservés - Mentions légales - CGU
+//
+  Bootstrap core JavaScript
+  ==================================================
+// Placed at the end of the document so the pages load faster
+script(src='/static/bootstrap/docs/dist/js/bootstrap.min.js')
+// IE10 viewport hack for Surface/desktop Windows 8 bug
+script(src='/static/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js')
+script.
+  $('a[href^="#"]').click(function(){
+  var the_id = $(this).attr("href");
+  if (the_id != "#") {
+  $('html, body').animate({
+  scrollTop:$(the_id).offset().top
+  }, 'slow');
+  }
+  return false;
+  });
+// Google analytics
+script(src='/static/javascript/analytics.js')
+noscript
+  .nojs-overlay(style='width: 100%')
+    .nojs-overlay-content
+      | Veuillez activer le javascript
