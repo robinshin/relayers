@@ -193,13 +193,13 @@ app.get('/email-verification/:URL', (req, res) => {
     if (user) {
       nev.sendConfirmationEmail(user.username, function(err, info) {
         if (err) {
-          return res.render('index', { mailConfirmed: true,  textmailconfirmedModal: 'Erreur : le lien de confirmation est incorrect', glyphiconmailconfirmedModal: 'glyphicon-remove'});
+          return res.render('index', { mailConfirmed: true,  textmailconfirmedModal: 'Erreur : le lien de confirmation est incorrect', glyphiconmailconfirmedModal: 'glyphicon-remove', temporaryserviceclosed:''});
         }
         res.redirect('https://relayers.fr/' + '?confirm=true');
       });
     }
     else {
-      return res.render('index', { mailConfirmed: true,  textmailconfirmedModal: 'Erreur : le lien de confirmation est incorrect', glyphiconmailconfirmedModal: 'glyphicon-remove'});
+      return res.render('index', { mailConfirmed: true,  textmailconfirmedModal: 'Erreur : le lien de confirmation est incorrect', glyphiconmailconfirmedModal: 'glyphicon-remove', temporaryserviceclosed: ''});
     }
   });
 });
