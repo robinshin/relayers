@@ -162,22 +162,24 @@ nav.navbar.navbar-default.navbar-fixed-top
                 button#register_btn.btn.btn-default.btn-block(type='button') S'inscrire
 // Mail confirmed modal
 - if (typeof mailConfirmed !== 'undefined')
+  - $('#mail-confirmedModal').modal('show');
   - var textmailconfirmedModal = (mailConfirmed)? 'Votre adresse mail a bien été confirmée': 'Erreur : le lien de confirmation est incorrect';
   - var glyphiconconfirmedModal = (mailConfirmed)? 'glyphicon-ok' : 'glyphicon-remove';
-  #mail-confirmedModal.modal.show(role='dialog', style='background-color: rgba(0, 0, 0, .5);')
+  #mail-confirmedModal.modal(role='dialog', style='background-color: rgba(0, 0, 0, .5);')
     .modal-dialog
       .modal-content
         .modal-header
           button.close(type='button', data-dismiss='modal')  ×
           h4.text-center
             | #{textmailconfirmedModal} 
-            span(class='glyphicon ' + glyphiconconfirmedModal);
-        // Temporaire : à supprimer quand le service sera ouvert
-        .modal-body
-          .row
-            .col-md-12
-              h5.text-center
-                span #{temporaryserviceclosed}
+            span(class='glyphicon ' + glyphiconconfirmedModal)
+        if (mailConfirmed == true)
+          // Temporaire : à supprimer quand le service sera ouvert
+          .modal-body
+            .row
+              .col-md-12
+                h5.text-center
+                  | Merci de nous porter un tel intérêt ! </br>Malheureusement, notre service n\'est pas encore disponible. </br>Nous vous recontacterons dès qu\'il le sera :)'
 #home.container-fluid
   .container
     h1 Une journée à la maison ?
