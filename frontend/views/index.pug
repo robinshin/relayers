@@ -184,24 +184,32 @@ nav.navbar.navbar-default.navbar-fixed-top
     h1 Une journée à la maison ?
     h2 Réceptionnez des colis pour vos voisins et soyez rémunéré !
     button.btn.btn-default.btn-lg(type='button', data-toggle='modal', data-target='#registerModal') Inscrivez-vous gratuitement !
-#about.container-fluid
-  .row
-    h1 Comment ça marche ?
-    h3
-      i En 3 étapes ...
-    hr
-    .col-lg-4
-      h2 ① Commande
-      p
-        | Votre voisin souhaite commander un article sur un site de e-commerce partenaire, mais il n'est pas disponible pour réceptionner ce colis. Heureusement, vous l'êtes ! Il va donc choisir le mode de livraison "Relayers" et vous sélectionner pour que son colis soit livré directement chez vous !
-    .col-lg-4
-      h2 ② Réception
-      p
-        | Vous réceptionnez le colis de votre voisin, et le gardez précieusement chez vous jusqu'à que votre voisin vienne le chercher.
-    .col-lg-4
-      h2 ③ Rémunération
-      p
-        | En plus de rendre service à votre voisin, vous êtes rémunéré pour le service rendu !
+    #about.container-fluid
+      .row
+        h1 Comment ça marche ?
+        br
+        h3 En 3 étapes :
+        hr
+        br
+        .col-lg-4
+          h2
+            img(src='./imgs/commande.png', alt='commande', style='width:20%;')
+            |  Commande
+          p
+            | Votre voisin souhaite commander un article sur un site de e-commerce partenaire, mais il n'est pas disponible pour réceptionner ce colis. Heureusement, vous l'êtes ! Il va donc choisir le mode de livraison "Relayers" et vous sélectionner pour que son colis soit livré directement chez vous !
+        .col-lg-4
+          h2
+            img(src='./imgs/reception.png', alt='reception', style='width:20%;')
+            |  Réception
+          p
+            | Vous réceptionnez le colis de votre voisin, et le gardez précieusement chez vous jusqu'à que votre voisin vienne le chercher.
+        .col-lg-4
+          h2
+            img(src='./imgs/remuneration.png', alt='remuneration', style='width:20%;')
+            |  Rémunération
+          p
+            | En plus de rendre service à votre voisin, vous êtes rémunéré pour le service rendu !
+
 #contact.container-fluid
   .row
     .col-lg-8.col-lg-offset-2.text-center
