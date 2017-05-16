@@ -171,7 +171,7 @@ nav.navbar.navbar-default.navbar-fixed-top
           button.close(type='button', data-dismiss='modal')  ×
           h4.text-center
             | #{textmailconfirmedModal} 
-            | span(class='glyphicon ${glyphiconconfirmedModal}', style='color: ' + (mailConfirmed)? green : red + ';') 
+            span(class='glyphicon ' + glyphiconconfirmedModal, style='color: ' + (mailConfirmed)? green : red + ';') 
         // Temporaire : à supprimer quand le service sera ouvert
         .modal-body
           .row
