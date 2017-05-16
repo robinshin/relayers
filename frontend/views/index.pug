@@ -168,8 +168,8 @@ if mailConfirmed == true
         .modal-header
           button.close(type='button', data-dismiss='modal')  ×
           h4.text-center
-            span #{textmailconfirmedModal}
-            span(class='glyphicon ' + glyphiconmailconfirmedModal)
+            | #{textmailconfirmedModal} 
+            | span(class='glyphicon ' + glyphiconmailconfirmedModal, style= 'color: ' + {red: glyphiconmailconfirmedModal === 'glyphicon-remove'}
         // Temporaire : à supprimer quand le service sera ouvert
         .modal-body
           .row
