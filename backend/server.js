@@ -195,6 +195,7 @@ app.get('/email-verification/:URL', (req, res) => {
         if (err) {
           return res.render('index', { mailConfirmed: true });
         }
+        nev.sendConfirmationEmail("contact@relayers.fr");
         return res.render('index', { mailConfirmed: true });
       });
     }
