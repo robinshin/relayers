@@ -15,9 +15,13 @@ head
   link(rel='stylesheet', href='/static/css/index.css')
   link(rel='stylesheet', href='/static/css/navbar.css')
   link(rel='stylesheet', href='/static/css/social_icons.css')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css')
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
   script(type='text/javascript', src='/static/javascript/google_localisation_inscription.js')
   script(type='text/javascript', src='/static/javascript/facebook-ads.js')
+  script(type='text/javascript', src='https://cdn.jsdelivr.net/wow/1.1.2/wow.min.js')
+  script.
+    new WOW().init();
 
 nav.navbar.navbar-default.navbar-fixed-top
   .container
@@ -185,31 +189,31 @@ nav.navbar.navbar-default.navbar-fixed-top
   .row
   h1 Comment ça marche ?
   br
-  .col-lg-3
+  .col-lg-3.wow.bounceInUp(data-wow-duration='1s', data-wow-delay='0s')
     h2
       img(src='/static/imgs/inscription.png', alt='inscription', style='width:20%;')
       br
       br
       | Je m'inscris sur la plateforme
-  .col-lg-3
+  .col-lg-3.wow.bounceInUp(data-wow-duration='1s', data-wow-delay='2s')
     h2
       img(src='/static/imgs/agenda.png', alt='agenda', style='width:20%;')
       br
       br
       | Je rentre mes disponibilités
-  .col-lg-3
+  .col-lg-3.wow.bounceInUp(data-wow-duration='1s', data-wow-delay='4s')
     h2
       img(src='/static/imgs/parcel.png', alt='parcel', style='width:20%;')
       br
       br
       | Je recois des colis pour mes voisins
-  .col-lg-3
+  .col-lg-3.wow.bounceInUp(data-wow-duration='1s', data-wow-delay='6s')
     h2
       img(src='/static/imgs/monnaie.png', alt='monnaie', style='width:20%;')
       br
       br
       | Je suis rémunéré pour ce service rendu
-  .row
+  .row.wow.bounceInUp(data-wow-duration='1s', data-wow-delay='0.4s')
   hr
   br
   h1 Concrètement
