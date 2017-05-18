@@ -12,15 +12,15 @@ head
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
   script(type='text/javascript', src='/static/codebase/dhtmlxscheduler.js')
   script(type='text/javascript', charset='utf-8').
-  function init() {
-  scheduler.init('scheduler_here',new Date(2017,4,10),"month");
-  scheduler.templates.xml_date = function(value){ return new Date(value); };
-  scheduler.load("/cal", "json");
-  scheduler.config.xml_date="%Y-%m-%d %H:%i";
-  var dp = new dataProcessor("/cal");
-  dp.init(scheduler);
-  dp.setTransactionMode("POST", false);
-  }
+    function init() {
+    scheduler.init('scheduler_here',new Date(2017,4,10),"month");
+    scheduler.templates.xml_date = function(value){ return new Date(value); };
+    scheduler.load("/cal", "json");
+    scheduler.config.xml_date="%Y-%m-%d %H:%i";
+    var dp = new dataProcessor("/cal");
+    dp.init(scheduler);
+    dp.setTransactionMode("POST", false);
+    }
 body(onload="init()")
   nav.navbar.navbar-default.navbar-fixed-top
     .container
