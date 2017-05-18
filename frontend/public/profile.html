@@ -13,7 +13,21 @@
   <link rel="stylesheet" href="./codebase/dhtmlxscheduler.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="./codebase/dhtmlxscheduler.js"></script>
+  <script type="text/javascript" charset="utf-8">
+  function init() {
+    scheduler.init('scheduler_here',new Date(2017,4,10),"month");
 
+    scheduler.templates.xml_date = function(value){ return new Date(value); };
+    scheduler.load("/cal", "json");
+
+    scheduler.config.xml_date="%Y-%m-%d %H:%i";
+
+    var dp = new dataProcessor("/cal");
+    dp.init(scheduler);
+    dp.setTransactionMode("POST", false);
+  }
+
+  </script>
 </head>
 
 <body onload="init()">
@@ -48,23 +62,6 @@
     </div>
   </nav>
 
-  <script type="text/javascript" charset="utf-8">
-  function init() {
-    scheduler.init('scheduler_here',new Date(2017,4,10),"month");
-
-    scheduler.templates.xml_date = function(value){ return new Date(value); };
-    scheduler.load("/cal", "json");
-
-    scheduler.config.xml_date="%Y-%m-%d %H:%i";
-
-    var dp = new dataProcessor("/cal");
-    dp.init(scheduler);
-    dp.setTransactionMode("POST", false);
-  }
-
-  </script>
-
-
   <div id="scheduler_here" class="dhx_cal_container well center-block" style='width:50%; height:50%; margin-top:100px;'>
     <div class="dhx_cal_navline">
       <div class="dhx_cal_prev_button">&nbsp;</div>
@@ -82,7 +79,7 @@
   </div>
 
   <footer class="footer">
-    <p class="text-muted text-center" style="padding:5px">@ Relayers 2017 - Tous droits réservés - Mentions légales - CGU</p>
+    <p class="text-muted">@ Relayers 2017 - Tous droits réservés - Mentions légales - CGU</p>
   </footer>
 
   <!-- Bootstrap core JavaScript
