@@ -81,9 +81,10 @@ nav.navbar.navbar-default.navbar-fixed-top
                           input(type='checkbox')
                           |  Rester connecter
                   .bottom.text-center
+                    | Pas encore inscrit?
                     br
                     a(href='', data-toggle='modal', data-target='#registerModal')
-                      b Rejoignez nous !
+                      b S'inscrire
 // Register modal
 #registerModal.modal.fade(role='dialog')
   .modal-dialog
@@ -178,15 +179,36 @@ nav.navbar.navbar-default.navbar-fixed-top
 #home.container-fluid
   .container
     h1 Une journée à la maison ?
-    h2 Réceptionnez des colis pour vos voisins et soyez rémunéré !
-    button.btn.btn-default.btn-lg(type='button', data-toggle='modal', data-target='#registerModal') Inscrivez-vous gratuitement !
+    h2 Réceptionnez des colis pour vos voisins et soyez rémunéré pour ce service !
+    button.btn.btn-default.btn-lg(type='button', data-toggle='modal', data-target='#registerModal') Devenir Relayer
 #about.container-fluid
   .row
-    h1 Comment ça marche ?
-    br
-    h3 En 3 étapes :
-    hr
-    br
+  h1 Comment ça marche ?
+  .col-lg-3
+    h2
+      img(src='/static/imgs/inscription.gif', alt='inscription', style='width:20%;')
+      br
+      | Je m'inscris sur la plateforme
+  .col-lg-3
+    h2
+      img(src='/static/imgs/agenda.png', alt='agenda', style='width:20%;')
+      br
+      | Je rentre mes disponibilités
+  .col-lg-3
+    h2
+      img(src='/static/imgs/parcel.png', alt='parcel', style='width:20%;')
+      br
+      | Je recois des colis pour mes voisins
+  .col-lg-3
+    h2
+      img(src='/static/imgs/monnaie.png', alt='monnaie', style='width:20%;')
+      br
+      | Je suis rémunéré pour ce service rendu
+  br
+  hr
+  br
+  .row
+    h1 Concrètement
     .col-lg-4
       h2
       img(src='/static/imgs/commande.png', alt='commande', style='width:20%;')
@@ -198,13 +220,13 @@ nav.navbar.navbar-default.navbar-fixed-top
         img(src='/static/imgs/reception.png', alt='reception', style='width:20%;')
         |  Réception
       p
-        | Vous réceptionnez le colis de votre voisin, et le gardez précieusement chez vous jusqu'à que votre voisin vienne le chercher.
+        | Vous réceptionnez le colis de votre voisin, et le gardez précieusement chez vous jusqu'à ce que votre voisin vienne le chercher.
     .col-lg-4
       h2
         img(src='/static/imgs/remuneration.png', alt='remuneration', style='width:20%;')
         |  Rémunération
       p
-        | En plus de rendre service à votre voisin, vous êtes rémunéré pour le service rendu !
+        | En plus de rendre service à votre voisin, vous êtes rémunéré 2€
 
 #contact.container-fluid
   .row
