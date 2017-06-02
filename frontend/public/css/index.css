@@ -10,16 +10,22 @@ body {
   min-height: 100%;
   margin-right: auto;
   margin-left: auto;
-  font-family: 'Droid Serif', serif;
+  font-family: Verdana;
 }
 
 /*** Home section ***/
 #home {
-  background-image: url("../imgs/package-desktop.jpg");
-  background-size: cover;
-  height: auto;
+  background: url("../imgs/homme-regarde-tv.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  height: auto;
   color: #fff;
   text-align: center;
+}
+
+#home h1 {
+  color: #e27e03;
 }
 
 #home .btn-default {
@@ -33,10 +39,9 @@ body {
 }
 
 #home .container {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 3px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
-  font-family: 'Droid Serif', serif;
+  box-shadow: 0 1px 5px rgba(255, 255, 255, 0.6);
 }
 
 
